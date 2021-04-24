@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.CreatePromo">
+   <children>
+      <Label layoutX="573.0" layoutY="35.0" text="Crear promoción">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="512.0" layoutY="118.0" text="Nombre" />
+      <TextField layoutX="570.0" layoutY="114.0" prefHeight="25.0" prefWidth="309.0" />
+      <Label layoutX="477.0" layoutY="168.0" text="Fecha a aplicar" />
+      <DatePicker layoutX="570.0" layoutY="164.0" prefHeight="25.0" prefWidth="309.0" />
+      <Label layoutX="425.0" layoutY="222.0" text="Porcentaje de descuento" />
+      <TextField layoutX="570.0" layoutY="218.0" prefHeight="25.0" prefWidth="309.0" />
+      <Label layoutX="447.0" layoutY="280.0" text="Tratamiento a aplicar" />
+      <TableView layoutX="573.0" layoutY="280.0" prefHeight="142.0" prefWidth="309.0">
+        <columns>
+          <TableColumn prefWidth="212.0" text="nombre" />
+          <TableColumn prefWidth="96.0" text="precio" />
+        </columns>
+      </TableView>
+      <Button layoutX="588.0" layoutY="625.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="105.0" text="Crear" />
+      <Button fx:id="cancelCreatePromoButton" layoutX="728.0" layoutY="625.0" mnemonicParsing="false" onAction="#cancelCreatePromo" prefHeight="35.0" prefWidth="105.0" text="Cancelar" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,8 @@
+.grey-background{
+    -fx-background-color: #e3e3e3;
+}
+.root {
+    -fx-focus-color: #aeaeae;
+    -fx-faint-focus-color: transparent;
+    -fx-inner-border: transparent;
+}

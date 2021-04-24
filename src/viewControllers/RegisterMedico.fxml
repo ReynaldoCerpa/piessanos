@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.RegisterMedico">
+   <children>
+      <Label layoutX="560.0" layoutY="14.0" text="Registrar médico">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="464.0" layoutY="99.0" text="Cédula profesional" />
+      <Label layoutX="521.0" layoutY="149.0" text="nombre" />
+      <Label layoutX="477.0" layoutY="194.0" text="apellido paterno" />
+      <Label layoutX="476.0" layoutY="238.0" text="apellido materno" />
+      <Label layoutX="542.0" layoutY="281.0" text="calle" />
+      <Label layoutX="479.0" layoutY="324.0" text="numero exterior" />
+      <Label layoutX="480.0" layoutY="364.0" text="numero interior" />
+      <Label layoutX="523.0" layoutY="405.0" text="colonia" />
+      <Label layoutX="486.0" layoutY="445.0" text="Código postal" />
+      <Label layoutX="525.0" layoutY="486.0" text="ciudad" />
+      <Label layoutX="524.0" layoutY="526.0" text="usuario" />
+      <Label layoutX="506.0" layoutY="566.0" text="contraseña" />
+      <TextField fx:id="cedulaInput" layoutX="584.0" layoutY="95.0" />
+      <TextField fx:id="nombreInput" layoutX="584.0" layoutY="145.0" />
+      <TextField fx:id="apellidopInput" layoutX="584.0" layoutY="190.0" />
+      <TextField fx:id="apellidomInput" layoutX="584.0" layoutY="234.0" />
+      <TextField fx:id="calleInput" layoutX="584.0" layoutY="277.0" />
+      <TextField fx:id="numExtInput" layoutX="584.0" layoutY="320.0" />
+      <TextField fx:id="numIntInput" layoutX="584.0" layoutY="360.0" />
+      <TextField fx:id="coloniaInput" layoutX="584.0" layoutY="401.0" />
+      <TextField fx:id="cpInput" layoutX="584.0" layoutY="441.0" />
+      <TextField fx:id="ciudadInput" layoutX="584.0" layoutY="482.0" />
+      <TextField fx:id="usernameInput" layoutX="584.0" layoutY="522.0" />
+      <Button layoutX="558.0" layoutY="633.0" mnemonicParsing="false" onAction="#saveRegisterMedico" text="Guardar" />
+      <Button layoutX="668.0" layoutY="633.0" mnemonicParsing="false" onAction="#cancelRegisterMedico" text="Cancelar" />
+      <PasswordField fx:id="passwordInput" layoutX="584.0" layoutY="562.0" />
+      <Label fx:id="usernameAlert" layoutX="478.0" layoutY="597.0" text="Nombre de usuario existente, elija uno diferente" textFill="#c30000" visible="false">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="786.0" layoutY="99.0" text="Telefono" />
+      <TextField fx:id="telefonoInput" layoutX="846.0" layoutY="95.0" />
+      <Label layoutX="747.0" layoutY="149.0" text="tipo de telefono" />
+      <TextField fx:id="tipoTelefonoInput" layoutX="846.0" layoutY="145.0" />
+   </children>
+</AnchorPane>

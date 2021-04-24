@@ -1,0 +1,162 @@
+package viewControllers;
+
+import Model.Medico;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+
+import java.io.IOException;
+import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ResourceBundle;
+
+public class AdministrarMedicos implements Initializable {
+    private Motor motor;
+    private SQLconnector database = new SQLconnector();
+    @FXML
+    private VBox medicosLayout;
+    @FXML
+    private TextField searchMedicoInput;
+    private List<Medico> medList = new ArrayList<>();
+    private List<Medico> medicos = null;
+    private List<Medico> searchList = new ArrayList<>();
+
+    public void receiveMotorInstance(Motor m) throws SQLException {
+        this.motor = m;
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            medicos();
+            loadMedicos(medList);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private List<Medico> medicos() throws SQLException {
+
+        ResultSet myRes = null, telRes = null;
+        try {
+            telRes = database.connectSQL("medico_telefono");
+            myRes = database.connectSQL("medico");
+            myRes.next();
+            telRes.next();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        while (myRes.next()) {
+
+            String cedula = myRes.getString("cedula_profesional");
+            String nombre = myRes.getString("nombre");
+            String telefono = telRes.getString("numTelefono");
+            telRes.next();
+            String usuario = myRes.getString("usuario");
+            String nomPaterno = myRes.getString("nomPaterno");
+            String nomMaterno = myRes.getString("nomMaterno");
+            String calle = myRes.getString("calle");
+            String num_int = myRes.getString("num_int");
+            String num_ext = myRes.getString("num_ext");
+            String colonia = myRes.getString("colonia");
+            String codigoPostal = myRes.getString("codigoPostal");
+            String ciudad = myRes.getString("ciudad");
+            String fecha_registro = myRes.getString("fecha_registro");
+
+
+
+            Medico newMed = defineMedico(cedula, nombre, nomPaterno, nomMaterno, calle, num_int, num_ext, colonia,
+                    codigoPostal, ciudad, fecha_registro, telefono, usuario);
+            medList.add(newMed);
+
+        }
+        return medList;
+    }
+
+    public Medico defineMedico(String cedula, String nombre, String nomPaterno, String nomMaterno,
+                               String calle, String num_int, String num_ext, String colonia, String codigoPostal,
+                               String ciudad, String fecha_registro, String telefono, String usuario) {
+        Medico medico = new Medico();
+        medico.setCedula(cedula);
+        medico.setNombre(nombre);
+        medico.setTelefono(telefono);
+        medico.setUsuario(usuario);
+        medico.setNomPaterno(nomPaterno);
+        medico.setNomMaterno(nomMaterno);
+        medico.setCalle(calle);
+        medico.setNum_int(num_int);
+        medico.setNum_ext(num_ext);
+        medico.setColonia(colonia);
+        medico.setCodigoPostal(codigoPostal);
+        medico.setCiudad(ciudad);
+        medico.setFecha_registro(fecha_registro);
+        return medico;
+    }
+
+    public void loadMedicos(List array) throws SQLException {
+        medicos = new ArrayList<>(array);
+        for (int i = 0; i < medicos.size(); i++) {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("Medico_item.fxml"));
+
+            try {
+                HBox hbox = fxmlLoader.load();
+                MedicoItem mi = fxmlLoader.getController();
+                mi.setData(medicos.get(i));
+                medicosLayout.getChildren().add(hbox);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+
+    public void registerMedico(ActionEvent event) {
+        motor.showRegisterMedico(event);
+    }
+
+    public void backHome(ActionEvent event) {
+        motor.showClient(event);
+    }
+
+    public void searchMedico(ActionEvent event) throws SQLException {
+        String searchInput = searchMedicoInput.getText();
+        if (searchInput.equals("")) {
+
+        } else {
+            boolean found = false;
+            searchList.clear();
+            medicosLayout.getChildren().clear();
+            for (int i = 0; i < medList.size(); i++) {
+                if (searchInput.contains(medList.get(i).getCedula()) || searchInput.contains(medList.get(i).getNombre()) || searchInput.contains(medList.get(i).getTelefono()) || searchInput.contains(medList.get(i).getUsuario())) {
+                    found = true;
+                    Medico foundMed = medList.get(i);
+                    searchList.add(foundMed);
+                }
+            }
+            loadMedicos(searchList);
+            if (!found){
+                System.out.println("no matches found");
+            }
+        }
+    }
+
+    public void deleteSearch(MouseEvent mouseEvent) throws SQLException {
+        searchMedicoInput.clear();
+        medicosLayout.getChildren().clear();
+        loadMedicos(medList);
+    }
+}

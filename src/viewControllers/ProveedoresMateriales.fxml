@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.ProveedoresMateriales">
+   <children>
+      <Button layoutX="244.0" layoutY="100.0" mnemonicParsing="false" onAction="#registerProveedor" prefHeight="49.0" prefWidth="192.0" text="Registrar proveedor">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <TableView layoutX="115.0" layoutY="228.0" prefHeight="419.0" prefWidth="1050.0">
+        <columns>
+          <TableColumn prefWidth="74.0" text="id" />
+          <TableColumn prefWidth="229.0" text="nombre" />
+            <TableColumn prefWidth="174.0" text="calle" />
+            <TableColumn prefWidth="63.0" text="num_ext" />
+            <TableColumn prefWidth="64.0" text="num_int" />
+            <TableColumn prefWidth="153.0" text="colonia" />
+            <TableColumn prefWidth="84.0" text="CP" />
+            <TableColumn prefWidth="208.0" text="ciudad" />
+        </columns>
+      </TableView>
+      <Button layoutX="1102.0" layoutY="100.0" mnemonicParsing="false" onAction="#backToInventario" text="Regresar" />
+   </children>
+</AnchorPane>

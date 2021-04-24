@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.Medicamentos">
+   <children>
+      <Button fx:id="registerMedicamentosButton" layoutX="387.0" layoutY="94.0" mnemonicParsing="false" onAction="#registerMedicamentos" prefHeight="43.0" prefWidth="171.0" text="Registrar medicamentos">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="displayProveedoresButton" layoutX="776.0" layoutY="97.0" mnemonicParsing="false" onAction="#displayProveedores" prefHeight="43.0" prefWidth="171.0" text="Proveedores">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <TableView layoutX="33.0" layoutY="196.0" prefHeight="471.0" prefWidth="1214.0">
+        <columns>
+          <TableColumn prefWidth="143.0" text="codigo" />
+          <TableColumn prefWidth="306.0" text="nombre" />
+            <TableColumn prefWidth="138.0" text="precio" />
+            <TableColumn prefWidth="140.0" text="precio proveedor" />
+            <TableColumn prefWidth="108.0" text="cantidad" />
+            <TableColumn prefWidth="378.0" text="descripción" />
+        </columns>
+      </TableView>
+      <Button layoutX="1141.0" layoutY="38.0" mnemonicParsing="false" onAction="#backToInventario" text="Regresar" />
+   </children>
+</AnchorPane>

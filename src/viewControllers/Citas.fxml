@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.Citas">
+   <children>
+      <Button layoutX="868.0" layoutY="123.0" mnemonicParsing="false" text="Buscar" />
+      <TextField layoutX="362.0" layoutY="123.0" prefHeight="25.0" prefWidth="506.0" />
+      <TableView layoutX="202.0" layoutY="180.0" prefHeight="484.0" prefWidth="876.0">
+        <columns>
+          <TableColumn prefWidth="85.0" text="numero cita" />
+            <TableColumn prefWidth="476.0" text="paciente" />
+          <TableColumn prefWidth="93.0" text="hora" />
+            <TableColumn prefWidth="142.0" text="fecha" />
+            <TableColumn prefWidth="79.0" text="a domicilio" />
+        </columns>
+      </TableView>
+      <Label layoutX="589.0" layoutY="63.0" text="Buscar cita">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Button layoutX="1153.0" layoutY="38.0" mnemonicParsing="false" onAction="#displayHome" text="volver a inicio" />
+      <Button layoutX="1006.0" layoutY="123.0" mnemonicParsing="false" onAction="#newCita" text="Nueva cita" />
+   </children>
+</AnchorPane>

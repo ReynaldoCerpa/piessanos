@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.Login">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <Pane prefHeight="720.0" prefWidth="1280.0">
+         <children>
+            <TextField fx:id="usernameInput" layoutX="413.0" layoutY="258.0" prefHeight="45.0" prefWidth="500.0" promptText="ingrese nombre de usuario">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <Label layoutX="542.0" layoutY="79.0" prefHeight="56.0" prefWidth="242.0" text="Iniciar sesión">
+               <font>
+                  <Font name="System Bold" size="39.0" />
+               </font>
+            </Label>
+            <Label layoutX="413.0" layoutY="207.0" prefHeight="45.0" prefWidth="212.0" text="Nombre de usuario">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="413.0" layoutY="332.0" text="Contraseña">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Button fx:id="loginButton" layoutX="578.0" layoutY="461.0" mnemonicParsing="false" onAction="#login" prefHeight="40.0" prefWidth="170.0" text="Entrar">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+            <ImageView fx:id="invalidUserAlert" fitHeight="65.0" fitWidth="443.0" layoutX="440.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../assets/invalidUserAlert.png" />
+               </image>
+            </ImageView>
+            <PasswordField fx:id="passwordInput" layoutX="413.0" layoutY="375.0" prefHeight="45.0" prefWidth="500.0" promptText="ingrese contraseña">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </PasswordField>
+            <ImageView fx:id="fillBlanksAlert" fitHeight="65.0" fitWidth="443.0" layoutX="440.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../assets/fillBlanksAlert.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</GridPane>
