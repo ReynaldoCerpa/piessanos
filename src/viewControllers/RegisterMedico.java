@@ -16,7 +16,7 @@ public class RegisterMedico {
     @FXML
     private TextField cedulaInput, nombreInput, apellidopInput, apellidomInput,
             calleInput, numExtInput, numIntInput, coloniaInput, cpInput, ciudadInput,
-            usernameInput, passwordInput, telefonoInput, tipoTelefonoInput;
+            usernameInput, passwordInput, confirmPassword, telefonoInput, tipoTelefonoInput;
     @FXML
     private Label alertText;
     @FXML
@@ -32,13 +32,13 @@ public class RegisterMedico {
 
     public void saveRegisterMedico(ActionEvent event) throws SQLException {
         alertText.setText("");
-        if (cpInput.getText().equals("") && numExtInput.getText().equals("") && ciudadInput.getText().equals("") && coloniaInput.getText().equals("") && calleInput.getText().equals("") && tipoTelefonoInput.getText().equals("") && telefonoInput.getText().equals("") && apellidopInput.getText().equals("") && apellidomInput.getText().equals("") && nombreInput.getText().equals("") && cedulaInput.getText().equals("") && usernameInput.getText().equals("") && passwordInput.getText().equals("")){
+        if (cpInput.getText().equals("") || numExtInput.getText().equals("") || ciudadInput.getText().equals("") || coloniaInput.getText().equals("") || calleInput.getText().equals("") || tipoTelefonoInput.getText().equals("") || telefonoInput.getText().equals("") || apellidopInput.getText().equals("") || apellidomInput.getText().equals("") || nombreInput.getText().equals("") || cedulaInput.getText().equals("") || usernameInput.getText().equals("") || passwordInput.getText().equals("")){
             alertGroup.setVisible(true);
             requiredGroup.setVisible(true);
             alertText.setText("Rellene todos los campos obligatorios\n");
         }else {
             ResultSet myRes = null;
-            int counter = 0;
+            int counter = 0, counter2 = 0;
             try{
                 myRes = database.connectSQL("medico");
             } catch (Exception e){
@@ -46,25 +46,36 @@ public class RegisterMedico {
             }
 
             boolean notfound = true;
+            boolean out = false, out2 = false, out3 = false, out4 = false;
 
             while(myRes.next()){
                 String username = myRes.getString("usuario");
                 String cedula = myRes.getString("cedula_profesional");
-                if(username.equals(usernameInput.getText())){
+                String password = myRes.getString("contrasena");
+                if(username.equals(usernameInput.getText()) && !out){
                     notfound = false;
+                    out = true;
                     alertText.setText(alertText.getText() + "Nombre de usuario existente\n");
                     alertGroup.setVisible(true);
                     System.out.println("username already taken");
                 }
-                if (cedula.equals(cedulaInput.getText())){
+                if (cedula.equals(cedulaInput.getText()) && !out2){
                     notfound = false;
+                    out2 = true;
                     alertText.setText(alertText.getText() + "Cedula existente\n");
                     alertGroup.setVisible(true);
                     System.out.println("cedula already taken");
                 }
-                if (telefonoInput.getText().length() > 10 && counter < 1){
-                    counter++;
+                if (!password.equals(confirmPassword.getText()) && !out3){
                     notfound = false;
+                    out3 = true;
+                    alertText.setText(alertText.getText() + "Las contraseñas no coinciden\n");
+                    alertGroup.setVisible(true);
+                    System.out.println("passwords doesnt match");
+                }
+                if (telefonoInput.getText().length() != 10 && !out4){
+                    notfound = false;
+                    out4 = true;
                     alertText.setText(alertText.getText() + "Solo telefonos de 10 digitos\n");
                     alertGroup.setVisible(true);
                     System.out.println("solo telefonos de 10 digitos");

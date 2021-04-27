@@ -28,8 +28,8 @@
       <Label layoutX="681.0" layoutY="137.0" text="Colonia" />
       <Label layoutX="644.0" layoutY="317.0" text="Código postal" />
       <Label layoutX="682.0" layoutY="182.0" text="Ciudad" />
-      <Label layoutX="553.0" layoutY="393.0" text="Usuario" />
-      <Label layoutX="535.0" layoutY="433.0" text="Contraseña" />
+      <Label layoutX="557.0" layoutY="370.0" text="Usuario" />
+      <Label layoutX="539.0" layoutY="410.0" text="Contraseña" />
       <TextField fx:id="cedulaInput" layoutX="464.0" layoutY="83.0" />
       <TextField fx:id="nombreInput" layoutX="464.0" layoutY="132.0" />
       <TextField fx:id="apellidopInput" layoutX="464.0" layoutY="177.0" />
@@ -42,17 +42,17 @@
       <TextField fx:id="numExtInput" layoutX="741.0" layoutY="222.0" />
       <TextField fx:id="numIntInput" layoutX="741.0" layoutY="267.0" />
       <TextField fx:id="cpInput" layoutX="742.0" layoutY="313.0" />
-      <TextField fx:id="usernameInput" layoutX="601.0" layoutY="388.0" />
-      <PasswordField fx:id="passwordInput" layoutX="601.0" layoutY="428.0" />
-      <PasswordField fx:id="confirmPassword" layoutX="602.0" layoutY="470.0" />
+      <TextField fx:id="usernameInput" layoutX="605.0" layoutY="365.0" />
+      <PasswordField fx:id="passwordInput" layoutX="605.0" layoutY="405.0" />
+      <PasswordField fx:id="confirmPassword" layoutX="606.0" layoutY="447.0" />
       <Button layoutX="539.0" layoutY="613.0" mnemonicParsing="false" onAction="#saveRegisterMedico" prefHeight="40.0" prefWidth="90.0" text="Guardar" />
       <Button layoutX="696.0" layoutY="613.0" mnemonicParsing="false" onAction="#cancelRegisterMedico" prefHeight="40.0" prefWidth="90.0" text="Cancelar" />
       <Label layoutX="400.0" layoutY="271.0" text="Telefono" />
       <Label layoutX="365.0" layoutY="318.0" text="Tipo de telefono" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="530.0" layoutY="460.0" prefHeight="46.0" prefWidth="69.0" text="Confirmar contraseña" textAlignment="CENTER" wrapText="true" />
-      <Group fx:id="alertGroup" layoutX="495.0" layoutY="527.0" visible="false">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="534.0" layoutY="437.0" prefHeight="46.0" prefWidth="69.0" text="Confirmar contraseña" textAlignment="CENTER" wrapText="true" />
+      <Group fx:id="alertGroup" layoutX="480.0" layoutY="492.0" visible="false">
          <children>
-            <ImageView fitHeight="52.0" fitWidth="322.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="114.0" fitWidth="358.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/AlertBox.png" />
                </image>
@@ -60,15 +60,7 @@
                   <Rectangle2D />
                </viewport>
             </ImageView>
-            <ImageView fitHeight="43.0" fitWidth="311.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../assets/AlertBox2.png" />
-               </image>
-               <viewport>
-                  <Rectangle2D />
-               </viewport>
-            </ImageView>
-            <Label fx:id="alertText" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutY="-10.0" prefHeight="82.0" prefWidth="309.0" textAlignment="CENTER" textFill="#ce2121" wrapText="true">
+            <Label fx:id="alertText" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutY="-10.0" prefHeight="104.0" prefWidth="353.0" textAlignment="CENTER" textFill="#ce2121" wrapText="true">
                <font>
                   <Font size="16.0" />
                </font>
