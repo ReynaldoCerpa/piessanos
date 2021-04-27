@@ -42,6 +42,11 @@
                   <Font size="19.0" />
                </font>
             </Label>
+            <PasswordField fx:id="passwordInput" layoutX="413.0" layoutY="375.0" prefHeight="45.0" prefWidth="500.0" promptText="ingrese contraseña">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </PasswordField>
             <Button fx:id="loginButton" layoutX="578.0" layoutY="461.0" mnemonicParsing="false" onAction="#login" prefHeight="40.0" prefWidth="170.0" text="Entrar">
                <font>
                   <Font size="24.0" />
@@ -52,11 +57,6 @@
                   <Image url="@../assets/invalidUserAlert.png" />
                </image>
             </ImageView>
-            <PasswordField fx:id="passwordInput" layoutX="413.0" layoutY="375.0" prefHeight="45.0" prefWidth="500.0" promptText="ingrese contraseña">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </PasswordField>
             <ImageView fx:id="fillBlanksAlert" fitHeight="65.0" fitWidth="443.0" layoutX="440.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../assets/fillBlanksAlert.png" />

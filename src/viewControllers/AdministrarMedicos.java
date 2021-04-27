@@ -32,6 +32,8 @@ public class AdministrarMedicos implements Initializable {
     private List<Medico> medicos = null;
     private List<Medico> searchList = new ArrayList<>();
 
+    private Listener listener;
+
     public void receiveMotorInstance(Motor m) throws SQLException {
         this.motor = m;
     }
@@ -40,12 +42,21 @@ public class AdministrarMedicos implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             medicos();
+            listener = new Listener(){
+                @Override
+                public void onClickListener(MedicoItem medicoItem){
+                    setChosenMedico(medicoItem);
+                }
+            };
             loadMedicos(medList);
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
+    private void setChosenMedico(MedicoItem medicoItem){
+        System.out.println("entró"+medicoItem.getButtonID());
+    }
     private List<Medico> medicos() throws SQLException {
 
         ResultSet myRes = null, telRes = null;
@@ -85,9 +96,7 @@ public class AdministrarMedicos implements Initializable {
         return medList;
     }
 
-    public Medico defineMedico(String cedula, String nombre, String nomPaterno, String nomMaterno,
-                               String calle, String num_int, String num_ext, String colonia, String codigoPostal,
-                               String ciudad, String fecha_registro, String telefono, String usuario) {
+    public Medico defineMedico(String cedula, String nombre, String nomPaterno, String nomMaterno, String calle, String num_int, String num_ext, String colonia, String codigoPostal, String ciudad, String fecha_registro, String telefono, String usuario) {
         Medico medico = new Medico();
         medico.setCedula(cedula);
         medico.setNombre(nombre);
@@ -106,6 +115,7 @@ public class AdministrarMedicos implements Initializable {
     }
 
     public void loadMedicos(List array) throws SQLException {
+
         medicos = new ArrayList<>(array);
         for (int i = 0; i < medicos.size(); i++) {
             FXMLLoader fxmlLoader = new FXMLLoader();
@@ -114,7 +124,7 @@ public class AdministrarMedicos implements Initializable {
             try {
                 HBox hbox = fxmlLoader.load();
                 MedicoItem mi = fxmlLoader.getController();
-                mi.setData(medicos.get(i));
+                mi.setData(medicos.get(i),listener);
                 medicosLayout.getChildren().add(hbox);
 
             } catch (IOException e) {
@@ -141,7 +151,7 @@ public class AdministrarMedicos implements Initializable {
             searchList.clear();
             medicosLayout.getChildren().clear();
             for (int i = 0; i < medList.size(); i++) {
-                if (searchInput.contains(medList.get(i).getCedula()) || searchInput.contains(medList.get(i).getNombre()) || searchInput.contains(medList.get(i).getTelefono()) || searchInput.contains(medList.get(i).getUsuario())) {
+                if (searchInput.contains(medList.get(i).getCedula()) || searchInput.contains(medList.get(i).getNombre()) || searchInput.contains(medList.get(i).getNomPaterno()) || searchInput.contains(medList.get(i).getNomMaterno()) || searchInput.contains(medList.get(i).getTelefono()) || searchInput.contains(medList.get(i).getUsuario())) {
                     found = true;
                     Medico foundMed = medList.get(i);
                     searchList.add(foundMed);

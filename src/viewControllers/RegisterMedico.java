@@ -2,6 +2,7 @@ package viewControllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
@@ -17,7 +18,9 @@ public class RegisterMedico {
             calleInput, numExtInput, numIntInput, coloniaInput, cpInput, ciudadInput,
             usernameInput, passwordInput, telefonoInput, tipoTelefonoInput;
     @FXML
-    private Label usernameAlert;
+    private Label alertText;
+    @FXML
+    private Group alertGroup, requiredGroup;
 
     public RegisterMedico(){
 
@@ -28,12 +31,14 @@ public class RegisterMedico {
     }
 
     public void saveRegisterMedico(ActionEvent event) throws SQLException {
-        //validar que no haya input nulos ademas del num_Int
-        if (usernameInput.getText().equals("") && passwordInput.getText().equals("")){
-
-        } else {
-
+        alertText.setText("");
+        if (cpInput.getText().equals("") && numExtInput.getText().equals("") && ciudadInput.getText().equals("") && coloniaInput.getText().equals("") && calleInput.getText().equals("") && tipoTelefonoInput.getText().equals("") && telefonoInput.getText().equals("") && apellidopInput.getText().equals("") && apellidomInput.getText().equals("") && nombreInput.getText().equals("") && cedulaInput.getText().equals("") && usernameInput.getText().equals("") && passwordInput.getText().equals("")){
+            alertGroup.setVisible(true);
+            requiredGroup.setVisible(true);
+            alertText.setText("Rellene todos los campos obligatorios\n");
+        }else {
             ResultSet myRes = null;
+            int counter = 0;
             try{
                 myRes = database.connectSQL("medico");
             } catch (Exception e){
@@ -44,11 +49,25 @@ public class RegisterMedico {
 
             while(myRes.next()){
                 String username = myRes.getString("usuario");
+                String cedula = myRes.getString("cedula_profesional");
                 if(username.equals(usernameInput.getText())){
                     notfound = false;
-                    usernameAlert.setVisible(true);
+                    alertText.setText(alertText.getText() + "Nombre de usuario existente\n");
+                    alertGroup.setVisible(true);
                     System.out.println("username already taken");
-                    break;
+                }
+                if (cedula.equals(cedulaInput.getText())){
+                    notfound = false;
+                    alertText.setText(alertText.getText() + "Cedula existente\n");
+                    alertGroup.setVisible(true);
+                    System.out.println("cedula already taken");
+                }
+                if (telefonoInput.getText().length() > 10 && counter < 1){
+                    counter++;
+                    notfound = false;
+                    alertText.setText(alertText.getText() + "Solo telefonos de 10 digitos\n");
+                    alertGroup.setVisible(true);
+                    System.out.println("solo telefonos de 10 digitos");
                 }
             }
             if (notfound){
@@ -75,7 +94,8 @@ public class RegisterMedico {
                     stmt.setString(13,usernameInput.getText());
                     stmt.setString(14,"0");
                     stmt.executeUpdate();
-                    usernameAlert.setVisible(false);
+                    alertText.setVisible(false);
+                    requiredGroup.setVisible(false);
 
                     String telefono = "insert into medico_telefono (numTelefono, tipo, cedula_profesional)"
                             + "values (?,?, (select cedula_profesional from medico where cedula_profesional=?))";
