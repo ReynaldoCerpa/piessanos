@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.EditMedico">
+    <children>
+        <Label layoutX="594.0" layoutY="14.0" text="Editar médico">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="344.0" layoutY="87.0" text="Cédula profesional" />
+        <Label layoutX="401.0" layoutY="136.0" text="Nombre" />
+        <Label layoutX="357.0" layoutY="181.0" text="Apellido paterno" />
+        <Label layoutX="356.0" layoutY="225.0" text="Apellido materno" />
+        <Label layoutX="700.0" layoutY="87.0" text="Calle" />
+        <Label layoutX="640.0" layoutY="226.0" text="Numero exterior" />
+        <Label layoutX="641.0" layoutY="271.0" text="Numero interior" />
+        <Label layoutX="681.0" layoutY="137.0" text="Colonia" />
+        <Label layoutX="644.0" layoutY="317.0" text="Código postal" />
+        <Label layoutX="682.0" layoutY="182.0" text="Ciudad" />
+        <Label layoutX="557.0" layoutY="370.0" text="Usuario" />
+        <Label layoutX="539.0" layoutY="410.0" text="Contraseña" />
+        <TextField fx:id="cedulaInput" layoutX="464.0" layoutY="83.0" />
+        <TextField fx:id="nombreInput" layoutX="464.0" layoutY="132.0" />
+        <TextField fx:id="apellidopInput" layoutX="464.0" layoutY="177.0" />
+        <TextField fx:id="apellidomInput" layoutX="464.0" layoutY="221.0" />
+        <TextField fx:id="telefonoInput" layoutX="464.0" layoutY="267.0" />
+        <TextField fx:id="tipoTelefonoInput" layoutX="464.0" layoutY="314.0" />
+        <TextField fx:id="calleInput" layoutX="742.0" layoutY="83.0" />
+        <TextField fx:id="coloniaInput" layoutX="742.0" layoutY="133.0" />
+        <TextField fx:id="ciudadInput" layoutX="741.0" layoutY="178.0" />
+        <TextField fx:id="numExtInput" layoutX="741.0" layoutY="222.0" />
+        <TextField fx:id="numIntInput" layoutX="741.0" layoutY="267.0" />
+        <TextField fx:id="cpInput" layoutX="742.0" layoutY="313.0" />
+        <TextField fx:id="usernameInput" layoutX="605.0" layoutY="365.0" />
+        <PasswordField fx:id="passwordInput" layoutX="605.0" layoutY="405.0" />
+        <PasswordField fx:id="confirmPassword" layoutX="606.0" layoutY="447.0" />
+        <Button layoutX="539.0" layoutY="613.0" mnemonicParsing="false" onAction="#saveRegisterMedico" prefHeight="40.0" prefWidth="90.0" text="Guardar" />
+        <Button layoutX="696.0" layoutY="613.0" mnemonicParsing="false" onAction="#cancelRegisterMedico" prefHeight="40.0" prefWidth="90.0" text="Cancelar" />
+        <Label layoutX="400.0" layoutY="271.0" text="Telefono" />
+        <Label layoutX="365.0" layoutY="318.0" text="Tipo de telefono" />
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="534.0" layoutY="437.0" prefHeight="46.0" prefWidth="69.0" text="Confirmar contraseña" textAlignment="CENTER" wrapText="true" />
+        <Group fx:id="alertGroup" layoutX="480.0" layoutY="492.0" visible="false">
+            <children>
+                <ImageView fitHeight="114.0" fitWidth="358.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../assets/AlertBox.png" />
+                    </image>
+                    <viewport>
+                        <Rectangle2D />
+                    </viewport>
+                </ImageView>
+                <Label fx:id="alertText" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutY="-10.0" prefHeight="104.0" prefWidth="353.0" textAlignment="CENTER" textFill="#ce2121" wrapText="true">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+            </children>
+        </Group>
+        <Group fx:id="requiredGroup" layoutX="603.0" layoutY="44.0" visible="false">
+            <children>
+                <Label layoutY="35.0" text="*" textFill="RED">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutY="85.0" text="*" textFill="RED">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutY="130.0" text="*" textFill="RED">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutY="174.0" text="*" textFill="RED">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutY="220.0" text="*" textFill="RED">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutY="267.0" text="*" textFill="RED">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="278.0" layoutY="35.0" text="*" textFill="RED">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="278.0" layoutY="86.0" text="*" textFill="RED">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="278.0" layoutY="131.0" text="*" textFill="RED">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="278.0" layoutY="175.0" text="*" textFill="RED">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="278.0" layoutY="267.0" text="*" textFill="RED">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="136.0" layoutY="341.0" text="*" textFill="RED">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="136.0" layoutY="382.0" text="*" textFill="RED">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="136.0" layoutY="423.0" text="*" textFill="RED">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="213.0" text="* Requerido" textFill="RED">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+            </children>
+        </Group>
+    </children>
+</AnchorPane>

@@ -1,6 +1,7 @@
 package viewControllers;
 
 import Model.Medico;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -29,11 +30,10 @@ public class MedicoItem implements Initializable {
     private Label nomMaterno;
 
     private Listener listener;
-    private MedicoItem medicoItem;
 
     @FXML
-    private void editMedico(MouseEvent mouseEvent){
-        listener.onClickListener(medicoItem);
+    private void editMedico(){
+        listener.editListener(editButton.getId());
     }
 
     @FXML

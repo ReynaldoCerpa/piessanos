@@ -11,7 +11,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -31,8 +30,13 @@ public class AdministrarMedicos implements Initializable {
     private List<Medico> medList = new ArrayList<>();
     private List<Medico> medicos = null;
     private List<Medico> searchList = new ArrayList<>();
+    private String editID;
 
     private Listener listener;
+
+    public AdministrarMedicos(){
+
+    }
 
     public void receiveMotorInstance(Motor m) throws SQLException {
         this.motor = m;
@@ -44,8 +48,9 @@ public class AdministrarMedicos implements Initializable {
             medicos();
             listener = new Listener(){
                 @Override
-                public void onClickListener(MedicoItem medicoItem){
-                    setChosenMedico(medicoItem);
+                public void editListener(String id){
+                    setChosenMedico(id);
+
                 }
             };
             loadMedicos(medList);
@@ -53,9 +58,9 @@ public class AdministrarMedicos implements Initializable {
             e.printStackTrace();
         }
     }
-
-    private void setChosenMedico(MedicoItem medicoItem){
-        System.out.println("entró"+medicoItem.getButtonID());
+    private void setChosenMedico(String id){
+        System.out.println("edit "+ id);
+        editID = id;
     }
     private List<Medico> medicos() throws SQLException {
 
@@ -130,7 +135,6 @@ public class AdministrarMedicos implements Initializable {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
         }
     }
 
@@ -143,6 +147,7 @@ public class AdministrarMedicos implements Initializable {
     }
 
     public void searchMedico(ActionEvent event) throws SQLException {
+        motor.showEditMedico(event);
         String searchInput = searchMedicoInput.getText();
         if (searchInput.equals("")) {
 
@@ -168,5 +173,9 @@ public class AdministrarMedicos implements Initializable {
         searchMedicoInput.clear();
         medicosLayout.getChildren().clear();
         loadMedicos(medList);
+    }
+
+    public String getSelectedMedico(){
+        return editID;
     }
 }

@@ -13,6 +13,21 @@ public class Motor {
 
     }
 
+    public void showEditMedico(ActionEvent event){
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("EditMedico.fxml"));
+            Parent root = loader.load();
+            EditMedico controller = loader.<EditMedico>getController();
+            controller.receiveMotorInstance(this);
+            Scene EditMedicoScene = new Scene(root);
+
+            Stage currentStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            currentStage.setScene(EditMedicoScene);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
     public void showAdministrarMedicos(ActionEvent event){
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("AdministrarMedicos.fxml"));
@@ -364,7 +379,6 @@ public class Motor {
             e.printStackTrace();
         }
     }
-
 
     /* User getters and setters*/
     public void setCedula(String cedula){
