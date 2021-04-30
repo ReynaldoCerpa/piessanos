@@ -13,6 +13,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -30,7 +32,6 @@ public class AdministrarMedicos implements Initializable {
     private List<Medico> medList = new ArrayList<>();
     private List<Medico> medicos = null;
     private List<Medico> searchList = new ArrayList<>();
-    private String editID;
 
     private Listener listener;
 
@@ -48,9 +49,15 @@ public class AdministrarMedicos implements Initializable {
             medicos();
             listener = new Listener(){
                 @Override
-                public void editListener(String id){
+                public void editListener(String id, ActionEvent event){
                     setChosenMedico(id);
+                    motor.showEditMedico(event);
+                }
 
+                @Override
+                public void deleteListener(String id, ActionEvent event) throws SQLException {
+                    setChosenMedico(id);
+                    deleteMedico(id, event);
                 }
             };
             loadMedicos(medList);
@@ -60,7 +67,7 @@ public class AdministrarMedicos implements Initializable {
     }
     private void setChosenMedico(String id){
         System.out.println("edit "+ id);
-        editID = id;
+        motor.setSelectedItem(id);
     }
     private List<Medico> medicos() throws SQLException {
 
@@ -147,7 +154,6 @@ public class AdministrarMedicos implements Initializable {
     }
 
     public void searchMedico(ActionEvent event) throws SQLException {
-        motor.showEditMedico(event);
         String searchInput = searchMedicoInput.getText();
         if (searchInput.equals("")) {
 
@@ -175,7 +181,31 @@ public class AdministrarMedicos implements Initializable {
         loadMedicos(medList);
     }
 
-    public String getSelectedMedico(){
-        return editID;
+    public void deleteMedico(String id, ActionEvent event) throws SQLException {
+        ResultSet myRes = null, telRes = null;
+        try {
+            telRes = database.connectSQL("medico_telefono");
+            myRes = database.connectSQL("medico");
+            myRes.next();
+            telRes.next();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        while (myRes.next()) {
+            if (id.equals(myRes.getString("cedula_profesional"))){
+                try{
+                    String sql = "delete from medico where cedula_profesional= ? ";
+                    PreparedStatement stmt = database.updateData(sql);
+                    stmt.setString(1, id);
+                    stmt.executeUpdate();
+
+                    motor.showAdministrarMedicos(event);
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+
+        }
     }
 }

@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class MedicoItem implements Initializable {
@@ -32,13 +33,13 @@ public class MedicoItem implements Initializable {
     private Listener listener;
 
     @FXML
-    private void editMedico(){
-        listener.editListener(editButton.getId());
+    private void editMedico(ActionEvent event){
+        listener.editListener(editButton.getId(), event);
     }
 
     @FXML
-    private void deleteMedico(MouseEvent mouseEvent) {
-
+    private void deleteMedico(ActionEvent event) throws SQLException {
+        listener.deleteListener(editButton.getId(), event);
     }
 
     public void setData(Medico medico, Listener listener){

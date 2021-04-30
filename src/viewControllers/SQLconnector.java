@@ -23,7 +23,7 @@ public class SQLconnector {
         return myRs;
     }
 
-    public PreparedStatement insertData(String sql){
+    public PreparedStatement updateData(String sql){
         PreparedStatement myStmt = null;
         try{
             Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/piessanos","root","pass");

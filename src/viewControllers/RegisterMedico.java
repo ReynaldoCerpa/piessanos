@@ -66,7 +66,7 @@ public class RegisterMedico {
                     alertGroup.setVisible(true);
                     System.out.println("cedula already taken");
                 }
-                if (!password.equals(confirmPassword.getText()) && !out3){
+                if (!passwordInput.getText().equals(confirmPassword.getText()) && !out3){
                     notfound = false;
                     out3 = true;
                     alertText.setText(alertText.getText() + "Las contraseñas no coinciden\n");
@@ -84,12 +84,12 @@ public class RegisterMedico {
             if (notfound){
                 try{
                     if (numIntInput.getText().equals("")){
-                        numIntInput.setText(null);
+                        numIntInput.setText("");
                     }
                     String sql = "insert into medico "+"(cedula_profesional, nombre, nomPaterno, nomMaterno, calle,"
                             +" num_ext, num_int, colonia, codigoPostal, ciudad, fecha_registro, contrasena, usuario, isAdmin)"
                             +" values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-                    PreparedStatement stmt = database.insertData(sql);
+                    PreparedStatement stmt = database.updateData(sql);
                     stmt.setString(1,cedulaInput.getText());
                     stmt.setString(2,nombreInput.getText());
                     stmt.setString(3,apellidopInput.getText());
@@ -110,7 +110,7 @@ public class RegisterMedico {
 
                     String telefono = "insert into medico_telefono (numTelefono, tipo, cedula_profesional)"
                             + "values (?,?, (select cedula_profesional from medico where cedula_profesional=?))";
-                    PreparedStatement telStmt = database.insertData(telefono);
+                    PreparedStatement telStmt = database.updateData(telefono);
                     telStmt.setString(1, telefonoInput.getText());
                     telStmt.setString(2, tipoTelefonoInput.getText());
                     telStmt.setString(3, cedulaInput.getText());

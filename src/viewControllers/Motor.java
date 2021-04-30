@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 
 public class Motor {
     private User user = new User();
+    private Item item = new Item();
     public Motor(){
 
     }
@@ -416,6 +417,13 @@ public class Motor {
     }
     public boolean isAdmin(){
         return user.getisAdmin();
+    }
+
+    public void setSelectedItem(String id){
+        item.setId(id);
+    }
+    public String getSelectedItem(){
+        return item.getId();
     }
 
 }
