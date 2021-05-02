@@ -5,7 +5,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -32,8 +34,8 @@ public class AdministrarMedicos implements Initializable {
     private List<Medico> medList = new ArrayList<>();
     private List<Medico> medicos = null;
     private List<Medico> searchList = new ArrayList<>();
-
     private Listener listener;
+    private String name;
 
     public AdministrarMedicos(){
 
@@ -53,11 +55,18 @@ public class AdministrarMedicos implements Initializable {
                     setChosenMedico(id);
                     motor.showEditMedico(event);
                 }
-
                 @Override
-                public void deleteListener(String id, ActionEvent event) throws SQLException {
+                public void deleteListener(String id, ActionEvent event) throws SQLException{
+
                     setChosenMedico(id);
-                    deleteMedico(id, event);
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setHeaderText("¿Está seguro que desea eliminar a: "+findMedico(id)+"?");
+
+                    if (alert.showAndWait().get() == ButtonType.OK){
+                        System.out.println("medico eliminado");
+                        deleteMedico(id, event);
+                    }
+
                 }
             };
             loadMedicos(medList);
@@ -66,7 +75,7 @@ public class AdministrarMedicos implements Initializable {
         }
     }
     private void setChosenMedico(String id){
-        System.out.println("edit "+ id);
+        System.out.println("selected: "+ id);
         motor.setSelectedItem(id);
     }
     private List<Medico> medicos() throws SQLException {
@@ -75,18 +84,18 @@ public class AdministrarMedicos implements Initializable {
         try {
             telRes = database.connectSQL("medico_telefono");
             myRes = database.connectSQL("medico");
-            myRes.next();
-            telRes.next();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        while (myRes.next()) {
+        /*assert telRes != null;
+        assert myRes != null;*/
+        while (myRes.next() && telRes.next()) {
 
             String cedula = myRes.getString("cedula_profesional");
             String nombre = myRes.getString("nombre");
             String telefono = telRes.getString("numTelefono");
-            telRes.next();
             String usuario = myRes.getString("usuario");
             String nomPaterno = myRes.getString("nomPaterno");
             String nomMaterno = myRes.getString("nomMaterno");
@@ -98,12 +107,9 @@ public class AdministrarMedicos implements Initializable {
             String ciudad = myRes.getString("ciudad");
             String fecha_registro = myRes.getString("fecha_registro");
 
-
-
             Medico newMed = defineMedico(cedula, nombre, nomPaterno, nomMaterno, calle, num_int, num_ext, colonia,
                     codigoPostal, ciudad, fecha_registro, telefono, usuario);
             medList.add(newMed);
-
         }
         return medList;
     }
@@ -186,13 +192,11 @@ public class AdministrarMedicos implements Initializable {
         try {
             telRes = database.connectSQL("medico_telefono");
             myRes = database.connectSQL("medico");
-            myRes.next();
-            telRes.next();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        while (myRes.next()) {
+        while (myRes.next() && telRes.next()) {
             if (id.equals(myRes.getString("cedula_profesional"))){
                 try{
                     String sql = "delete from medico where cedula_profesional= ? ";
@@ -207,5 +211,21 @@ public class AdministrarMedicos implements Initializable {
             }
 
         }
+    }
+
+    public String findMedico(String id) throws SQLException {
+        ResultSet myRes = null;
+        try {
+            myRes = database.connectSQL("medico");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        while(myRes.next()){
+            if (id.equals(myRes.getString("cedula_profesional"))){
+                name = myRes.getString("nombre");
+                break;
+            }
+        }
+        return name;
     }
 }

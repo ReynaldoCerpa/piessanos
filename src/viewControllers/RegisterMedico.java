@@ -37,10 +37,11 @@ public class RegisterMedico {
             requiredGroup.setVisible(true);
             alertText.setText("Rellene todos los campos obligatorios\n");
         }else {
-            ResultSet myRes = null;
+            ResultSet myRes = null, telRes= null;
             int counter = 0, counter2 = 0;
             try{
                 myRes = database.connectSQL("medico");
+                telRes = database.connectSQL("medico_telefono");
             } catch (Exception e){
                 e.printStackTrace();
             }
@@ -48,10 +49,13 @@ public class RegisterMedico {
             boolean notfound = true;
             boolean out = false, out2 = false, out3 = false, out4 = false;
 
-            while(myRes.next()){
+            while(myRes.next() && telRes.next()){
+
                 String username = myRes.getString("usuario");
                 String cedula = myRes.getString("cedula_profesional");
                 String password = myRes.getString("contrasena");
+                String tel = telRes.getString("numTelefono");
+
                 if(username.equals(usernameInput.getText()) && !out){
                     notfound = false;
                     out = true;
@@ -72,6 +76,13 @@ public class RegisterMedico {
                     alertText.setText(alertText.getText() + "Las contraseñas no coinciden\n");
                     alertGroup.setVisible(true);
                     System.out.println("passwords doesnt match");
+                }
+                if (telefonoInput.equals(tel)){
+                    notfound = false;
+                    out4 = true;
+                    alertText.setText(alertText.getText() + "Telefono ya existente\n");
+                    alertGroup.setVisible(true);
+                    System.out.println("Telefono ya existente");
                 }
                 if (telefonoInput.getText().length() != 10 && !out4){
                     notfound = false;

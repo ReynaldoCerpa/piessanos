@@ -52,7 +52,6 @@ public class EditMedico {
                 coloniaInput.setText(myRes.getString("colonia"));
                 cpInput.setText(myRes.getString("codigoPostal"));
                 ciudadInput.setText(myRes.getString("ciudad"));
-
                 break;
             }
         }
