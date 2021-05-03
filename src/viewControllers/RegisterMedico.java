@@ -93,6 +93,10 @@ public class RegisterMedico {
                 }
             }
             if (notfound){
+                SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
+                Date date = new Date(System.currentTimeMillis());
+                formatter.format(date);
+                System.out.println(date);
                 try{
                     if (numIntInput.getText().equals("")){
                         numIntInput.setText("");
@@ -111,7 +115,7 @@ public class RegisterMedico {
                     stmt.setString(8,coloniaInput.getText());
                     stmt.setString(9,cpInput.getText());
                     stmt.setString(10,ciudadInput.getText());
-                    stmt.setDate(11, new Date(0));
+                    stmt.setDate(11, date);
                     stmt.setString(12,passwordInput.getText());
                     stmt.setString(13,usernameInput.getText());
                     stmt.setString(14,"0");

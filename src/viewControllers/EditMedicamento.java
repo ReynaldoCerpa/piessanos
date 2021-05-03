@@ -1,6 +1,5 @@
 package viewControllers;
 
-import com.mysql.cj.util.StringUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
@@ -14,7 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 
-public class RegisterMedicamentos {
+public class EditMedicamento {
     private Motor motor;
     private SQLconnector database = new SQLconnector();
     @FXML
@@ -24,12 +23,29 @@ public class RegisterMedicamentos {
     @FXML
     private Group alertGroup, requiredGroup;
 
-    public RegisterMedicamentos(){
+    public EditMedicamento(){
 
     }
 
-    public void receiveMotorInstance(Motor m){
+    public void receiveMotorInstance(Motor m) throws SQLException {
         this.motor = m;
+
+        ResultSet myRes = null;
+        try {
+            myRes = database.connectSQL("medicamento");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        while(myRes.next()){
+            if (motor.getSelectedItem().equals(myRes.getString("codigo"))){
+                nombreInput.setText(myRes.getString("nombre"));
+                precioInput.setText(myRes.getString("precio"));
+                cantidadInput.setText(myRes.getString("cantidadinventario"));
+                descripcionInput.setText(myRes.getString("descripcion"));
+                break;
+            }
+        }
     }
 
     public void saveRegistrarMedicamento(ActionEvent event) throws SQLException {
@@ -47,48 +63,36 @@ public class RegisterMedicamentos {
             }
 
             boolean notfound = true;
-            boolean out = false, out2 = false, out3 = false;
+            boolean out = false;
 
             int size = 1;
-            while(myRes.next()){
+            while (myRes.next()){
                 size++;
+            }
+            while(myRes.next()){
+
                 String nombre = myRes.getString("nombre");
+
+
                 if(nombre.equals(nombreInput.getText()) && !out){
                     notfound = false;
                     out = true;
-                    alertText.setText(alertText.getText() + "Nombre de medicamento existente\n");
+                    alertText.setText(alertText.getText() + "Nombre de usuario existente\n");
                     alertGroup.setVisible(true);
-                    System.out.println("nombre de medicamento existente");
-                }
-                if (!StringUtils.isStrictlyNumeric(precioInput.getText()) && !out2){
-                    notfound = false;
-                    out2 = true;
-                    alertText.setText(alertText.getText() + "Solo valores numéricos para campo precio\n");
-                    alertGroup.setVisible(true);
-                    System.out.println("invalid data input precio");
-                }
-                if (!StringUtils.isStrictlyNumeric(cantidadInput.getText()) && !out3){
-                    notfound = false;
-                    out3 = true;
-                    alertText.setText(alertText.getText() + "Solo valores numéricos para campo cantidad\n");
-                    alertGroup.setVisible(true);
-                    System.out.println("invalid data input cantidad");
+                    System.out.println("username already taken");
                 }
             }
             if (notfound){
-                SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
-                Date date = new Date(System.currentTimeMillis());
-                formatter.format(date);
-                System.out.println(date);
                 try{
-                    String sql = "insert into medicamento "+"(codigo, nombre, precio, cantidadinventario, descripcion)"
-                            +" values (?,?,?,?,?)";
+                    String sql = "update medicamento set nombre = ?, precio = ?, cantidadinventario = ?, descripcion = ?"
+                            +" where codigo = ?";
+                    String id = motor.getSelectedItem();
                     PreparedStatement stmt = database.updateData(sql);
-                    stmt.setString(1, ("MDT-"+size));
-                    stmt.setString(2,nombreInput.getText());
-                    stmt.setFloat(3, Float.parseFloat(precioInput.getText()));
-                    stmt.setInt(4, Integer.parseInt(cantidadInput.getText()));
-                    stmt.setString(5,descripcionInput.getText());
+                    stmt.setString(1,nombreInput.getText());
+                    stmt.setFloat(2, Float.parseFloat(precioInput.getText()));
+                    stmt.setInt(3, Integer.parseInt(cantidadInput.getText()));
+                    stmt.setString(4,descripcionInput.getText());
+                    stmt.setString(5,id);
                     stmt.executeUpdate();
                     alertText.setVisible(false);
                     requiredGroup.setVisible(false);
