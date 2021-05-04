@@ -12,7 +12,7 @@
    <children>
       <Label fx:id="codigo" alignment="TOP_CENTER" prefHeight="70.0" prefWidth="150.0" text="Codigo">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font size="15.0" />
          </font>
          <HBox.margin>
             <Insets />
@@ -20,22 +20,22 @@
       </Label>
       <Label fx:id="nombre" alignment="TOP_CENTER" prefHeight="70.0" prefWidth="230.0" text="Nombre">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font size="15.0" />
          </font>
       </Label>
       <Label fx:id="precio" alignment="TOP_CENTER" prefHeight="70.0" prefWidth="150.0" text="Precio">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font size="15.0" />
          </font>
       </Label>
-      <Label fx:id="cantidad" alignment="TOP_CENTER" prefHeight="70.0" prefWidth="160.0" text="Cantidad en inventario" textAlignment="CENTER" wrapText="true">
+      <Label fx:id="cantidad" alignment="TOP_CENTER" prefHeight="70.0" prefWidth="148.0" text="Cantidad en inventario" textAlignment="CENTER" wrapText="true">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font size="15.0" />
          </font>
       </Label>
-      <Label fx:id="descripcion" alignment="TOP_LEFT" prefHeight="70.0" prefWidth="400.0" text="Descripción">
+      <Label fx:id="descripcion" alignment="TOP_LEFT" prefHeight="70.0" prefWidth="400.0" text="Descripción" wrapText="true">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font size="15.0" />
          </font>
       </Label>
       <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="100.0">
@@ -62,6 +62,9 @@
                </graphic>
             </Button>
          </children>
+         <HBox.margin>
+            <Insets left="20.0" />
+         </HBox.margin>
       </HBox>
    </children>
 </HBox>

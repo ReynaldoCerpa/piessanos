@@ -2,23 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Model/Medicamento.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/viewControllers/MedicamentosItem.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/viewControllers/MedicamentosItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/Proveedor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Login.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/EditMedico.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/EditMedico.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Medicamentos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Medicamentos.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Medicamentos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Medicamentos.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/MedicamentosItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/MedicamentosItem.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Medico_item.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Medico_item.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Proveedores.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Proveedores.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Proveedores.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Proveedores.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/RegisterMedicamentos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/RegisterMedicamentos.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/RegisterMedicamentos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/RegisterMedicamentos.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/RegisterMedico.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/RegisterMedico.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewControllers/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewControllers/Medicamentos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/Medicamentos.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/RegisterProveedor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/RegisterProveedor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/RegisterProveedor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/RegisterProveedor.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/EditMedicamento.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/EditMedicamento.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/EditMedico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/EditMedico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/viewControllers/Medicamentos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/Medicamentos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/MedicamentosItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/MedicamentosItem.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/Medico_item.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/Medico_item.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/viewControllers/Motor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/Motor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/Proveedores.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/Proveedores.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/Proveedores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/Proveedores.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/viewControllers/RegisterMedicamentos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/RegisterMedicamentos.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/viewControllers/RegisterMedicamentos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/RegisterMedicamentos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewControllers/RegisterMedico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/RegisterMedico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/RegisterProveedor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/RegisterProveedor.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/RegisterProveedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/RegisterProveedor.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -237,7 +244,11 @@
       <workItem from="1619803749258" duration="20937000" />
       <workItem from="1619890601669" duration="27013000" />
       <workItem from="1619983898079" duration="2847000" />
-      <workItem from="1619995377338" duration="7196000" />
+      <workItem from="1619995377338" duration="9561000" />
+      <workItem from="1620007174493" duration="7784000" />
+      <workItem from="1620102129150" duration="6000" />
+      <workItem from="1620104589711" duration="791000" />
+      <workItem from="1620168073753" duration="3872000" />
     </task>
     <servers />
   </component>

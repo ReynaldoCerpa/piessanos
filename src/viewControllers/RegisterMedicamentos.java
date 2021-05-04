@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.sql.Date;
@@ -18,7 +19,9 @@ public class RegisterMedicamentos {
     private Motor motor;
     private SQLconnector database = new SQLconnector();
     @FXML
-    private TextField nombreInput, precioInput, cantidadInput, descripcionInput;
+    private TextField nombreInput, precioInput, cantidadInput;
+    @FXML
+    private TextArea descripcionInput;
     @FXML
     private Label alertText;
     @FXML

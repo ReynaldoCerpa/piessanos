@@ -12,19 +12,19 @@
    <children>
       <Label fx:id="cedula" alignment="CENTER" prefWidth="150.0" text="abcdefgh12345">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font size="15.0" />
          </font>
       </Label>
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="346.0" HBox.hgrow="NEVER">
          <children>
             <Label fx:id="nombre" alignment="CENTER" prefHeight="21.0" text="Reynaldo">
                <font>
-                  <Font name="System Bold" size="15.0" />
+                  <Font size="15.0" />
                </font>
             </Label>
             <Label fx:id="nomPaterno" alignment="CENTER" prefHeight="21.0" text="Reynaldo">
                <font>
-                  <Font name="System Bold" size="15.0" />
+                  <Font size="15.0" />
                </font>
                <HBox.margin>
                   <Insets left="7.0" />
@@ -32,7 +32,7 @@
             </Label>
             <Label fx:id="nomMaterno" alignment="CENTER" prefHeight="21.0" text="Reynaldo">
                <font>
-                  <Font name="System Bold" size="15.0" />
+                  <Font size="15.0" />
                </font>
                <HBox.margin>
                   <Insets left="7.0" />
@@ -42,12 +42,12 @@
       </HBox>
       <Label fx:id="telefono" alignment="CENTER" prefWidth="150.0" text="646-xxx-xx-xx">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font size="15.0" />
          </font>
       </Label>
       <Label fx:id="usuario" alignment="CENTER" prefWidth="150.0" text="Username">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font size="15.0" />
          </font>
       </Label>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="100.0">

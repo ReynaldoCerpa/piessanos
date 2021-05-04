@@ -4,6 +4,7 @@
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -15,7 +16,6 @@
       <TextField fx:id="nombreInput" layoutX="537.0" layoutY="112.0" prefHeight="25.0" prefWidth="309.0" />
       <TextField fx:id="precioInput" layoutX="537.0" layoutY="162.0" prefHeight="25.0" prefWidth="309.0" />
       <TextField fx:id="cantidadInput" layoutX="537.0" layoutY="216.0" prefHeight="25.0" prefWidth="309.0" />
-      <TextField fx:id="descripcionInput" alignment="TOP_LEFT" layoutX="536.0" layoutY="268.0" prefHeight="184.0" prefWidth="309.0" />
       <Label layoutX="540.0" layoutY="33.0" text="Registrar medicamento">
          <font>
             <Font name="System Bold" size="24.0" />
@@ -25,6 +25,7 @@
       <Label layoutX="490.0" layoutY="166.0" text="precio" />
       <Label layoutX="478.0" layoutY="220.0" text="cantidad" />
       <Label layoutX="459.0" layoutY="268.0" text="descripcion" />
+      <TextArea fx:id="descripcionInput" layoutX="536.0" layoutY="268.0" prefHeight="183.0" prefWidth="309.0" wrapText="true" />
       <Button layoutX="555.0" layoutY="623.0" mnemonicParsing="false" onAction="#saveRegistrarMedicamento" prefHeight="35.0" prefWidth="105.0" text="Registrar" />
       <Button fx:id="cancelRegisterMedicamento" layoutX="695.0" layoutY="623.0" mnemonicParsing="false" onAction="#cancelRegisterMedicamento" prefHeight="35.0" prefWidth="105.0" text="Cancelar" />
       <Group fx:id="alertGroup" layoutX="493.0" layoutY="516.0" visible="false">

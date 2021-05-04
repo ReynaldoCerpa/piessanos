@@ -15,6 +15,21 @@ public class Motor {
     public Motor(){
 
     }
+    public void showEditProveedor(ActionEvent event){
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("EditProveedor.fxml"));
+            Parent root = loader.load();
+            EditProveedor controller = loader.<EditProveedor>getController();
+            controller.receiveMotorInstance(this);
+            Scene EditProveedorScene = new Scene(root);
+
+            Stage currentStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            currentStage.setScene(EditProveedorScene);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
     public void showEditMedicamento(ActionEvent event){
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("EditMedicamento.fxml"));

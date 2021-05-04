@@ -31,13 +31,11 @@ public class EditMedico {
         try {
             telRes = database.connectSQL("medico_telefono");
             myRes = database.connectSQL("medico");
-            myRes.next();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        while(myRes.next()){
-            telRes.next();
+        while(myRes.next() && telRes.next()){
             if (motor.getSelectedItem().equals(myRes.getString("cedula_profesional"))){
                 cedulaInput.setText(myRes.getString("cedula_profesional"));
                 nombreInput.setText(myRes.getString("nombre"));

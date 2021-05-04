@@ -25,7 +25,7 @@
       <Label layoutX="490.0" layoutY="166.0" text="precio" />
       <Label layoutX="478.0" layoutY="220.0" text="cantidad" />
       <Label layoutX="459.0" layoutY="268.0" text="descripcion" />
-      <Button layoutX="555.0" layoutY="623.0" mnemonicParsing="false" onAction="#saveRegistrarMedicamento" prefHeight="35.0" prefWidth="105.0" text="Registrar" />
+      <Button layoutX="555.0" layoutY="623.0" mnemonicParsing="false" onAction="#saveRegistrarMedicamento" prefHeight="35.0" prefWidth="105.0" text="Guardar" />
       <Button fx:id="cancelRegisterMedicamento" layoutX="695.0" layoutY="623.0" mnemonicParsing="false" onAction="#cancelRegisterMedicamento" prefHeight="35.0" prefWidth="105.0" text="Cancelar" />
       <Group fx:id="alertGroup" layoutX="493.0" layoutY="487.0" visible="false">
          <children>

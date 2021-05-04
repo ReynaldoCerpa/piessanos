@@ -139,7 +139,7 @@ public class Medicamentos implements Initializable {
     }
 
     public void backHome(ActionEvent event) {
-        motor.showClient(event);
+        motor.showInventory(event);
     }
 
     public void searchItem(ActionEvent event) throws SQLException {
