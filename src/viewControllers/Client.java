@@ -41,7 +41,7 @@ public class Client {
     }
 
     public void displayPacients(ActionEvent event) {
-        motor.showPacients(event);
+        motor.showPacientes(event);
     }
     public void displayPromociones(ActionEvent event) {
         motor.showPromo(event);

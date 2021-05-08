@@ -6,8 +6,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.DatePicker;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
+import java.time.format.DateTimeFormatter;
 
 public class Motor {
     private User user = new User();
@@ -105,16 +108,31 @@ public class Motor {
             e.printStackTrace();
         }
     }
-    public void showPacients(ActionEvent event){
+    public void showEditPacientes(ActionEvent event){
         try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Pacients.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("EditPaciente.fxml"));
             Parent root = loader.load();
-            Pacients controller = loader.<Pacients>getController();
+            EditPaciente controller = loader.<EditPaciente>getController();
             controller.receiveMotorInstance(this);
-            Scene pacientScene = new Scene(root);
+            Scene scene = new Scene(root);
 
             Stage currentStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            currentStage.setScene(pacientScene);
+            currentStage.setScene(scene);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    public void showPacientes(ActionEvent event){
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Pacientes.fxml"));
+            Parent root = loader.load();
+            Pacientes controller = loader.<Pacientes>getController();
+            controller.receiveMotorInstance(this);
+            Scene scene = new Scene(root);
+
+            Stage currentStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            currentStage.setScene(scene);
         }
         catch (Exception e){
             e.printStackTrace();
@@ -123,21 +141,18 @@ public class Motor {
     public void showRegisterPacient(ActionEvent event){
 
         try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("RegisterPacient.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("RegisterPaciente.fxml"));
             Parent root = loader.load();
-            RegisterPacient controller = loader.<RegisterPacient>getController();
+            RegisterPaciente controller = loader.<RegisterPaciente>getController();
             controller.receiveMotorInstance(this);
-            Scene registerPacientScene = new Scene(root);
+            Scene scene = new Scene(root);
 
             Stage currentStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            currentStage.setScene(registerPacientScene);
+            currentStage.setScene(scene);
         }
         catch (Exception e){
             e.printStackTrace();
         }
-    }
-    public void cancelRegisterPacient(ActionEvent event){
-        showPacients(event);
     }
     public void showPromo(ActionEvent event){
 
@@ -261,6 +276,21 @@ public class Motor {
             e.printStackTrace();
         }
     }
+    public void showEditMateriales(ActionEvent event){
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("EditMateriales.fxml"));
+            Parent root = loader.load();
+            EditMateriales controller = loader.<EditMateriales>getController();
+            controller.receiveMotorInstance(this);
+            Scene EditMaterialesScene = new Scene(root);
+
+            Stage currentStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            currentStage.setScene(EditMaterialesScene);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
     public void showRegisterMateriales(ActionEvent event){
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("RegisterMateriales.fxml"));
@@ -271,36 +301,6 @@ public class Motor {
 
             Stage currentStage = (Stage)((Node)event.getSource()).getScene().getWindow();
             currentStage.setScene(RegisterMaterialesScene);
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-    public void showProveedoresMateriales(ActionEvent event){
-        try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ProveedoresMateriales.fxml"));
-            Parent root = loader.load();
-            ProveedoresMateriales controller = loader.<ProveedoresMateriales>getController();
-            controller.receiveMotorInstance(this);
-            Scene ProveedoresMaterialesScene = new Scene(root);
-
-            Stage currentStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            currentStage.setScene(ProveedoresMaterialesScene);
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-    public void showRegisterProveedorMateriales(ActionEvent event){
-        try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("RegisterProveedorMateriales.fxml"));
-            Parent root = loader.load();
-            RegisterProveedorMateriales controller = loader.<RegisterProveedorMateriales>getController();
-            controller.receiveMotorInstance(this);
-            Scene RegisterProveedorMaterialesScene = new Scene(root);
-
-            Stage currentStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            currentStage.setScene(RegisterProveedorMaterialesScene);
         }
         catch (Exception e){
             e.printStackTrace();
@@ -351,16 +351,31 @@ public class Motor {
             e.printStackTrace();
         }
     }
-    public void showNewCita(ActionEvent event){
+    public void showRegisterCita(ActionEvent event){
         try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("NewCita.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("RegisterCitas.fxml"));
             Parent root = loader.load();
-            NewCita controller = loader.<NewCita>getController();
+            RegisterCitas controller = loader.<RegisterCitas>getController();
             controller.receiveMotorInstance(this);
-            Scene NewCitaScene = new Scene(root);
+            Scene RegisterCitasScene = new Scene(root);
 
             Stage currentStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            currentStage.setScene(NewCitaScene);
+            currentStage.setScene(RegisterCitasScene);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    public void showEditCita(ActionEvent event){
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("EditCita.fxml"));
+            Parent root = loader.load();
+            EditCita controller = loader.<EditCita>getController();
+            controller.receiveMotorInstance(this);
+            Scene EditCitaScene = new Scene(root);
+
+            Stage currentStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            currentStage.setScene(EditCitaScene);
         }
         catch (Exception e){
             e.printStackTrace();
@@ -396,16 +411,31 @@ public class Motor {
             e.printStackTrace();
         }
     }
-    public void showTratamiento(ActionEvent event){
+    public void showEditTratamiento(ActionEvent event){
         try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Tratamiento.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("EditTratamiento.fxml"));
             Parent root = loader.load();
-            Tratamiento controller = loader.<Tratamiento>getController();
+            EditTratamiento controller = loader.<EditTratamiento>getController();
             controller.receiveMotorInstance(this);
-            Scene TratamientoScene = new Scene(root);
+            Scene EditTratamientoScene = new Scene(root);
 
             Stage currentStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            currentStage.setScene(TratamientoScene);
+            currentStage.setScene(EditTratamientoScene);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    public void showRegisterTratamientos(ActionEvent event){
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("RegisterTratamientos.fxml"));
+            Parent root = loader.load();
+            RegisterTratamientos controller = loader.<RegisterTratamientos>getController();
+            controller.receiveMotorInstance(this);
+            Scene RegisterTratamientosScene = new Scene(root);
+
+            Stage currentStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            currentStage.setScene(RegisterTratamientosScene);
         }
         catch (Exception e){
             e.printStackTrace();
@@ -455,6 +485,21 @@ public class Motor {
     }
     public String getSelectedItem(){
         return item.getId();
+    }
+
+    public String formatDate(DatePicker dateInput){
+        String date = "";
+        try{
+            date = dateInput.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        } catch (Exception e){
+            System.out.println("invalid time format");
+            e.printStackTrace();
+        }
+        return date;
+    }
+    public String formatTime(String hour, String minutes){
+        String time = hour+":"+minutes;
+        return time;
     }
 
 

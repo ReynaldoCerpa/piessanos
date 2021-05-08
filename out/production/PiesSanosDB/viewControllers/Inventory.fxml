@@ -22,6 +22,11 @@
             <Font size="30.0" />
          </font>
       </Button>
-      <Button layoutX="1107.0" layoutY="60.0" mnemonicParsing="false" onAction="#displayHome" text="vovler a inicio" />
+      <Button layoutX="1107.0" layoutY="60.0" mnemonicParsing="false" onAction="#displayHome" text="volver a inicio" />
+      <Button alignment="CENTER" layoutX="501.0" layoutY="360.0" mnemonicParsing="false" onAction="#displayProveedores" prefHeight="113.0" prefWidth="300.0" text="Proveedores">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

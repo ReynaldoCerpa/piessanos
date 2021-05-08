@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.RegisterPaciente">
+   <children>
+      <Label layoutX="546.0" layoutY="91.0" text="Nombre" />
+      <TextField fx:id="nombreInput" layoutX="600.0" layoutY="87.0" />
+      <Label layoutX="498.0" layoutY="131.0" text="Apellido paterno" />
+      <TextField fx:id="apellidopInput" layoutX="600.0" layoutY="127.0" />
+      <Label layoutX="496.0" layoutY="170.0" text="Apellido materno" />
+      <TextField fx:id="apellidomInput" layoutX="600.0" layoutY="166.0" />
+      <Label layoutX="463.0" layoutY="219.0" text="Telefono(s) de contacto" />
+      <TextField fx:id="tel1Input" layoutX="600.0" layoutY="215.0" prefHeight="25.0" prefWidth="113.0" promptText="Tel. 1" />
+      <Label layoutX="547.0" layoutY="264.0" text="alergias" />
+      <Label layoutX="512.0" layoutY="336.0" text="enfermedades" />
+      <Label layoutX="455.0" layoutY="409.0" text="medicamentos prescritos" />
+      <Label layoutX="550.0" layoutY="15.0" text="Registro de paciente">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tel2Input" layoutX="732.0" layoutY="215.0" prefHeight="25.0" prefWidth="113.0" promptText="Tel. 2" />
+      <Button layoutX="555.0" layoutY="623.0" mnemonicParsing="false" onAction="#saveItem" prefHeight="35.0" prefWidth="105.0" text="Guardar" />
+      <Button layoutX="695.0" layoutY="623.0" mnemonicParsing="false" onAction="#cancelRegister" prefHeight="35.0" prefWidth="105.0" text="Cancelar" />
+      <Group fx:id="alertGroup" layoutX="496.0" layoutY="500.0" visible="false">
+         <children>
+            <ImageView fitHeight="114.0" fitWidth="358.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/AlertBox.png" />
+               </image>
+               <viewport>
+                  <Rectangle2D />
+               </viewport>
+            </ImageView>
+            <Label fx:id="alertText" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutY="-10.0" prefHeight="104.0" prefWidth="353.0" textAlignment="CENTER" textFill="#ce2121" wrapText="true">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </Group>
+      <Group fx:id="requiredGroup" layoutX="612.0" layoutY="32.0" visible="false">
+         <children>
+            <Label layoutX="126.0" layoutY="51.0" text="*" textFill="RED">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="126.0" layoutY="93.0" text="*" textFill="RED">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="126.0" layoutY="130.0" text="*" textFill="RED">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="147.0" layoutY="32.0" text="* Requerido" textFill="RED">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="222.0" layoutY="228.0" text="*" textFill="RED">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="222.0" layoutY="301.0" text="*" textFill="RED">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="222.0" layoutY="374.0" text="*" textFill="RED">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="90.0" layoutY="178.0" text="*" textFill="RED">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </Group>
+      <TextArea fx:id="alergiasInput" layoutX="600.0" layoutY="264.0" prefHeight="60.0" prefWidth="245.0" promptText="en caso de no tener escribir: No aplica" />
+      <TextArea fx:id="enfermedadesInput" layoutX="600.0" layoutY="336.0" prefHeight="60.0" prefWidth="245.0" promptText="en caso de no tener escribir: No aplica" />
+      <TextArea fx:id="medPrescritosInput" layoutX="600.0" layoutY="409.0" prefHeight="60.0" prefWidth="245.0" promptText="en caso de no tener escribir: No aplica" />
+   </children>
+</AnchorPane>

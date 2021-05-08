@@ -26,21 +26,6 @@ public class Main extends Application {
 
     public static void main(String[] args) {
 
-        //Connection to database
-        try{
-            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/practica6","root","pass");
-
-            Statement myStmt = myConn.createStatement();
-
-            ResultSet myRs = myStmt.executeQuery("select * from alumno");
-
-            while(myRs.next()){
-                System.out.println(myRs.getString("matricula"));
-            }
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-
         launch(args);
     }
 }

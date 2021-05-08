@@ -34,7 +34,7 @@
             </HBox>
             <HBox alignment="TOP_CENTER" prefHeight="66.0" prefWidth="1280.0">
                <children>
-                  <TextField fx:id="searchInput" prefHeight="25.0" prefWidth="380.0" promptText="ingrese dato del medico" />
+                  <TextField fx:id="searchInput" prefHeight="25.0" prefWidth="380.0" promptText="ingrese id o nombre del proveedor" />
                   <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#deleteSearch" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../assets/xIcon.png" />

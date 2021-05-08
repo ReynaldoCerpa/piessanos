@@ -146,7 +146,7 @@ public class Proveedores implements Initializable {
     }
 
     public void backHome(ActionEvent event) {
-        motor.showMedicamentos(event);
+        motor.showInventory(event);
     }
 
     public void searchItem(ActionEvent event) throws SQLException {

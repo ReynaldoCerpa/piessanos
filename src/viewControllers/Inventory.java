@@ -25,4 +25,8 @@ public class Inventory {
     public void displayHome(ActionEvent event) {
         motor.showClient(event);
     }
+
+    public void displayProveedores(ActionEvent event) {
+        motor.showProveedores(event);
+    }
 }

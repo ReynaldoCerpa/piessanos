@@ -1,33 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.Materiales">
-   <children>
-      <Button fx:id="registerMaterialesButton" layoutX="387.0" layoutY="94.0" mnemonicParsing="false" onAction="#registerMateriales" prefHeight="43.0" prefWidth="171.0" text="Registrar materiales">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Button>
-      <Button fx:id="displayProveedoresButton" layoutX="776.0" layoutY="97.0" mnemonicParsing="false" onAction="#displayProveedoresMateriales" prefHeight="43.0" prefWidth="171.0" text="Proveedores">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Button>
-      <TableView layoutX="31.0" layoutY="197.0" prefHeight="471.0" prefWidth="1218.0">
-        <columns>
-          <TableColumn prefWidth="143.0" text="codigo" />
-          <TableColumn prefWidth="275.0" text="nombre" />
-            <TableColumn prefWidth="120.0" text="precio" />
-            <TableColumn prefWidth="134.0" text="precio proveedor" />
-            <TableColumn prefWidth="134.0" text="cantidad" />
-            <TableColumn prefWidth="411.0" text="descripción" />
-        </columns>
-      </TableView>
-      <Button layoutX="1141.0" layoutY="38.0" mnemonicParsing="false" onAction="#backToInventario" text="Regresar" />
-   </children>
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="root" stylesheets="@../values/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.Materiales">
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="117.0" prefWidth="1038.0">
+               <children>
+                  <Label text="Materiales">
+                     <font>
+                        <Font name="Corbel Bold" size="40.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
+                  <Button fx:id="registerItemButton" mnemonicParsing="false" onAction="#registerItem" text="Registrar material" />
+                  <Button fx:id="displayProveedoresButton" mnemonicParsing="false" onAction="#displayProveedores" text="Proveedores">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#backHome" text="volver a inicio">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="TOP_CENTER" prefHeight="66.0" prefWidth="1280.0">
+               <children>
+                  <TextField fx:id="searchInput" prefHeight="25.0" prefWidth="380.0" promptText="ingrese no. inventario o nombre del material" />
+                  <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#deleteSearch" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/xIcon.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchItem" text="Buscar" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1264.0" styleClass="grey-background" stylesheets="@../values/style.css">
+               <children>
+                  <Label alignment="CENTER" prefHeight="21.0" prefWidth="230.0" text="Número inventario">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="150.0" text="Nombre">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="49.0" prefWidth="160.0" text="Cantidad en inventario" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="100.0" />
+               </children>
+            </HBox>
+            <HBox prefHeight="366.0" prefWidth="1280.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <ScrollPane prefHeight="603.0" prefWidth="1280.0">
+                     <content>
+                        <VBox fx:id="itemsLayout" prefHeight="488.0" prefWidth="1264.0" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

@@ -24,6 +24,6 @@ public class RegisterPacient {
     }
 
     public void cancelRegister(ActionEvent event) {
-        motor.cancelRegisterPacient(event);
+        motor.showPacientes(event);
     }
 }

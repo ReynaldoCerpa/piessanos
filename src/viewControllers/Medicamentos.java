@@ -212,6 +212,6 @@ public class Medicamentos implements Initializable {
     }
 
     public void displayProveedores(ActionEvent event) {
-        motor.showProveedores(event);
+
     }
 }
