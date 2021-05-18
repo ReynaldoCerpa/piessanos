@@ -12,7 +12,7 @@ public class SQLconnector {
         String strQuery = "SELECT * from $tableName";
         String query = strQuery.replace("$tableName",tableName);
         try{
-            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/piessanos","root","pass");
+                         Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/piessanos","root","pass");
             PreparedStatement prStmt = myConn.prepareStatement(strQuery);
             myRs = prStmt.executeQuery(query);
             //myRs.next();
