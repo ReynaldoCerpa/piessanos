@@ -1,8 +1,28 @@
 .grey-background{
-    -fx-background-color: #e3e3e3;
+    -fx-background-color: white;
 }
+
+.everything{
+    -fx-font-family: sans-serif;
+}
+
 .root {
     -fx-focus-color: #aeaeae;
     -fx-faint-focus-color: transparent;
     -fx-inner-border: transparent;
 }
+.loginButton{
+    -fx-background-color: #5ba09a;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.loginPiesSanos{
+    -fx-text-fill: white;
+}
+
+.btn-1:hover {
+    -fx-background-color: #67b5ae;
+    -fx-cursor: hand;
+}
+
