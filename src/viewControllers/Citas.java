@@ -70,6 +70,11 @@ public class Citas implements Initializable {
                     }
 
                 }
+
+                @Override
+                public void showListener(String id, ActionEvent event) {
+
+                }
             };
             loadItems(itemList);
         } catch (SQLException e) {
@@ -205,7 +210,7 @@ public class Citas implements Initializable {
         }
         while(myRes.next()){
             if (id.equals(myRes.getString("numCita"))){
-                name = myRes.getString("nombre");
+                name = "Cita "+myRes.getString("numCita");
                 break;
             }
         }

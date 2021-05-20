@@ -71,6 +71,11 @@ public class Pacientes implements Initializable {
                     }
 
                 }
+                @Override
+                public void showListener(String id, ActionEvent event){
+                    setChosenItem(id);
+                    motor.showExpedienteUser(event);
+                }
             };
             loadItems(itemList);
         } catch (SQLException e) {

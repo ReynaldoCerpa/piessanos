@@ -10,7 +10,11 @@ import javafx.scene.control.DatePicker;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class Motor {
     private User user = new User();
@@ -441,6 +445,51 @@ public class Motor {
             e.printStackTrace();
         }
     }
+    public void showPromocion(ActionEvent event){
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Promociones.fxml"));
+            Parent root = loader.load();
+            Promociones controller = loader.<Promociones>getController();
+            controller.receiveMotorInstance(this);
+            Scene scene = new Scene(root);
+
+            Stage currentStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            currentStage.setScene(scene);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    public void showRegisterPromocion(ActionEvent event){
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("RegisterPromocion.fxml"));
+            Parent root = loader.load();
+            RegisterPromocion controller = loader.<RegisterPromocion>getController();
+            controller.receiveMotorInstance(this);
+            Scene scene = new Scene(root);
+
+            Stage currentStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            currentStage.setScene(scene);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    public void showEditPromocion(ActionEvent event){
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("EditPromocion.fxml"));
+            Parent root = loader.load();
+            EditPromocion controller = loader.<EditPromocion>getController();
+            controller.receiveMotorInstance(this);
+            Scene scene = new Scene(root);
+
+            Stage currentStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            currentStage.setScene(scene);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 
     /* User getters and setters*/
     public void setCedula(String cedula){
@@ -479,14 +528,12 @@ public class Motor {
     public boolean isAdmin(){
         return user.getisAdmin();
     }
-
     public void setSelectedItem(String id){
         item.setId(id);
     }
     public String getSelectedItem(){
         return item.getId();
     }
-
     public String formatDate(DatePicker dateInput){
         String date = "";
         try{
@@ -496,6 +543,9 @@ public class Motor {
             e.printStackTrace();
         }
         return date;
+    }
+    public LocalDate formatCurrDate() {
+        return LocalDate.now();
     }
     public String formatTime(String hour, String minutes){
         String time = hour+":"+minutes;

@@ -70,6 +70,11 @@ public class Materiales implements Initializable {
                     }
 
                 }
+
+                @Override
+                public void showListener(String id, ActionEvent event) {
+
+                }
             };
             loadItems(itemList);
         } catch (SQLException e) {

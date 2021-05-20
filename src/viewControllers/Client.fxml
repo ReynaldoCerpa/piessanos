@@ -16,12 +16,12 @@
             <Font size="30.0" />
          </font>
       </Button>
-      <Button fx:id="expedientesButton" layoutX="888.0" layoutY="245.0" mnemonicParsing="false" onAction="#displayExpedientes" prefHeight="100.0" prefWidth="300.0" text="Expedientes">
+      <Button fx:id="expedientesButton" layoutX="888.0" layoutY="245.0" mnemonicParsing="false" onAction="#displayExpedientes" prefHeight="100.0" prefWidth="300.0" text="Expedientes" visible="false">
          <font>
             <Font size="30.0" />
          </font>
       </Button>
-      <Button fx:id="inventarioButton" layoutX="539.0" layoutY="386.0" mnemonicParsing="false" onAction="#displayInventario" prefHeight="100.0" prefWidth="300.0" text="Inventario">
+      <Button fx:id="inventarioButton" layoutX="882.0" layoutY="245.0" mnemonicParsing="false" onAction="#displayInventario" prefHeight="100.0" prefWidth="300.0" text="Inventario">
          <font>
             <Font size="30.0" />
          </font>
@@ -32,12 +32,12 @@
          </font>
       </Label>
       <Button fx:id="logoutButton" layoutX="1172.0" layoutY="29.0" mnemonicParsing="false" onAction="#logout" text="Cerrar sesión" />
-      <Button fx:id="promocionesButton" layoutX="189.0" layoutY="386.0" mnemonicParsing="false" onAction="#displayPromociones" prefHeight="100.0" prefWidth="300.0" text="Promociones">
+      <Button fx:id="promocionesButton" layoutX="364.0" layoutY="383.0" mnemonicParsing="false" onAction="#displayPromociones" prefHeight="100.0" prefWidth="300.0" text="Promociones">
          <font>
             <Font size="30.0" />
          </font>
       </Button>
-      <Button fx:id="tratamientosButton" layoutX="888.0" layoutY="386.0" mnemonicParsing="false" onAction="#displayTratamientos" prefHeight="100.0" prefWidth="300.0" text="Tratamientos">
+      <Button fx:id="tratamientosButton" layoutX="709.0" layoutY="383.0" mnemonicParsing="false" onAction="#displayTratamientos" prefHeight="100.0" prefWidth="300.0" text="Tratamientos">
          <font>
             <Font size="30.0" />
          </font>

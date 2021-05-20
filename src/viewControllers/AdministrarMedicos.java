@@ -68,6 +68,11 @@ public class AdministrarMedicos implements Initializable {
                     }
 
                 }
+
+                @Override
+                public void showListener(String id, ActionEvent event) {
+
+                }
             };
             loadMedicos(medList);
         } catch (SQLException e) {

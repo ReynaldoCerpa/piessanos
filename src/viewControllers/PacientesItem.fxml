@@ -45,8 +45,20 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="100.0">
+      <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="140.0">
          <children>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#openExpediente" prefHeight="40.0" prefWidth="40.0">
+               <graphic>
+                  <ImageView fx:id="deleteButton1" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/folderIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Button>
             <Button alignment="CENTER" mnemonicParsing="false" onAction="#editItem" prefHeight="40.0" prefWidth="40.0">
                <graphic>
                   <ImageView fx:id="editButton" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
@@ -55,10 +67,13 @@
                      </image>
                   </ImageView>
                </graphic>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
             </Button>
             <Button alignment="CENTER" mnemonicParsing="false" onAction="#deleteItem" prefHeight="40.0" prefWidth="40.0">
                <HBox.margin>
-                  <Insets left="20.0" />
+                  <Insets left="10.0" />
                </HBox.margin>
                <graphic>
                   <ImageView fx:id="deleteButton" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">

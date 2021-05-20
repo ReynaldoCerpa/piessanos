@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER" prefHeight="50.0" prefWidth="407.0" stylesheets="@../values/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.ConsultasItem">
+   <children>
+      <Label fx:id="id" alignment="CENTER" prefWidth="150.0" text="id">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="telefono" alignment="CENTER" prefHeight="21.0" prefWidth="121.0" text="Fecha">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="140.0">
+         <children>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#editItem" prefHeight="30.0" prefWidth="30.0">
+               <graphic>
+                  <ImageView fx:id="editButton" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/moreIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <HBox.margin>
+            <Insets left="20.0" />
+         </HBox.margin>
+      </HBox>
+   </children>
+</HBox>
