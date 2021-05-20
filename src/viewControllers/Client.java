@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,6 +16,8 @@ public class Client {
     private Label usernameLabel;
     @FXML
     private Button administrarMedicosButton, tratamientosButton, promocionesButton;
+    @FXML
+    private ImageView promocionicon, tratamientoicon;
 
     public void receiveMotorInstance(Motor m) throws SQLException {
         this.motor = m;
@@ -32,6 +35,8 @@ public class Client {
             administrarMedicosButton.setVisible(false);
             tratamientosButton.setVisible(false);
             promocionesButton.setVisible(false);
+            promocionicon.setVisible(false);
+            tratamientoicon.setVisible(false);
         }
 
     }

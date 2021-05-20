@@ -83,7 +83,6 @@
                </font>
                <styleClass>
                   <String fx:value="loginButton" />
-                  <String fx:value="btn-1" />
                   <String fx:value="everything" />
                </styleClass>
             </Button>
