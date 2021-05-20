@@ -13,44 +13,89 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.RegisterMedico">
    <children>
-      <Label layoutX="579.0" layoutY="14.0" text="Registrar médico">
+      <Label layoutX="564.0" layoutY="14.0" text="Registrar médico" textFill="#3c6360" underline="true">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="344.0" layoutY="87.0" text="Cédula profesional" />
-      <Label layoutX="401.0" layoutY="136.0" text="Nombre" />
-      <Label layoutX="357.0" layoutY="181.0" text="Apellido paterno" />
-      <Label layoutX="356.0" layoutY="225.0" text="Apellido materno" />
-      <Label layoutX="700.0" layoutY="87.0" text="Calle" />
-      <Label layoutX="640.0" layoutY="226.0" text="Numero exterior" />
-      <Label layoutX="641.0" layoutY="271.0" text="Numero interior" />
-      <Label layoutX="681.0" layoutY="137.0" text="Colonia" />
-      <Label layoutX="644.0" layoutY="317.0" text="Código postal" />
-      <Label layoutX="682.0" layoutY="182.0" text="Ciudad" />
-      <Label layoutX="557.0" layoutY="370.0" text="Usuario" />
-      <Label layoutX="539.0" layoutY="410.0" text="Contraseña" />
-      <TextField fx:id="cedulaInput" layoutX="464.0" layoutY="83.0" />
-      <TextField fx:id="nombreInput" layoutX="464.0" layoutY="132.0" />
-      <TextField fx:id="apellidopInput" layoutX="464.0" layoutY="177.0" />
-      <TextField fx:id="apellidomInput" layoutX="464.0" layoutY="221.0" />
-      <TextField fx:id="telefonoInput" layoutX="464.0" layoutY="267.0" />
-      <TextField fx:id="tipoTelefonoInput" layoutX="464.0" layoutY="314.0" />
-      <TextField fx:id="calleInput" layoutX="742.0" layoutY="83.0" />
-      <TextField fx:id="coloniaInput" layoutX="742.0" layoutY="133.0" />
-      <TextField fx:id="ciudadInput" layoutX="741.0" layoutY="178.0" />
-      <TextField fx:id="numExtInput" layoutX="741.0" layoutY="222.0" />
-      <TextField fx:id="numIntInput" layoutX="741.0" layoutY="267.0" />
-      <TextField fx:id="cpInput" layoutX="742.0" layoutY="313.0" />
-      <TextField fx:id="usernameInput" layoutX="605.0" layoutY="365.0" />
-      <PasswordField fx:id="passwordInput" layoutX="605.0" layoutY="405.0" />
-      <PasswordField fx:id="confirmPassword" layoutX="606.0" layoutY="447.0" />
-      <Button layoutX="539.0" layoutY="613.0" mnemonicParsing="false" onAction="#saveRegisterMedico" prefHeight="40.0" prefWidth="90.0" text="Guardar" />
-      <Button layoutX="696.0" layoutY="613.0" mnemonicParsing="false" onAction="#cancelRegisterMedico" prefHeight="40.0" prefWidth="90.0" text="Cancelar" />
-      <Label layoutX="400.0" layoutY="271.0" text="Telefono" />
-      <Label layoutX="365.0" layoutY="318.0" text="Tipo de telefono" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="534.0" layoutY="437.0" prefHeight="46.0" prefWidth="69.0" text="Confirmar contraseña" textAlignment="CENTER" wrapText="true" />
-      <Group fx:id="alertGroup" layoutX="480.0" layoutY="492.0" visible="false">
+      <Label layoutX="351.0" layoutY="92.0" text="Cédula profesional">
+         <font>
+            <Font name="SansSerif Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="408.0" layoutY="141.0" text="Nombre">
+         <font>
+            <Font name="SansSerif Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="364.0" layoutY="186.0" text="Apellido paterno">
+         <font>
+            <Font name="SansSerif Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="363.0" layoutY="230.0" text="Apellido materno">
+         <font>
+            <Font name="SansSerif Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="707.0" layoutY="92.0" text="Calle">
+         <font>
+            <Font name="SansSerif Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="647.0" layoutY="231.0" text="Numero exterior">
+         <font>
+            <Font name="SansSerif Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="648.0" layoutY="276.0" text="Numero interior">
+         <font>
+            <Font name="SansSerif Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="688.0" layoutY="142.0" text="Colonia">
+         <font>
+            <Font name="SansSerif Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="651.0" layoutY="322.0" text="Código postal">
+         <font>
+            <Font name="SansSerif Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="689.0" layoutY="187.0" text="Ciudad">
+         <font>
+            <Font name="SansSerif Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="559.0" layoutY="375.0" text="Usuario">
+         <font>
+            <Font name="SansSerif Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="541.0" layoutY="415.0" text="Contraseña">
+         <font>
+            <Font name="SansSerif Bold" size="12.0" />
+         </font></Label>
+      <TextField fx:id="cedulaInput" layoutX="471.0" layoutY="88.0" />
+      <TextField fx:id="nombreInput" layoutX="471.0" layoutY="137.0" />
+      <TextField fx:id="apellidopInput" layoutX="471.0" layoutY="182.0" />
+      <TextField fx:id="apellidomInput" layoutX="471.0" layoutY="226.0" />
+      <TextField fx:id="telefonoInput" layoutX="471.0" layoutY="272.0" />
+      <TextField fx:id="tipoTelefonoInput" layoutX="471.0" layoutY="319.0" />
+      <TextField fx:id="calleInput" layoutX="749.0" layoutY="88.0" />
+      <TextField fx:id="coloniaInput" layoutX="749.0" layoutY="138.0" />
+      <TextField fx:id="ciudadInput" layoutX="748.0" layoutY="183.0" />
+      <TextField fx:id="numExtInput" layoutX="748.0" layoutY="227.0" />
+      <TextField fx:id="numIntInput" layoutX="748.0" layoutY="272.0" promptText="Opcional" />
+      <TextField fx:id="cpInput" layoutX="749.0" layoutY="318.0" />
+      <TextField fx:id="usernameInput" layoutX="612.0" layoutY="370.0" />
+      <PasswordField fx:id="passwordInput" layoutX="612.0" layoutY="410.0" />
+      <PasswordField fx:id="confirmPassword" layoutX="613.0" layoutY="452.0" />
+      <Button layoutX="527.0" layoutY="618.0" mnemonicParsing="false" onAction="#saveRegisterMedico" prefHeight="40.0" prefWidth="90.0" styleClass="clientBotonesArriba" stylesheets="@../values/style.css" text="Guardar" />
+      <Button layoutX="684.0" layoutY="618.0" mnemonicParsing="false" onAction="#cancelRegisterMedico" prefHeight="40.0" prefWidth="90.0" styleClass="cancelarButton" stylesheets="@../values/style.css" text="Cancelar" />
+      <Label layoutX="407.0" layoutY="276.0" text="Telefono">
+         <font>
+            <Font name="SansSerif Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="372.0" layoutY="323.0" text="Tipo de telefono">
+         <font>
+            <Font name="SansSerif Bold" size="12.0" />
+         </font></Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="536.0" layoutY="442.0" prefHeight="46.0" prefWidth="69.0" text="Confirmar contraseña" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="SansSerif Bold" size="12.0" />
+         </font></Label>
+      <Group fx:id="alertGroup" layoutX="487.0" layoutY="510.0" visible="false">
          <children>
             <ImageView fitHeight="114.0" fitWidth="358.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -67,79 +112,79 @@
             </Label>
          </children>
       </Group>
-      <Group fx:id="requiredGroup" layoutX="603.0" layoutY="44.0" visible="false">
+      <Group fx:id="requiredGroup" layoutX="610.0" layoutY="49.0" visible="false">
          <children>
-            <Label layoutY="35.0" text="*" textFill="RED">
+            <Label layoutY="35.0" text="*" textFill="#b12929">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutY="85.0" text="*" textFill="RED">
+            <Label layoutY="85.0" text="*" textFill="#b12929">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutY="130.0" text="*" textFill="RED">
+            <Label layoutY="130.0" text="*" textFill="#b12929">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutY="174.0" text="*" textFill="RED">
+            <Label layoutY="174.0" text="*" textFill="#b12929">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutY="220.0" text="*" textFill="RED">
+            <Label layoutY="220.0" text="*" textFill="#b12929">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutY="267.0" text="*" textFill="RED">
+            <Label layoutY="267.0" text="*" textFill="#b12929">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="278.0" layoutY="35.0" text="*" textFill="RED">
+            <Label layoutX="278.0" layoutY="35.0" text="*" textFill="#b12929">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="278.0" layoutY="86.0" text="*" textFill="RED">
+            <Label layoutX="278.0" layoutY="86.0" text="*" textFill="#b12929">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="278.0" layoutY="131.0" text="*" textFill="RED">
+            <Label layoutX="278.0" layoutY="131.0" text="*" textFill="#b12929">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="278.0" layoutY="175.0" text="*" textFill="RED">
+            <Label layoutX="278.0" layoutY="175.0" text="*" textFill="#b12929">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="278.0" layoutY="267.0" text="*" textFill="RED">
+            <Label layoutX="278.0" layoutY="267.0" text="*" textFill="#b12929">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="141.0" layoutY="317.0" text="*" textFill="RED">
+            <Label layoutX="141.0" layoutY="317.0" text="*" textFill="#b12929">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="141.0" layoutY="358.0" text="*" textFill="RED">
+            <Label layoutX="141.0" layoutY="358.0" text="*" textFill="#b12929">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="141.0" layoutY="399.0" text="*" textFill="RED">
+            <Label layoutX="141.0" layoutY="399.0" text="*" textFill="#b12929">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="213.0" text="* Requerido" textFill="RED">
+            <Label layoutX="213.0" text="* Requerido" textFill="#b12929">
                <font>
                   <Font size="16.0" />
                </font>

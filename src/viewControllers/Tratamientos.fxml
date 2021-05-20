@@ -16,16 +16,22 @@
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER" prefHeight="117.0" prefWidth="1038.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="117.0" prefWidth="1038.0">
                <children>
                   <Label text="Tratamientos">
                      <font>
                         <Font name="Corbel Bold" size="40.0" />
                      </font>
+                     <HBox.margin>
+                        <Insets left="70.0" />
+                     </HBox.margin>
                   </Label>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
-                  <Button fx:id="registerItemButton" mnemonicParsing="false" onAction="#registerItem" text="Registrar tratamiento" />
-                  <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#backHome" text="volver a inicio">
+                  <Button fx:id="registerItemButton" mnemonicParsing="false" onAction="#registerItem" styleClass="clientBotonesArriba" text="Registrar tratamiento">
+                     <HBox.margin>
+                        <Insets left="515.0" />
+                     </HBox.margin></Button>
+                  <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#backHome" styleClass="clientBotonesArriba" text="Volver a inicio">
                      <HBox.margin>
                         <Insets left="30.0" />
                      </HBox.margin>
@@ -34,18 +40,21 @@
             </HBox>
             <HBox alignment="TOP_CENTER" prefHeight="66.0" prefWidth="1280.0">
                <children>
-                  <TextField fx:id="searchInput" prefHeight="25.0" prefWidth="380.0" promptText="ingrese clave o nombre del tratamiento" />
+                  <TextField fx:id="searchInput" prefHeight="25.0" prefWidth="380.0" promptText="Ingrese clave o nombre del tratamiento" styleClass="barraBuscar" />
                   <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#deleteSearch" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../assets/xIcon.png" />
                      </image>
+                     <HBox.margin>
+                        <Insets top="1.5" />
+                     </HBox.margin>
                   </ImageView>
-                  <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchItem" text="Buscar" />
+                  <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchItem" styleClass="buscarButton" text="Buscar" />
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1264.0" styleClass="grey-background" stylesheets="@../values/style.css">
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1264.0" styleClass="titulosLista" stylesheets="@../values/style.css">
                <children>
-                  <Label alignment="CENTER" prefWidth="150.0" text="Clave">
+                  <Label alignment="CENTER" prefWidth="150.0" styleClass="labelsLista" text="Clave">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -53,17 +62,17 @@
                         <Insets />
                      </HBox.margin>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="21.0" prefWidth="230.0" text="Nombre">
+                  <Label alignment="CENTER" prefHeight="21.0" prefWidth="230.0" styleClass="labelsLista" text="Nombre">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefWidth="150.0" text="Precio">
+                  <Label alignment="CENTER" prefWidth="150.0" styleClass="labelsLista" text="Precio">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="21.0" prefWidth="406.0" text="Descripción">
+                  <Label alignment="CENTER" prefHeight="21.0" prefWidth="406.0" styleClass="labelsLista" text="Descripción">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>

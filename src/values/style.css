@@ -41,8 +41,13 @@
 }
 
 
-.light-gray-background{
-    -fx-background-color: #E1E1E1;
+.titulosLista{
+    -fx-background-color: #5ba09a;
+}
+
+.labelsLista{
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
 }
 
 .clientButton:hover {
@@ -64,4 +69,19 @@
 
 .clientBotonesArriba:hover {
     -fx-background-color: #67b5ae;
+}
+
+.barraBuscar{
+    -fx-border-color:#717171;
+    -fx-border-radius: 2 2 2 2;
+}
+
+.cancelarButton{
+    -fx-border-color:#717171;
+    -fx-background-color: #717171;
+    -fx-text-fill: white;
+}
+
+.cancelarButton:hover {
+    -fx-background-color: #8D8D8D;
 }

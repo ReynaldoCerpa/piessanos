@@ -12,18 +12,18 @@
             <Font name="System Bold" size="41.0" />
          </font>
       </Label>
-      <Button alignment="CENTER" layoutX="299.0" layoutY="210.0" mnemonicParsing="false" onAction="#displayMedicamentos" prefHeight="113.0" prefWidth="300.0" text="Medicamentos">
+      <Button alignment="CENTER" layoutX="299.0" layoutY="231.0" mnemonicParsing="false" onAction="#displayMedicamentos" prefHeight="113.0" prefWidth="300.0" styleClass="clientButton" stylesheets="@../values/style.css" text="Medicamentos">
          <font>
             <Font size="30.0" />
          </font>
       </Button>
-      <Button alignment="CENTER" layoutX="701.0" layoutY="210.0" mnemonicParsing="false" onAction="#displayMateriales" prefHeight="113.0" prefWidth="300.0" text="Materiales de consulta" textAlignment="CENTER" wrapText="true">
+      <Button alignment="CENTER" layoutX="701.0" layoutY="231.0" mnemonicParsing="false" onAction="#displayMateriales" prefHeight="113.0" prefWidth="300.0" styleClass="clientButton" stylesheets="@../values/style.css" text="Materiales de consulta" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="30.0" />
          </font>
       </Button>
-      <Button layoutX="1107.0" layoutY="60.0" mnemonicParsing="false" onAction="#displayHome" text="volver a inicio" />
-      <Button alignment="CENTER" layoutX="501.0" layoutY="360.0" mnemonicParsing="false" onAction="#displayProveedores" prefHeight="113.0" prefWidth="300.0" text="Proveedores">
+      <Button layoutX="1107.0" layoutY="60.0" mnemonicParsing="false" onAction="#displayHome" styleClass="clientBotonesArriba" stylesheets="@../values/style.css" text="Volver a inicio" />
+      <Button alignment="CENTER" layoutX="501.0" layoutY="406.0" mnemonicParsing="false" onAction="#displayProveedores" prefHeight="113.0" prefWidth="300.0" styleClass="clientButton" stylesheets="@../values/style.css" text="Proveedores">
          <font>
             <Font size="30.0" />
          </font>

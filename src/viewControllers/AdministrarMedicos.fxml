@@ -40,9 +40,9 @@
             </HBox>
             <HBox alignment="TOP_CENTER" prefHeight="66.0" prefWidth="1280.0">
                <children>
-                  <TextField fx:id="searchMedicoInput" prefHeight="25.0" prefWidth="380.0" promptText="ingrese dato del medico">
+                  <TextField fx:id="searchMedicoInput" prefHeight="25.0" prefWidth="380.0" promptText="Ingrese dato del médico" styleClass="barraBuscar">
                      <HBox.margin>
-                        <Insets top="1.0" />
+                        <Insets />
                      </HBox.margin></TextField>
                   <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#deleteSearch" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -55,9 +55,9 @@
                   <Button fx:id="searchMedicoButton" mnemonicParsing="false" onAction="#searchMedico" styleClass="buscarButton" text="Buscar" />
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1264.0" styleClass="light-gray-background" stylesheets="@../values/style.css">
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1264.0" styleClass="titulosLista" stylesheets="@../values/style.css">
                <children>
-                  <Label alignment="CENTER" prefWidth="150.0" text="Cedula">
+                  <Label alignment="CENTER" prefWidth="150.0" styleClass="labelsLista" text="Cedula">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -65,17 +65,17 @@
                         <Insets />
                      </HBox.margin>
                   </Label>
-                  <Label alignment="CENTER" prefWidth="346.0" text="Nombre">
+                  <Label alignment="CENTER" prefWidth="346.0" styleClass="labelsLista" text="Nombre">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefWidth="150.0" text="Teléfono">
+                  <Label alignment="CENTER" prefWidth="150.0" styleClass="labelsLista" text="Teléfono">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefWidth="150.0" text="Usuario">
+                  <Label alignment="CENTER" prefWidth="150.0" styleClass="labelsLista" text="Usuario">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
