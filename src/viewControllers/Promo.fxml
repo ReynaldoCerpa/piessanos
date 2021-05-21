@@ -8,28 +8,27 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.Promo">
    <children>
-      <Label layoutX="589.0" layoutY="32.0" text="Promociones">
+      <Label layoutX="564.0" layoutY="29.0" text="Promociones">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <TextField layoutX="443.0" layoutY="83.0" prefHeight="25.0" prefWidth="343.0" promptText="ingrese nombre de la promocion" />
-      <Button layoutX="786.0" layoutY="83.0" mnemonicParsing="false" text="Buscar" />
-      <TableView layoutX="200.0" layoutY="128.0" prefHeight="578.0" prefWidth="881.0">
+      <TextField layoutX="443.0" layoutY="83.0" prefHeight="25.0" prefWidth="343.0" promptText="Ingrese nombre de la promoción" />
+      <Button layoutX="788.0" layoutY="82.0" mnemonicParsing="false" styleClass="buscarButton" stylesheets="@../values/style.css" text="Buscar" />
+      <TableView layoutX="200.0" layoutY="128.0" prefHeight="578.0" prefWidth="881.0" stylesheets="@../values/style.css">
         <columns>
-          <TableColumn prefWidth="75.0" text="codigo" />
-          <TableColumn prefWidth="254.0" text="nombre" />
-            <TableColumn prefWidth="284.0" text="tratamiento" />
-            <TableColumn prefWidth="59.0" text="dia" />
-            <TableColumn prefWidth="116.0" text="mes" />
-            <TableColumn prefWidth="92.0" text="descuento" />
+          <TableColumn prefWidth="75.0" text="Código" />
+          <TableColumn prefWidth="254.0" text="Nombre" />
+            <TableColumn prefWidth="284.0" text="Tratamiento" />
+            <TableColumn prefWidth="59.0" text="Día" />
+            <TableColumn prefWidth="116.0" text="Mes" />
+            <TableColumn prefWidth="92.0" text="Descuento" />
         </columns>
       </TableView>
-      <Button fx:id="homeButton" layoutX="1174.0" layoutY="47.0" mnemonicParsing="false" onAction="#displayHome" text="volver a inicio" />
-      <Button fx:id="createPromoButton" layoutX="1099.0" layoutY="128.0" mnemonicParsing="false" onAction="#createPromo" prefHeight="44.0" prefWidth="164.0" text="Crear promoción">
+      <Button fx:id="homeButton" layoutX="1174.0" layoutY="47.0" mnemonicParsing="false" onAction="#displayHome" styleClass="clientBotonesArriba" stylesheets="@../values/style.css" text="Volver a inicio" />
+      <Button fx:id="createPromoButton" layoutX="1099.0" layoutY="128.0" mnemonicParsing="false" onAction="#createPromo" prefHeight="44.0" prefWidth="164.0" styleClass="promoButton" stylesheets="@../values/style.css" text="Crear promoción">
          <font>
             <Font size="15.0" />
          </font>

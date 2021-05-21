@@ -85,3 +85,33 @@
 .cancelarButton:hover {
     -fx-background-color: #8D8D8D;
 }
+
+.table-view .column-header {
+    -fx-background-color: #67b5ae;
+}
+
+.calendar-cell:hover {
+    -fx-background-color: rgba(135,206,235,0.7);
+    -fx-text-fill: white;
+}
+
+
+.promoButton {
+    -fx-background-color: #67b5ae;
+    -fx-text-fill: white;
+}
+
+.promoButton:hover {
+    -fx-background-color: #66ada7;
+}
+
+.radio-button .radio {
+    -fx-border-width: 0.5px;
+    -fx-border-color: #000;
+    -fx-background-color: #98d6d1 ;
+    -fx-border-radius: 15px;
+}
+
+.medicoItem{
+    -fx-background-color: #b2d1cf;
+}

@@ -13,9 +13,9 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.RegisterMedico">
    <children>
-      <Label layoutX="564.0" layoutY="14.0" text="Registrar médico" textFill="#3c6360" underline="true">
+      <Label layoutX="559.0" layoutY="14.0" text="Registrar médico" textFill="#3c6360" underline="true">
          <font>
-            <Font name="System Bold" size="24.0" />
+            <Font name="System Bold" size="26.0" />
          </font>
       </Label>
       <Label layoutX="351.0" layoutY="92.0" text="Cédula profesional">
@@ -38,11 +38,11 @@
          <font>
             <Font name="SansSerif Bold" size="12.0" />
          </font></Label>
-      <Label layoutX="647.0" layoutY="231.0" text="Numero exterior">
+      <Label layoutX="647.0" layoutY="231.0" text="Número exterior">
          <font>
             <Font name="SansSerif Bold" size="12.0" />
          </font></Label>
-      <Label layoutX="648.0" layoutY="276.0" text="Numero interior">
+      <Label layoutX="648.0" layoutY="276.0" text="Número interior">
          <font>
             <Font name="SansSerif Bold" size="12.0" />
          </font></Label>
@@ -83,11 +83,11 @@
       <PasswordField fx:id="confirmPassword" layoutX="613.0" layoutY="452.0" />
       <Button layoutX="527.0" layoutY="618.0" mnemonicParsing="false" onAction="#saveRegisterMedico" prefHeight="40.0" prefWidth="90.0" styleClass="clientBotonesArriba" stylesheets="@../values/style.css" text="Guardar" />
       <Button layoutX="684.0" layoutY="618.0" mnemonicParsing="false" onAction="#cancelRegisterMedico" prefHeight="40.0" prefWidth="90.0" styleClass="cancelarButton" stylesheets="@../values/style.css" text="Cancelar" />
-      <Label layoutX="407.0" layoutY="276.0" text="Telefono">
+      <Label layoutX="407.0" layoutY="276.0" text="Teléfono">
          <font>
             <Font name="SansSerif Bold" size="12.0" />
          </font></Label>
-      <Label layoutX="372.0" layoutY="323.0" text="Tipo de telefono">
+      <Label layoutX="372.0" layoutY="323.0" text="Tipo de teléfono">
          <font>
             <Font name="SansSerif Bold" size="12.0" />
          </font></Label>
