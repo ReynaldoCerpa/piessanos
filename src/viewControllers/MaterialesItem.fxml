@@ -8,26 +8,26 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER" prefHeight="80.0" prefWidth="1280.0" stylesheets="@../values/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.MaterialesItem">
+<HBox alignment="CENTER" prefHeight="65.0" prefWidth="1280.0" stylesheets="@../values/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.MaterialesItem">
    <children>
-      <Label fx:id="numInventario" alignment="TOP_CENTER" prefHeight="70.0" prefWidth="230.0" text="Número inventario">
+      <Label fx:id="numInventario" alignment="CENTER" prefHeight="70.0" prefWidth="230.0" text="Número inventario">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label fx:id="nombre" alignment="TOP_CENTER" prefHeight="70.0" prefWidth="150.0" text="Nombre">
+      <Label fx:id="nombre" alignment="CENTER" prefHeight="70.0" prefWidth="150.0" text="Nombre">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label fx:id="cantidad" alignment="TOP_CENTER" prefHeight="70.0" prefWidth="148.0" text="Cantidad en inventario" textAlignment="CENTER" wrapText="true">
+      <Label fx:id="cantidad" alignment="CENTER" prefHeight="70.0" prefWidth="148.0" text="Cantidad en inventario" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
       <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="100.0">
          <children>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#editMedicamento" prefHeight="40.0" prefWidth="40.0">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#editMedicamento" prefHeight="40.0" prefWidth="40.0" styleClass="medicoItem" stylesheets="@../values/style.css">
                <graphic>
                   <ImageView fx:id="editButton" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -36,7 +36,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#deleteMedicamento" prefHeight="40.0" prefWidth="40.0">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#deleteMedicamento" prefHeight="40.0" prefWidth="40.0" styleClass="medicoItem" stylesheets="@../values/style.css">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
