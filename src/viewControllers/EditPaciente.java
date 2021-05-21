@@ -38,14 +38,11 @@ public class EditPaciente {
         try{
             myRes = database.connectSQL("paciente");
             telRes = database.connectSQL("paciente_telefono");
-            enfRes = database.connectSQL("expediente_enfermedad");
-            medRes = database.connectSQL("expediente_medicamentoPrescrito");
-            aleRes = database.connectSQL("expediente_alergia");
         } catch (Exception e){
             e.printStackTrace();
         }
 
-        while(myRes.next() && telRes.next() && enfRes.next() && medRes.next() && aleRes.next()){
+        while(myRes.next() && telRes.next()){
             if (motor.getSelectedItem().equals(myRes.getString("id"))){
                 nombreInput.setText(myRes.getString("nombre"));
                 apellidopInput.setText(myRes.getString("nomPaterno"));
@@ -79,13 +76,24 @@ public class EditPaciente {
             }
             if (notfound){
                 try{
-                    String sql = "update paciente set nombre = ?, precio = ?, descripcion = ?"
-                            +" where clave = ?";
-                    String id = motor.getSelectedItem();
+                    String sql = "update paciente set nombre = ?, nomPaterno = ?, nomMaterno = ?"
+                            +" where id = ?";
                     PreparedStatement stmt = database.updateData(sql);
-                    stmt.setString(1,nombreInput.getText());
-                    stmt.setString(4,id);
+                    String id = motor.getSelectedItem();
+                    stmt.setString(1, nombreInput.getText());
+                    stmt.setString(2, apellidopInput.getText());
+                    stmt.setString(3, apellidomInput.getText());
+                    stmt.setString(4, id);
                     stmt.executeUpdate();
+
+                    String telefono = "update paciente_telefono set numTelefono = ?, tipo = ? "
+                            + "where id_paciente = ?";
+                    PreparedStatement telStmt = database.updateData(telefono);
+                    telStmt.setString(1, tel1Input.getText());
+                    telStmt.setString(2, "celular");
+                    telStmt.setString(3, id);
+                    telStmt.executeUpdate();
+
                     alertText.setVisible(false);
                     requiredGroup.setVisible(false);
 

@@ -6,6 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -312,14 +313,14 @@ public class Motor {
     }
     public void showExpedienteUser(ActionEvent event){
         try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ExpedienteUser.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Expediente.fxml"));
             Parent root = loader.load();
-            ExpedienteUser controller = loader.<ExpedienteUser>getController();
+            Expediente controller = loader.<Expediente>getController();
             controller.receiveMotorInstance(this);
-            Scene ExpedienteUserScene = new Scene(root);
+            Scene scene = new Scene(root);
 
             Stage currentStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            currentStage.setScene(ExpedienteUserScene);
+            currentStage.setScene(scene);
         }
         catch (Exception e){
             e.printStackTrace();
@@ -490,6 +491,53 @@ public class Motor {
             e.printStackTrace();
         }
     }
+    public void showConsultas(ActionEvent event){
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Consultas.fxml"));
+            Parent root = loader.load();
+            Consultas controller = loader.<Consultas>getController();
+            controller.receiveMotorInstance(this);
+            Scene scene = new Scene(root);
+
+            Stage currentStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            currentStage.setScene(scene);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    public void showConsulta(ActionEvent event){
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowConsulta.fxml"));
+            Parent root = loader.load();
+            ShowConsulta controller = loader.<ShowConsulta>getController();
+            controller.receiveMotorInstance(this);
+            Scene scene = new Scene(root);
+
+            Stage currentStage = new Stage();
+            currentStage.setScene(scene);
+            currentStage.initModality(Modality.APPLICATION_MODAL);
+            currentStage.show();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    public void closeConsulta(ActionEvent event){
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowConsulta.fxml"));
+            Parent root = loader.load();
+            ShowConsulta controller = loader.<ShowConsulta>getController();
+            controller.receiveMotorInstance(this);
+            Scene scene = new Scene(root);
+
+            Stage currentStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            currentStage.hide();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 
     /* User getters and setters*/
     public void setCedula(String cedula){
@@ -550,6 +598,16 @@ public class Motor {
     public String formatTime(String hour, String minutes){
         String time = hour+":"+minutes;
         return time;
+    }
+    public boolean confirmAction(String text){
+        boolean response = false;
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setHeaderText(text);
+
+        if (alert.showAndWait().get() == ButtonType.OK){
+            response = true;
+        }
+        return response;
     }
 
 

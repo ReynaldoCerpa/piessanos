@@ -20,12 +20,6 @@
       <TextField fx:id="apellidomInput" layoutX="610.0" layoutY="176.0" />
       <Label layoutX="473.0" layoutY="229.0" text="Telefono(s) de contacto" />
       <TextField fx:id="tel1Input" layoutX="610.0" layoutY="225.0" prefHeight="25.0" prefWidth="113.0" promptText="Tel. 1" />
-      <Label layoutX="557.0" layoutY="274.0" text="alergias" />
-      <Label layoutX="522.0" layoutY="346.0" text="enfermedades" />
-      <Label layoutX="465.0" layoutY="419.0" text="medicamentos prescritos" />
-      <TextField fx:id="medPrescritosInput" alignment="TOP_LEFT" layoutX="610.0" layoutY="419.0" prefHeight="60.0" prefWidth="245.0" promptText="en caso de no tener escribir: No aplica" />
-      <TextField fx:id="enfermedadesInput" alignment="TOP_LEFT" layoutX="610.0" layoutY="346.0" prefHeight="60.0" prefWidth="245.0" promptText="en caso de no tener escribir: No aplica" />
-      <TextField fx:id="alergiasInput" alignment="TOP_LEFT" layoutX="610.0" layoutY="274.0" prefHeight="60.0" prefWidth="245.0" promptText="en caso de no tener escribir: No aplica" />
       <Label layoutX="577.0" layoutY="24.0" text="Editar paciente">
          <font>
             <Font name="System Bold" size="27.0" />

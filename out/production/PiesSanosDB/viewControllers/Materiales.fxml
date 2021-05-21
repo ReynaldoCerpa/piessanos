@@ -25,11 +25,6 @@
                   </Label>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
                   <Button fx:id="registerItemButton" mnemonicParsing="false" onAction="#registerItem" text="Registrar material" />
-                  <Button fx:id="displayProveedoresButton" mnemonicParsing="false" onAction="#displayProveedores" text="Proveedores">
-                     <HBox.margin>
-                        <Insets left="30.0" />
-                     </HBox.margin>
-                  </Button>
                   <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#backHome" text="volver a inicio">
                      <HBox.margin>
                         <Insets left="30.0" />

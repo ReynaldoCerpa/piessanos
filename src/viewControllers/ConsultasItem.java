@@ -1,9 +1,6 @@
 package viewControllers;
 
-import Model.Medicamento;
-import Model.Medico;
-import Model.Paciente;
-import Model.Tratamiento;
+import Model.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -19,16 +16,7 @@ public class ConsultasItem implements Initializable {
     private Label id;
 
     @FXML
-    private Label nombre;
-
-    @FXML
-    private Label nomPaterno;
-
-    @FXML
-    private Label nomMaterno;
-
-    @FXML
-    private Label telefono;
+    private Label fecha;
 
     @FXML
     private ImageView editButton;
@@ -51,16 +39,12 @@ public class ConsultasItem implements Initializable {
     public void openExpediente(ActionEvent event) {
         listener.showListener(editButton.getId(), event);
     }
-    public void setData(Paciente paciente, Listener listener){
+    public void setData(Consulta item, Listener listener){
 
         this.listener = listener;
-        deleteButton.setId(paciente.getId());
-        editButton.setId(paciente.getId());
-        id.setText(paciente.getId());
-        nombre.setText(paciente.getNombre());
-        nomPaterno.setText(paciente.getNomPaterno());
-        nomMaterno.setText(paciente.getNomMaterno());
-        telefono.setText(paciente.getTelefono());
+        editButton.setId(item.getNumCita());
+        id.setText(item.getNumCita());
+        fecha.setText(item.getFecha());
     }
 
     public String getButtonID(){

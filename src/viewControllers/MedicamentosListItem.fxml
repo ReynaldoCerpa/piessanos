@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER" prefHeight="50.0" prefWidth="407.0" stylesheets="@../values/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.MedicamentosListItem">
+   <children>
+      <Label fx:id="id" alignment="CENTER" prefHeight="30.0" prefWidth="56.0" text="id">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" prefHeight="33.0" prefWidth="128.0">
+         <children>
+            <Label fx:id="nombre" alignment="CENTER" prefHeight="21.0" text="Nombre">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="7.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="33.0" prefWidth="79.0">
+         <children>
+            <Label fx:id="precio" alignment="CENTER" prefHeight="21.0" text="Precio">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="34.0">
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+         <children>
+            <RadioButton fx:id="MEDrb" mnemonicParsing="false" />
+         </children>
+      </HBox>
+   </children>
+</HBox>

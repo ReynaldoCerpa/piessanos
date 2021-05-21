@@ -62,19 +62,20 @@ public class Pacientes implements Initializable {
                 public void deleteListener(String id, ActionEvent event) throws SQLException{
 
                     setChosenItem(id);
-                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                    alert.setHeaderText("¿Está seguro que desea eliminar a: "+findItem(id)+"?");
-
-                    if (alert.showAndWait().get() == ButtonType.OK){
-                        System.out.println("Paciente eliminado");
+                    String text = "Está seguro que desea eliminar a: "+findItem(id);
+                    if (motor.confirmAction(text)){
                         deleteItem(id, event);
                     }
-
                 }
                 @Override
                 public void showListener(String id, ActionEvent event){
                     setChosenItem(id);
                     motor.showExpedienteUser(event);
+                }
+
+                @Override
+                public void selectListener(String id, ActionEvent event) {
+
                 }
             };
             loadItems(itemList);
@@ -191,6 +192,11 @@ public class Pacientes implements Initializable {
                     PreparedStatement stmt = database.updateData(sql);
                     stmt.setString(1, id);
                     stmt.executeUpdate();
+
+                    String cita = "delete from cita where id_paciente= ? ";
+                    PreparedStatement Citastmt = database.updateData(cita);
+                    Citastmt.setString(1, id);
+                    Citastmt.executeUpdate();
 
                     motor.showPacientes(event);
                 } catch (Exception e){

@@ -74,6 +74,11 @@ public class Medicamentos implements Initializable {
                 public void showListener(String id, ActionEvent event) {
                     motor.showExpedienteUser(event);
                 }
+
+                @Override
+                public void selectListener(String id, ActionEvent event) {
+
+                }
             };
             loadItems(itemList);
         } catch (SQLException e) {

@@ -45,7 +45,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1264.0" styleClass="grey-background" stylesheets="@../values/style.css">
                <children>
-                  <Label alignment="CENTER" prefWidth="150.0" text="id">
+                  <Label alignment="CENTER" prefHeight="21.0" prefWidth="137.0" text="id">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -67,7 +67,7 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="110.0" />
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="145.0" />
                </children>
             </HBox>
             <HBox prefHeight="366.0" prefWidth="1280.0" VBox.vgrow="ALWAYS">

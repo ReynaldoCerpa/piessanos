@@ -104,28 +104,31 @@ public class RegisterPaciente {
                     telStmt.setString(3, id);
                     telStmt.executeUpdate();
 
-                    String alergias = "insert into expediente_alergia (nombre, descripcion, id_expediente)"
-                            + "values (?, ?, (select id from expediente where id=?))";
+                    String alergias = "insert into expediente_alergia (id, nombre, descripcion, id_expediente)"
+                            + "values (?, ?, ?, (select id from expediente where id=?))";
                     PreparedStatement aleStmt = database.updateData(alergias);
-                    aleStmt.setString(1, alergiasInput.getText());
-                    aleStmt.setString(2, "descripcion");
-                    aleStmt.setString(3, exp_id);
+                    aleStmt.setString(1, exp_id+size);
+                    aleStmt.setString(2, alergiasInput.getText());
+                    aleStmt.setString(3, "descripcion");
+                    aleStmt.setString(4, exp_id);
                     aleStmt.executeUpdate();
 
-                    String medicamento = "insert into expediente_medicamentoPrescrito (nombre, descripcion, id_expediente)"
-                            + "values (?, ?, (select id from expediente where id=?))";
+                    String medicamento = "insert into expediente_medicamentoPrescrito (id, nombre, descripcion, id_expediente)"
+                            + "values (?, ?, ?, (select id from expediente where id=?))";
                     PreparedStatement medStmt = database.updateData(medicamento);
-                    medStmt.setString(1, medPrescritosInput.getText());
-                    medStmt.setString(2, "descripcion");
-                    medStmt.setString(3, exp_id);
+                    medStmt.setString(1, exp_id+size);
+                    medStmt.setString(2, medPrescritosInput.getText());
+                    medStmt.setString(3, "descripcion");
+                    medStmt.setString(4, exp_id);
                     medStmt.executeUpdate();
 
-                    String enfermedad = "insert into expediente_enfermedad (nombre, descripcion, id_expediente)"
-                            + "values (?, ?, (select id from expediente where id=?))";
+                    String enfermedad = "insert into expediente_enfermedad (id, nombre, descripcion, id_expediente)"
+                            + "values (?, ?, ?, (select id from expediente where id=?))";
                     PreparedStatement enfStmt = database.updateData(enfermedad);
-                    enfStmt.setString(1, enfermedadesInput.getText());
-                    enfStmt.setString(2, "descripcion");
-                    enfStmt.setString(3, exp_id);
+                    enfStmt.setString(1, exp_id+size);
+                    enfStmt.setString(2, enfermedadesInput.getText());
+                    enfStmt.setString(3, "descripcion");
+                    enfStmt.setString(4, exp_id);
                     enfStmt.executeUpdate();
 
                     alertText.setVisible(false);
