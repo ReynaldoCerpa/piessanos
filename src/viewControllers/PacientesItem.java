@@ -47,7 +47,10 @@ public class PacientesItem implements Initializable {
     private void deleteItem(ActionEvent event) throws SQLException {
         listener.deleteListener(editButton.getId(), event);
     }
-
+    @FXML
+    public void openExpediente(ActionEvent event) {
+        listener.showListener(editButton.getId(), event);
+    }
     public void setData(Paciente paciente, Listener listener){
 
         this.listener = listener;
@@ -59,6 +62,7 @@ public class PacientesItem implements Initializable {
         nomMaterno.setText(paciente.getNomMaterno());
         telefono.setText(paciente.getTelefono());
     }
+
     public String getButtonID(){
         return editButton.getId();
     }

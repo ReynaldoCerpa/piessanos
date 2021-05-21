@@ -51,6 +51,7 @@ public class RegisterCitas implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
+            domicilio.setText("Local");
             loadItems();
             itemList.getItems().addAll(nameArray);
             itemList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
@@ -133,11 +134,13 @@ public class RegisterCitas implements Initializable {
         domicilio.setVisible(false);
         domicilio.clear();
         domiciliolabel.setVisible(false);
+        domicilio.setText("Local");
         a_domicilio = "0";
     }
 
     public void yesRadioButton(ActionEvent event) {
         no.setSelected(false);
+        domicilio.clear();
         domicilio.setVisible(true);
         domiciliolabel.setVisible(true);
         a_domicilio = "1";

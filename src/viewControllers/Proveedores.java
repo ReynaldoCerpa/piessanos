@@ -70,6 +70,16 @@ public class Proveedores implements Initializable {
                     }
 
                 }
+
+                @Override
+                public void showListener(String id, ActionEvent event) {
+
+                }
+
+                @Override
+                public void selectListener(String id, ActionEvent event) {
+
+                }
             };
             loadItems(itemList);
         } catch (SQLException e) {

@@ -49,7 +49,7 @@ public class Client {
         motor.showPacientes(event);
     }
     public void displayPromociones(ActionEvent event) {
-        motor.showPromo(event);
+        motor.showPromocion(event);
     }
 
     public void displayInventario(ActionEvent event) {

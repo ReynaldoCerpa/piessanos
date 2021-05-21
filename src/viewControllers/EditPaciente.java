@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.sql.Date;
@@ -17,7 +18,9 @@ public class EditPaciente {
     private Motor motor;
     private SQLconnector database = new SQLconnector();
     @FXML
-    private TextField nombreInput, precioInput, descripcionInput;
+    private TextField nombreInput, apellidopInput, apellidomInput, tel1Input, tel2Input;
+    @FXML
+    private TextArea alergiasInput, enfermedadesInput, medPrescritosInput;
     @FXML
     private Label alertText;
     @FXML
@@ -28,20 +31,24 @@ public class EditPaciente {
     }
 
     public void receiveMotorInstance(Motor m) throws SQLException {
+
         this.motor = m;
 
-        ResultSet myRes = null;
-        try {
-            myRes = database.connectSQL("tratamiento");
-        } catch (Exception e) {
+        ResultSet myRes = null, telRes = null, enfRes = null, medRes = null, aleRes = null;
+        try{
+            myRes = database.connectSQL("paciente");
+            telRes = database.connectSQL("paciente_telefono");
+        } catch (Exception e){
             e.printStackTrace();
         }
 
-        while(myRes.next()){
-            if (motor.getSelectedItem().equals(myRes.getString("clave"))){
+        while(myRes.next() && telRes.next()){
+            if (motor.getSelectedItem().equals(myRes.getString("id"))){
                 nombreInput.setText(myRes.getString("nombre"));
-                precioInput.setText(myRes.getString("precio"));
-                descripcionInput.setText(myRes.getString("descripcion"));
+                apellidopInput.setText(myRes.getString("nomPaterno"));
+                apellidomInput.setText(myRes.getString("nomMaterno"));
+                tel1Input.setText(telRes.getString("numTelefono"));
+                nombreInput.setText(myRes.getString("nombre"));
                 break;
             }
         }
@@ -49,49 +56,44 @@ public class EditPaciente {
 
     public void saveItem(ActionEvent event) throws SQLException {
         alertText.setText("");
-        if (nombreInput.getText().equals("") || precioInput.getText().equals("") || descripcionInput.getText().equals("")){
+        if (nombreInput.getText().equals("")){
             alertGroup.setVisible(true);
             requiredGroup.setVisible(true);
             alertText.setText("Rellene todos los campos obligatorios\n");
         }else {
             ResultSet myRes = null;
             try{
-                myRes = database.connectSQL("tratamiento");
+                myRes = database.connectSQL("paciente");
             } catch (Exception e){
                 e.printStackTrace();
             }
 
             boolean notfound = true;
-            boolean out = false;
 
             int size = 1;
             while (myRes.next()){
                 size++;
             }
-            while(myRes.next()){
-
-                String nombre = myRes.getString("nombre");
-
-
-                if(nombre.equals(nombreInput.getText()) && !out){
-                    notfound = false;
-                    out = true;
-                    alertText.setText(alertText.getText() + "Nombre de tratamiento existente\n");
-                    alertGroup.setVisible(true);
-                    System.out.println("tratamiento name already taken");
-                }
-            }
             if (notfound){
                 try{
-                    String sql = "update tratamiento set nombre = ?, precio = ?, descripcion = ?"
-                            +" where clave = ?";
-                    String id = motor.getSelectedItem();
+                    String sql = "update paciente set nombre = ?, nomPaterno = ?, nomMaterno = ?"
+                            +" where id = ?";
                     PreparedStatement stmt = database.updateData(sql);
-                    stmt.setString(1,nombreInput.getText());
-                    stmt.setFloat(2, Float.parseFloat(precioInput.getText()));
-                    stmt.setString(3,descripcionInput.getText());
-                    stmt.setString(4,id);
+                    String id = motor.getSelectedItem();
+                    stmt.setString(1, nombreInput.getText());
+                    stmt.setString(2, apellidopInput.getText());
+                    stmt.setString(3, apellidomInput.getText());
+                    stmt.setString(4, id);
                     stmt.executeUpdate();
+
+                    String telefono = "update paciente_telefono set numTelefono = ?, tipo = ? "
+                            + "where id_paciente = ?";
+                    PreparedStatement telStmt = database.updateData(telefono);
+                    telStmt.setString(1, tel1Input.getText());
+                    telStmt.setString(2, "celular");
+                    telStmt.setString(3, id);
+                    telStmt.executeUpdate();
+
                     alertText.setVisible(false);
                     requiredGroup.setVisible(false);
 

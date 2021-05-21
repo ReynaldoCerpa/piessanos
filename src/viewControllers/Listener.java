@@ -9,4 +9,6 @@ import java.sql.SQLException;
 public interface Listener {
     public void editListener(String id, ActionEvent event);
     public void deleteListener(String id, ActionEvent event) throws SQLException;
+    public void showListener(String id, ActionEvent event);
+    public void selectListener(String id, ActionEvent event);
 }

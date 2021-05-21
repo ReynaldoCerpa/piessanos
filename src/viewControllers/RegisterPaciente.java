@@ -9,11 +9,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class RegisterPaciente {
     private Motor motor;
@@ -42,10 +42,13 @@ public class RegisterPaciente {
             requiredGroup.setVisible(true);
             alertText.setText("Rellene todos los campos obligatorios\n");
         }else {
-            ResultSet myRes = null, telRes = null;
+            ResultSet myRes = null, telRes = null, enfRes = null, medRes = null, aleRes = null;
             try{
                 myRes = database.connectSQL("paciente");
                 telRes = database.connectSQL("paciente_telefono");
+                enfRes = database.connectSQL("expediente_enfermedad");
+                medRes = database.connectSQL("expediente_medicamentoPrescrito");
+                aleRes = database.connectSQL("expediente_alergia");
             } catch (Exception e){
                 e.printStackTrace();
             }
@@ -75,6 +78,7 @@ public class RegisterPaciente {
             if (notfound){
                 try{
                     String id = "P-"+size;
+                    String exp_id = "EP-"+size;
                     String sql = "insert into paciente "+"(id, nombre, nomPaterno, nomMaterno)"
                             +" values (?,?,?,?)";
                     PreparedStatement stmt = database.updateData(sql);
@@ -84,6 +88,14 @@ public class RegisterPaciente {
                     stmt.setString(4, apellidomInput.getText());
                     stmt.executeUpdate();
 
+                    String expediente = "insert into expediente "+"(id, fecha_creacion, id_paciente)"
+                            +" values (?,?,(select id from paciente where id=?))";
+                    PreparedStatement expStmt = database.updateData(expediente);
+                    expStmt.setString(1, exp_id);
+                    expStmt.setString(2, String.valueOf(motor.formatCurrDate()));
+                    expStmt.setString(3, id);
+                    expStmt.executeUpdate();
+
                     String telefono = "insert into paciente_telefono (numTelefono, tipo, id_paciente)"
                             + "values (?,?, (select id from paciente where id=?))";
                     PreparedStatement telStmt = database.updateData(telefono);
@@ -91,6 +103,33 @@ public class RegisterPaciente {
                     telStmt.setString(2, "celular");
                     telStmt.setString(3, id);
                     telStmt.executeUpdate();
+
+                    String alergias = "insert into expediente_alergia (id, nombre, descripcion, id_expediente)"
+                            + "values (?, ?, ?, (select id from expediente where id=?))";
+                    PreparedStatement aleStmt = database.updateData(alergias);
+                    aleStmt.setString(1, exp_id+size);
+                    aleStmt.setString(2, alergiasInput.getText());
+                    aleStmt.setString(3, "descripcion");
+                    aleStmt.setString(4, exp_id);
+                    aleStmt.executeUpdate();
+
+                    String medicamento = "insert into expediente_medicamentoPrescrito (id, nombre, descripcion, id_expediente)"
+                            + "values (?, ?, ?, (select id from expediente where id=?))";
+                    PreparedStatement medStmt = database.updateData(medicamento);
+                    medStmt.setString(1, exp_id+size);
+                    medStmt.setString(2, medPrescritosInput.getText());
+                    medStmt.setString(3, "descripcion");
+                    medStmt.setString(4, exp_id);
+                    medStmt.executeUpdate();
+
+                    String enfermedad = "insert into expediente_enfermedad (id, nombre, descripcion, id_expediente)"
+                            + "values (?, ?, ?, (select id from expediente where id=?))";
+                    PreparedStatement enfStmt = database.updateData(enfermedad);
+                    enfStmt.setString(1, exp_id+size);
+                    enfStmt.setString(2, enfermedadesInput.getText());
+                    enfStmt.setString(3, "descripcion");
+                    enfStmt.setString(4, exp_id);
+                    enfStmt.executeUpdate();
 
                     alertText.setVisible(false);
                     requiredGroup.setVisible(false);
