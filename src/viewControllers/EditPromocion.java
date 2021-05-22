@@ -17,11 +17,13 @@ public class EditPromocion {
     private Motor motor;
     private SQLconnector database = new SQLconnector();
     @FXML
-    private TextField nombreInput, precioInput, cantidadInput, descripcionInput;
+    private TextField nombreInput, descuentoInput;
     @FXML
-    private Label alertText;
+    private Label alertText, selectedItemLabel;
     @FXML
     private Group alertGroup, requiredGroup;
+    @FXML
+    private DatePicker fechaInput;
 
     public EditPromocion(){
 
@@ -32,32 +34,43 @@ public class EditPromocion {
 
         ResultSet myRes = null;
         try {
-            myRes = database.connectSQL("medicamento");
+            myRes = database.connectSQL("promocion");
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         while(myRes.next()){
             if (motor.getSelectedItem().equals(myRes.getString("codigo"))){
+
+                String id = myRes.getString("clave_tratamiento");
+                String pacientequery = "select * from tratamiento where clave = ?";
+                PreparedStatement paciente = database.updateData(pacientequery);
+                paciente.setString(1, id);
+                ResultSet nombreItem = paciente.executeQuery();
+
+                String item= "";
+                while(nombreItem.next()) {
+                    item = nombreItem.getString("clave")+" "+nombreItem.getString("nombre");
+                }
+                selectedItemLabel.setText(item);
                 nombreInput.setText(myRes.getString("nombre"));
-                precioInput.setText(myRes.getString("precio"));
-                cantidadInput.setText(myRes.getString("cantidadinventario"));
-                descripcionInput.setText(myRes.getString("descripcion"));
+                descuentoInput.setText(myRes.getString("porcentaje_descuento"));
                 break;
             }
         }
     }
 
-    public void saveRegistrarMedicamento(ActionEvent event) throws SQLException {
+    public void saveItem(ActionEvent event) throws SQLException {
+        String date = motor.formatDate(fechaInput);
         alertText.setText("");
-        if (nombreInput.getText().equals("") || precioInput.getText().equals("") || cantidadInput.getText().equals("") || descripcionInput.getText().equals("")){
+        if (nombreInput.getText().isEmpty() || descuentoInput.getText().isEmpty()){
             alertGroup.setVisible(true);
             requiredGroup.setVisible(true);
             alertText.setText("Rellene todos los campos obligatorios\n");
         }else {
             ResultSet myRes = null;
             try{
-                myRes = database.connectSQL("medicamento");
+                myRes = database.connectSQL("promocion");
             } catch (Exception e){
                 e.printStackTrace();
             }
@@ -69,35 +82,21 @@ public class EditPromocion {
             while (myRes.next()){
                 size++;
             }
-            while(myRes.next()){
-
-                String nombre = myRes.getString("nombre");
-
-
-                if(nombre.equals(nombreInput.getText()) && !out){
-                    notfound = false;
-                    out = true;
-                    alertText.setText(alertText.getText() + "Nombre de usuario existente\n");
-                    alertGroup.setVisible(true);
-                    System.out.println("username already taken");
-                }
-            }
             if (notfound){
                 try{
-                    String sql = "update medicamento set nombre = ?, precio = ?, cantidadinventario = ?, descripcion = ?"
+                    String sql = "update promocion set nombre = ?, fecha = ?, porcentaje_descuento = ?"
                             +" where codigo = ?";
                     String id = motor.getSelectedItem();
                     PreparedStatement stmt = database.updateData(sql);
-                    stmt.setString(1,nombreInput.getText());
-                    stmt.setFloat(2, Float.parseFloat(precioInput.getText()));
-                    stmt.setInt(3, Integer.parseInt(cantidadInput.getText()));
-                    stmt.setString(4,descripcionInput.getText());
-                    stmt.setString(5,id);
+                    stmt.setString(1, nombreInput.getText());
+                    stmt.setDate(2, Date.valueOf(date));
+                    stmt.setString(3, descuentoInput.getText());
+                    stmt.setString(4, id);
                     stmt.executeUpdate();
                     alertText.setVisible(false);
                     requiredGroup.setVisible(false);
 
-                    motor.showMedicamentos(event);
+                    motor.showPromocion(event);
                 } catch (Exception e){
                     e.printStackTrace();
                 }
@@ -105,7 +104,8 @@ public class EditPromocion {
         }
     }
 
-    public void cancelRegisterMedicamento(ActionEvent event) {
-        motor.showMedicamentos(event);
+    public void cancelRegister(ActionEvent event) {
+        motor.showPromocion(event);
     }
+
 }

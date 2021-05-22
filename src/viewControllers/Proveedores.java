@@ -77,7 +77,7 @@ public class Proveedores implements Initializable {
                 }
 
                 @Override
-                public void selectListener(String id, ActionEvent event) {
+                public void selectListener(String id,  boolean isSelected, ActionEvent event) {
 
                 }
             };
@@ -112,14 +112,15 @@ public class Proveedores implements Initializable {
             String colonia = myRes.getString("colonia");
             String cp = myRes.getString("codigopostal");
             String ciudad = myRes.getString("ciudad");
+            String telefono = myRes.getString("telefono");
 
-            Proveedor newMed = defineItem(id, nombre, calle, numExt, numInt, colonia, cp, ciudad);
+            Proveedor newMed = defineItem(id, nombre, calle, numExt, numInt, colonia, cp, ciudad, telefono);
             itemList.add(newMed);
         }
         return itemList;
     }
 
-    public Proveedor defineItem(String id, String nombre, String calle, String numExt, String numInt, String colonia, String cp, String ciudad) {
+    public Proveedor defineItem(String id, String nombre, String calle, String numExt, String numInt, String colonia, String cp, String ciudad, String telefono) {
         Proveedor proveedor = new Proveedor();
         proveedor.setid(id);
         proveedor.setNombre(nombre);
@@ -129,6 +130,7 @@ public class Proveedores implements Initializable {
         proveedor.setColonia(colonia);
         proveedor.setCodigoPostal(cp);
         proveedor.setCiudad(ciudad);
+        proveedor.setTelefono(telefono);
         return proveedor;
     }
 

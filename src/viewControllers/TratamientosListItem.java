@@ -33,7 +33,7 @@ public class TratamientosListItem implements Initializable {
 
     @FXML
     private void selectListener(ActionEvent event) throws SQLException {
-        listener.deleteListener(TRTrb.getId(), event);
+        listener.selectListener(TRTrb.getId(), TRTrb.isSelected(),  event);
     }
 
     public void setData(TratamientoList tratamiento, Listener listener){

@@ -39,7 +39,7 @@
             <Insets />
          </HBox.margin>
          <children>
-            <RadioButton fx:id="TRTrb" mnemonicParsing="false" />
+            <RadioButton fx:id="TRTrb" mnemonicParsing="false" onAction="#selectListener" />
          </children>
       </HBox>
    </children>

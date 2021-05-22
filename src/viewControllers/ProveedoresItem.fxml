@@ -28,7 +28,7 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" prefHeight="60.0" prefWidth="236.0" text="Telefono">
+      <Label fx:id="telefono" alignment="CENTER" prefHeight="60.0" prefWidth="236.0" text="Telefono">
          <font>
             <Font size="15.0" />
          </font>

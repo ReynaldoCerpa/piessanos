@@ -35,7 +35,7 @@ public class RegisterProveedor {
     private TextField cpInput;
 
     @FXML
-    private TextField ciudadInput;
+    private TextField ciudadInput, telefonoInput;
     @FXML
     private Group alertGroup;
 
@@ -56,7 +56,7 @@ public class RegisterProveedor {
 
     public void saveRegisterProveedor(ActionEvent event) throws SQLException {
         alertText.setText("");
-        if (nombreInput.getText().equals("") || calleInput.getText().equals("") || num_extInput.getText().equals("") || coloniaInput.getText().equals("") || cpInput.getText().equals("") || ciudadInput.getText().equals("")){
+        if (nombreInput.getText().isEmpty() || calleInput.getText().isEmpty() || num_extInput.getText().isEmpty() || coloniaInput.getText().isEmpty() || cpInput.getText().isEmpty() || ciudadInput.getText().isEmpty() || telefonoInput.getText().isEmpty()){
             alertGroup.setVisible(true);
             requiredGroup.setVisible(true);
             alertText.setText("Rellene todos los campos obligatorios\n");
@@ -69,7 +69,7 @@ public class RegisterProveedor {
             }
 
             boolean notfound = true;
-            boolean out = false;
+            boolean out = false, out2 = false, out3 = false;
 
             int size = 1;
             while(myRes.next()){
@@ -82,14 +82,28 @@ public class RegisterProveedor {
                     alertGroup.setVisible(true);
                     System.out.println("nombre de proveedor existente");
                 }
+                if (telefonoInput.getText().length() != 10 && !out2){
+                    notfound = false;
+                    out2 = true;
+                    alertText.setText(alertText.getText() + "Solo telefonos de 10 digitos\n");
+                    alertGroup.setVisible(true);
+                    System.out.println("solo telefonos de 10 digitos");
+                }
+                if (num_intInput.getText().length() > 5 || num_extInput.getText().length() > 5 && !out3){
+                    notfound = false;
+                    out3 = true;
+                    alertText.setText(alertText.getText() + "Numeros interior/exterior incorrectos\n");
+                    alertGroup.setVisible(true);
+                    System.out.println("proveedor name already taken");
+                }
             }
             if (notfound){
                 if (num_intInput.getText().equals("")){
                     num_intInput.setText("");
                 }
                 try{
-                    String sql = "insert into proveedor "+"(id, nombre, calle, num_ext, num_int, colonia, codigopostal, ciudad)"
-                            +" values (?,?,?,?,?,?,?,?)";
+                    String sql = "insert into proveedor "+"(id, nombre, calle, num_ext, num_int, colonia, codigopostal, ciudad, telefono)"
+                            +" values (?,?,?,?,?,?,?,?,?)";
                     PreparedStatement stmt = database.updateData(sql);
                     stmt.setString(1, ("PVD-"+size));
                     stmt.setString(2, nombreInput.getText());
@@ -99,6 +113,7 @@ public class RegisterProveedor {
                     stmt.setString(6, coloniaInput.getText());
                     stmt.setString(7, cpInput.getText());
                     stmt.setString(8, ciudadInput.getText());
+                    stmt.setString(9, telefonoInput.getText());
                     stmt.executeUpdate();
                     alertText.setVisible(false);
                     requiredGroup.setVisible(false);

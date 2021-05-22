@@ -2,61 +2,61 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Model/MedicamentoList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/TratamientoList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/viewControllers/Consultas.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/viewControllers/Consultas.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/viewControllers/MedicamentosListItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/viewControllers/ShowConsulta.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/viewControllers/TratamientosListItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/viewControllers/showConsulta.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/AdministrarMedicos$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/AdministrarMedicos$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/AdministrarMedicos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/AdministrarMedicos.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Citas$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Citas$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Citas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Citas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/ConsultasItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/ConsultasItem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/ConsultasItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/ConsultasItem.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/EditPaciente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/EditPaciente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/EditPaciente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/EditPaciente.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Citas.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Citas.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Consultas$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Consultas$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Consultas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Consultas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Consultas.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Consultas.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Expediente$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Expediente$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Expediente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Expediente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Expediente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Expediente.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Listener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Listener.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Materiales$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Materiales$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Materiales.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Materiales.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Medicamentos$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Medicamentos$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Medicamentos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Medicamentos.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Motor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Motor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/MedicamentosListItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/MedicamentosListItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/MedicamentosListItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/MedicamentosListItem.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Pacientes$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Pacientes$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Pacientes.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Pacientes.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Promociones$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Promociones$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Promociones.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Promociones.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Proveedores$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Proveedores$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Proveedores.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Proveedores.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/RegisterPaciente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/RegisterPaciente.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Tratamientos$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Tratamientos$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Tratamientos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Tratamientos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/TratamientosListItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/TratamientosListItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/TratamientosListItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/TratamientosListItem.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Proveedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Proveedor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/viewControllers/AdministrarMedicos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/AdministrarMedicos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/Citas.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/Citas.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/viewControllers/Citas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/Citas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewControllers/ConsultasItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/ConsultasItem.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewControllers/ConsultasItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/ConsultasItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewControllers/EditPaciente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/EditPaciente.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewControllers/EditPaciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/EditPaciente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewControllers/Expediente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/Expediente.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/Consultas.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/Consultas.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/Consultas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/Consultas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/EditCita.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/EditCita.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/EditCita.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/EditCita.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/EditMateriales.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/EditMateriales.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/EditPromocion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/EditPromocion.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/EditPromocion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/EditPromocion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/EditProveedor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/EditProveedor.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/EditProveedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/EditProveedor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/viewControllers/Expediente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/Expediente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/viewControllers/Listener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/Listener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewControllers/Materiales.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/Materiales.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/viewControllers/Materiales.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/Materiales.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewControllers/Medicamentos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/Medicamentos.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/viewControllers/Medicamentos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/Medicamentos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/MedicamentosListItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/MedicamentosListItem.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/MedicamentosListItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/MedicamentosListItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/viewControllers/Motor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/Motor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewControllers/Pacientes.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/Pacientes.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/viewControllers/Pacientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/Pacientes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/viewControllers/Promociones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/Promociones.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/viewControllers/Proveedores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/Proveedores.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/ProveedoresItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/ProveedoresItem.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/ProveedoresItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/ProveedoresItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/RegisterCitas.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/RegisterCitas.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/RegisterCitas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/RegisterCitas.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/viewControllers/RegisterPaciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/RegisterPaciente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/RegisterPromocion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/RegisterPromocion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/RegisterProveedor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/RegisterProveedor.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/RegisterProveedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/RegisterProveedor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/viewControllers/Tratamientos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/Tratamientos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/TratamientosListItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/TratamientosListItem.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/TratamientosListItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/TratamientosListItem.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -112,8 +112,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -293,7 +293,8 @@
       <workItem from="1621142244591" duration="6000" />
       <workItem from="1621360738879" duration="14472000" />
       <workItem from="1621445069462" duration="21671000" />
-      <workItem from="1621530806921" duration="24605000" />
+      <workItem from="1621530806921" duration="25373000" />
+      <workItem from="1621617119374" duration="33985000" />
     </task>
     <servers />
   </component>

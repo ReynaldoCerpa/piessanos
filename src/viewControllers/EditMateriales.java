@@ -102,6 +102,6 @@ public class EditMateriales {
     }
 
     public void cancelRegisterMaterial(ActionEvent event) {
-        motor.showMedicamentos(event);
+        motor.showMateriales(event);
     }
 }

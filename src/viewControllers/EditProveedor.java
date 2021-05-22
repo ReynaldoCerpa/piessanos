@@ -17,7 +17,7 @@ public class EditProveedor {
     private Motor motor;
     private SQLconnector database = new SQLconnector();
     @FXML
-    private TextField nombreInput, calleInput, numExtInput, numIntInput, coloniaInput, cpInput, ciudadInput;
+    private TextField nombreInput, calleInput, numExtInput, numIntInput, coloniaInput, cpInput, ciudadInput, telefonoInput;
     @FXML
     private Label alertText;
     @FXML
@@ -46,6 +46,7 @@ public class EditProveedor {
                 coloniaInput.setText(myRes.getString("colonia"));
                 cpInput.setText(myRes.getString("codigopostal"));
                 ciudadInput.setText(myRes.getString("ciudad"));
+                telefonoInput.setText(myRes.getString("telefono"));
                 break;
             }
         }
@@ -66,19 +67,11 @@ public class EditProveedor {
             }
 
             boolean notfound = true;
-            boolean out = false, out2 = false;
+            boolean out = false, out2 = false, out3 = false;
 
             while(myRes.next()){
 
                 String nombre = myRes.getString("nombre");
-
-                if(nombre.equals(nombreInput.getText()) && !out){
-                    notfound = false;
-                    out = true;
-                    alertText.setText(alertText.getText() + "Nombre de proveedor existente\n");
-                    alertGroup.setVisible(true);
-                    System.out.println("proveedor name already taken");
-                }
                 if (numIntInput.getText().length() > 5 || numExtInput.getText().length() > 5 && !out2){
                     notfound = false;
                     out2 = true;
@@ -86,10 +79,17 @@ public class EditProveedor {
                     alertGroup.setVisible(true);
                     System.out.println("proveedor name already taken");
                 }
+                if (telefonoInput.getText().length() != 10 && !out3){
+                    notfound = false;
+                    out3 = true;
+                    alertText.setText(alertText.getText() + "Solo telefonos de 10 digitos\n");
+                    alertGroup.setVisible(true);
+                    System.out.println("solo telefonos de 10 digitos");
+                }
             }
             if (notfound){
                 try{
-                    String sql = "update proveedor set nombre = ?, calle = ?, num_ext = ?, num_int = ?, colonia = ?, codigopostal = ?, ciudad = ?"
+                    String sql = "update proveedor set nombre = ?, calle = ?, num_ext = ?, num_int = ?, colonia = ?, codigopostal = ?, ciudad = ?, telefono = ?"
                             +" where id = ?";
                     String id = motor.getSelectedItem();
                     PreparedStatement stmt = database.updateData(sql);
@@ -100,7 +100,8 @@ public class EditProveedor {
                     stmt.setString(5, coloniaInput.getText());
                     stmt.setString(6, cpInput.getText());
                     stmt.setString(7, ciudadInput.getText());
-                    stmt.setString(8, id);
+                    stmt.setString(8, telefonoInput.getText());
+                    stmt.setString(9, id);
                     stmt.executeUpdate();
                     alertText.setVisible(false);
                     requiredGroup.setVisible(false);

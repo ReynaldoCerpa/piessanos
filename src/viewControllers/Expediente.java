@@ -36,7 +36,7 @@ public class Expediente implements Initializable {
     @FXML
     private Label alertText;
     @FXML
-    private Group alertGroup, requiredGroup;
+    private Group alertGroup, requiredGroup, pacientesListGroup;
     @FXML
     private TextField searchInput;
     private String idPaciente = "empty";
@@ -44,7 +44,7 @@ public class Expediente implements Initializable {
     private List<Consulta> items = null;
     private List<Consulta> searchList = new ArrayList<>();
     private Listener listener;
-    private String name;
+    private String name, fullname;
 
     public Expediente(){
 
@@ -66,7 +66,7 @@ public class Expediente implements Initializable {
 
         while(myRes.next() && ale.next() && med.next() && enf.next()){
             if (motor.getSelectedItem().equals(String.valueOf(myRes.getString("id")))){
-                String fullname = myRes.getString("nombre")+" "+myRes.getString("nomPaterno")+" "+myRes.getString("nomMaterno");
+                fullname = myRes.getString("nombre")+" "+myRes.getString("nomPaterno")+" "+myRes.getString("nomMaterno");
                 idPaciente = myRes.getString("id");
 
                 id.setText(myRes.getString("id"));
@@ -95,7 +95,7 @@ public class Expediente implements Initializable {
 
                 setChosenItem(id);
                 String text = "Esta seguro que desea eliminar a: "+findItem(id);
-                if (motor.confirmAction(text)){
+                if (motor.confirmAction(text, "")){
                     System.out.println(id + " Eliminado");
                     deleteItem(id, event);
                 }
@@ -107,7 +107,7 @@ public class Expediente implements Initializable {
             }
 
             @Override
-            public void selectListener(String id, ActionEvent event) {
+            public void selectListener(String id, boolean isSelected, ActionEvent event) {
 
             }
         };
@@ -244,8 +244,35 @@ public class Expediente implements Initializable {
         return name;
     }
 
-    public void nuevaConsulta(ActionEvent event) {
-        motor.showConsultas(event);
+    public void nuevaConsulta(ActionEvent event) throws SQLException {
+
+        int numCita = 0;
+
+        String citaquery = "select numCita from cita where id_paciente = ?";
+
+        PreparedStatement cita = database.updateData(citaquery);
+
+        cita.setString(1, idPaciente);
+
+        ResultSet numcita = cita.executeQuery();
+        while(numcita.next()){
+            numCita = Integer.parseInt(numcita.getString("numcita"));
+        }
+
+        if (numCita != 0){
+            motor.showConsultas(event);
+        } else {
+            String text = "Este paciente no tiene citas agendadas";
+            String content = "¿Desea agenar una cita?";
+            if (motor.confirmAction(text, content)){
+                motor.setSelectedPacient(true, idPaciente, fullname);
+                motor.showRegisterCita(event);
+                motor.setBackExpediente(true);
+            }
+
+
+        }
+
     }
 
     public void cancelChanges(ActionEvent event) {

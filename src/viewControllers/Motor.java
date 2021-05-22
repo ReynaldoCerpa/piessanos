@@ -20,6 +20,8 @@ import java.util.Date;
 public class Motor {
     private User user = new User();
     private Item item = new Item();
+    private boolean backExpediente = false, backCitas = false, selectedPacient = false;
+    private String pacientID = "", pacientName;
     public Motor(){
 
     }
@@ -599,15 +601,43 @@ public class Motor {
         String time = hour+":"+minutes;
         return time;
     }
-    public boolean confirmAction(String text){
+    public boolean confirmAction(String header, String content){
         boolean response = false;
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setHeaderText(text);
+        alert.setHeaderText(header);
+        alert.setContentText(content);
 
         if (alert.showAndWait().get() == ButtonType.OK){
             response = true;
         }
         return response;
+    }
+
+    public void setBackExpediente(boolean bool){
+        this.backExpediente = bool;
+    }
+    public boolean getBackExpediente(){
+        return backExpediente;
+    }
+    public void setBackCita(boolean bool){
+        this.backCitas = bool;
+    }
+    public boolean getBackCita(){
+        return backCitas;
+    }
+    public void setSelectedPacient(boolean bool, String id, String name){
+        this.selectedPacient = bool;
+        this.pacientID = id;
+        this.pacientName = name;
+    }
+    public boolean getSelectedPacient(){
+        return selectedPacient;
+    }
+    public String getPacientID(){
+        return pacientID;
+    }
+    public String getPacientName(){
+        return pacientName;
     }
 
 

@@ -34,7 +34,7 @@ public class MedicamentosListItem implements Initializable {
 
     @FXML
     private void selectListener(ActionEvent event) throws SQLException {
-        listener.deleteListener(MEDrb.getId(), event);
+        listener.selectListener(MEDrb.getId(), MEDrb.isSelected(), event);
     }
 
     public void setData(MedicamentoList medicamento, Listener listener){

@@ -78,7 +78,7 @@ public class Promociones implements Initializable {
                 }
 
                 @Override
-                public void selectListener(String id, ActionEvent event) {
+                public void selectListener(String id,  boolean isSelected, ActionEvent event) {
 
                 }
             };

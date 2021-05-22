@@ -31,6 +31,8 @@
       <Label alignment="CENTER_RIGHT" layoutX="434.0" layoutY="360.0" prefHeight="25.0" prefWidth="94.0" text="Código postal" textAlignment="RIGHT" wrapText="true" />
       <TextField fx:id="ciudadInput" alignment="TOP_LEFT" layoutX="538.0" layoutY="404.0" prefHeight="25.0" prefWidth="309.0" />
       <Label alignment="CENTER_RIGHT" layoutX="434.0" layoutY="404.0" prefHeight="25.0" prefWidth="94.0" text="Ciudad" textAlignment="RIGHT" wrapText="true" />
+      <Label layoutX="480.0" layoutY="462.0" text="Telefono" />
+      <TextField fx:id="telefonoInput" layoutX="538.0" layoutY="458.0" prefHeight="25.0" prefWidth="309.0" />
       <Button layoutX="555.0" layoutY="623.0" mnemonicParsing="false" onAction="#saveEditProveedor" prefHeight="35.0" prefWidth="105.0" text="Guardar" />
       <Button fx:id="cancelRegisterMedicamento" layoutX="695.0" layoutY="623.0" mnemonicParsing="false" onAction="#cancelEditProveedor" prefHeight="35.0" prefWidth="105.0" text="Cancelar" />
       <Group fx:id="alertGroup" layoutX="493.0" layoutY="487.0" visible="false">
@@ -50,39 +52,49 @@
             </Label>
          </children>
       </Group>
-      <Group fx:id="requiredGroup" layoutX="613.0" layoutY="54.0" visible="false">
+      <Group fx:id="requiredGroup" layoutX="613.0" layoutY="48.0" visible="false">
          <children>
-            <Label layoutX="223.0" layoutY="55.0" text="*" textFill="RED">
+            <Label layoutX="223.0" layoutY="59.0" text="*" textFill="RED">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="223.0" layoutY="104.0" text="*" textFill="RED">
+            <Label layoutX="223.0" layoutY="109.0" text="*" textFill="RED">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="223.0" layoutY="158.0" text="*" textFill="RED">
+            <Label layoutX="224.0" layoutY="162.0" text="*" textFill="RED">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="224.0" layoutY="302.0" text="*" textFill="RED">
+            <Label layoutX="223.0" layoutY="215.0" text="*" textFill="RED">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="224.0" layoutY="259.0" text="*" textFill="RED">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <Label layoutX="147.0" layoutY="23.0" text="* Requerido" textFill="RED">
+            <Label layoutX="252.0" layoutY="57.0" text="* Requerido" textFill="RED">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="224.0" layoutY="346.0" text="*" textFill="RED">
+            <Label layoutX="224.0" layoutY="265.0" text="*" textFill="RED">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="225.0" layoutY="309.0" text="*" textFill="RED">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="225.0" layoutY="351.0" text="*" textFill="RED">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="223.0" layoutY="405.0" text="*" textFill="RED">
                <font>
                   <Font size="20.0" />
                </font>

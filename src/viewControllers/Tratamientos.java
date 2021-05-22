@@ -77,7 +77,7 @@ public class Tratamientos implements Initializable {
                 }
 
                 @Override
-                public void selectListener(String id, ActionEvent event) {
+                public void selectListener(String id,  boolean isSelected, ActionEvent event) {
                 }
             };
             loadItems(itemList);
@@ -105,7 +105,7 @@ public class Tratamientos implements Initializable {
 
             String codigo = myRes.getString("clave");
             String nombre = myRes.getString("nombre");
-            String precio = "$"+myRes.getString("precio");
+            String precio = myRes.getString("precio");
             String descripcion = myRes.getString("descripcion");
 
             Tratamiento newItem = defineItem(codigo, nombre, precio, descripcion);
@@ -118,7 +118,7 @@ public class Tratamientos implements Initializable {
         Tratamiento tratamiento = new Tratamiento();
         tratamiento.setClave(codigo);
         tratamiento.setNombre(nombre);
-        tratamiento.setPrecio(precio);
+        tratamiento.setPrecio("$"+precio);
         tratamiento.setDescripcion(descripcion);
         return tratamiento;
     }

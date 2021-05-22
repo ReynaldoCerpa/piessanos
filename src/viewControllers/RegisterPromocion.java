@@ -120,7 +120,7 @@ public class RegisterPromocion implements Initializable {
     }
 
     public void cancelRegister(ActionEvent event) {
-        motor.showCita(event);
+        motor.showPromocion(event);
     }
 
     public void loadItems() throws SQLException {

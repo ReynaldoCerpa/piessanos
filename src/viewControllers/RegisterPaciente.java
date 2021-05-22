@@ -4,10 +4,7 @@ import com.mysql.cj.util.StringUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -26,6 +23,8 @@ public class RegisterPaciente {
     private Label alertText;
     @FXML
     private Group alertGroup, requiredGroup;
+    @FXML
+    private ListView itemList;
 
     public RegisterPaciente(){
 
@@ -134,7 +133,12 @@ public class RegisterPaciente {
                     alertText.setVisible(false);
                     requiredGroup.setVisible(false);
 
-                    motor.showPacientes(event);
+                    if (motor.getBackCita()){
+                        motor.showRegisterCita(event);
+                        motor.setBackCita(false);
+                    } else {
+                        motor.showPacientes(event);
+                    }
                 } catch (Exception e){
                     e.printStackTrace();
                 }
@@ -143,6 +147,12 @@ public class RegisterPaciente {
     }
 
     public void cancelRegister(ActionEvent event) {
-        motor.showPacientes(event);
+        if (motor.getBackCita()){
+            motor.showRegisterCita(event);
+            motor.setBackCita(false);
+        } else {
+            motor.showPacientes(event);
+        }
     }
+
 }

@@ -23,6 +23,9 @@ public class ProveedoresItem implements Initializable {
     private Label direccion;
 
     @FXML
+    private Label telefono;
+
+    @FXML
     private ImageView editButton;
 
     @FXML
@@ -48,6 +51,7 @@ public class ProveedoresItem implements Initializable {
         id.setText(proveedor.getid());
         nombre.setText(proveedor.getNombre());
         direccion.setText(proveedor.getCalle()+", "+proveedor.getColonia()+", "+proveedor.getCiudad()+", codigo postal: "+proveedor.getCodigoPostal());
+        telefono.setText(proveedor.getTelefono());
     }
     public String getButtonID(){
         return editButton.getId();

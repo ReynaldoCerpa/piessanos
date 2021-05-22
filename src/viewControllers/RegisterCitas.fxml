@@ -106,7 +106,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Group layoutX="218.0" layoutY="136.0">
+      <Group fx:id="pacientesListGroup" layoutX="218.0" layoutY="136.0">
          <children>
             <ListView fx:id="itemList" layoutY="29.0" prefHeight="307.0" prefWidth="248.0" />
             <Rectangle fill="#ebebeb" height="30.0" stroke="#b5b5b5" strokeType="INSIDE" width="38.0" />
@@ -120,5 +120,6 @@
             <Font size="20.0" />
          </font>
       </Label>
+      <Button fx:id="registerPacienteButton" layoutX="282.0" layoutY="492.0" mnemonicParsing="false" onAction="#showRegisterPaciente" prefHeight="35.0" prefWidth="120.0" text="Registrar paciente" />
    </children>
 </AnchorPane>

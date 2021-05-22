@@ -63,7 +63,7 @@ public class Pacientes implements Initializable {
 
                     setChosenItem(id);
                     String text = "Está seguro que desea eliminar a: "+findItem(id);
-                    if (motor.confirmAction(text)){
+                    if (motor.confirmAction(text, "")){
                         deleteItem(id, event);
                     }
                 }
@@ -74,7 +74,7 @@ public class Pacientes implements Initializable {
                 }
 
                 @Override
-                public void selectListener(String id, ActionEvent event) {
+                public void selectListener(String id, boolean isSelected, ActionEvent event) {
 
                 }
             };

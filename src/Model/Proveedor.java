@@ -9,6 +9,7 @@ public class Proveedor {
     private String colonia;
     private String codigoPostal;
     private String ciudad;
+    private String telefono;
 
     public String getid() {
         return id;
@@ -72,5 +73,13 @@ public class Proveedor {
 
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 }

@@ -32,7 +32,9 @@ public class RegisterCitas implements Initializable {
     @FXML
     private Label alertText, domiciliolabel, selectedItemLabel;
     @FXML
-    private Group alertGroup, requiredGroup;
+    private Group alertGroup, requiredGroup, pacientesListGroup;
+    @FXML
+    private Button registerPacienteButton;
     @FXML
     private ListView<String> itemList;
     private ArrayList<String> idArray = new ArrayList<>();
@@ -46,6 +48,14 @@ public class RegisterCitas implements Initializable {
 
     public void receiveMotorInstance(Motor m){
         this.motor = m;
+        if (motor.getSelectedPacient()){
+            id = motor.getPacientID();
+            String pacientName = motor.getPacientName();
+            selectedItemLabel.setText(id+" "+pacientName);
+            pacientesListGroup.setDisable(true);
+            registerPacienteButton.setDisable(true);
+        }
+
     }
 
     @Override
@@ -117,7 +127,12 @@ public class RegisterCitas implements Initializable {
                     alertText.setVisible(false);
                     requiredGroup.setVisible(false);
 
-                    motor.showCita(event);
+                    if (motor.getBackExpediente()){
+                        motor.showExpedienteUser(event);
+                        motor.setBackExpediente(false);
+                    } else {
+                        motor.showCita(event);
+                    }
                 } catch (Exception e){
                     e.printStackTrace();
                 }
@@ -126,7 +141,12 @@ public class RegisterCitas implements Initializable {
     }
 
     public void cancelRegister(ActionEvent event) {
-        motor.showCita(event);
+        if (motor.getBackExpediente()){
+            motor.showExpedienteUser(event);
+            motor.setBackExpediente(false);
+        } else {
+            motor.showCita(event);
+        }
     }
 
     public void noRadioButton(ActionEvent event) {
@@ -176,5 +196,10 @@ public class RegisterCitas implements Initializable {
             }
         }
         return name;
+    }
+
+    public void showRegisterPaciente(ActionEvent event) {
+        motor.setBackCita(true);
+        motor.showRegisterPacient(event);
     }
 }
