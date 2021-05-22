@@ -115,3 +115,8 @@
 .medicoItem{
     -fx-background-color: #b2d1cf;
 }
+
+.radioCajas{
+    -fx-border-color: #67b5ae;
+    -fx-border-width: 1px;
+}

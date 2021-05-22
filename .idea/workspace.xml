@@ -1,29 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Cambiarle el diseño a multiples ventana">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Cambiar la mayoria de los item">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/values/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/values/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/AdministrarMedicos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/AdministrarMedicos.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Citas.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Citas.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/CreatePromo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/CreatePromo.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/EditCita.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/EditCita.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/EditMedico.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/EditMedico.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Medicamentos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Medicamentos.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Medico_item.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Medico_item.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/PacientesItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/PacientesItem.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Promo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Promo.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/PromocionItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/PromocionItem.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Promociones.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Promociones.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/RegisterCitas.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/RegisterCitas.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewControllers/MaterialesItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/MaterialesItem.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewControllers/MedicamentosItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/MedicamentosItem.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewControllers/PacientesItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/PacientesItem.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewControllers/PromocionItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/PromocionItem.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewControllers/Promociones.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/Promociones.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewControllers/RegisterMateriales.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/RegisterMateriales.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewControllers/RegisterMedicamentos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/RegisterMedicamentos.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/MaterialesItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/MaterialesItem.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/MedicamentosItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/MedicamentosItem.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/RegisterMateriales.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/RegisterMateriales.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/RegisterMedicamentos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/RegisterMedicamentos.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/values/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/values/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/CitaItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/CitaItem.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/Consulta.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/Consulta.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/ConsultasItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/ConsultasItem.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/EditPaciente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/EditPaciente.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/Expediente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/Expediente.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/RegisterPaciente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/RegisterPaciente.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,6 +173,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -259,7 +261,9 @@
       <workItem from="1620408418812" duration="24155000" />
       <workItem from="1621320582495" duration="1330000" />
       <workItem from="1621322344692" duration="28469000" />
-      <workItem from="1621563322154" duration="15728000" />
+      <workItem from="1621563322154" duration="15900000" />
+      <workItem from="1621616561687" duration="845000" />
+      <workItem from="1621648162720" duration="12169000" />
     </task>
     <task id="LOCAL-00001" summary="commit de algo">
       <created>1621362911955</created>
@@ -289,7 +293,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621578793046</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Cambiar la mayoria de los item">
+      <created>1621582852620</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1621582852620</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -315,6 +326,7 @@
     <MESSAGE value="Agregarle a 'Login.fxml' diseño" />
     <MESSAGE value="Cambiarle el diseño a multiples ventana, mayormente ver la lista de algo  y el registro de médicos." />
     <MESSAGE value="Cambiarle el diseño a multiples ventana" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambiarle el diseño a multiples ventana" />
+    <MESSAGE value="Cambiar la mayoria de los item" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambiar la mayoria de los item" />
   </component>
 </project>

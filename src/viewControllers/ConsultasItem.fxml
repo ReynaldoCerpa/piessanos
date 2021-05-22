@@ -22,7 +22,7 @@
       </Label>
       <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="135.0">
          <children>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#openExpediente" prefHeight="30.0" prefWidth="30.0" HBox.hgrow="ALWAYS">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#openExpediente" prefHeight="30.0" prefWidth="30.0" styleClass="medicoItem" HBox.hgrow="ALWAYS">
                <graphic>
                   <ImageView fx:id="editButton" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -34,7 +34,7 @@
                   <Insets right="5.0" />
                </HBox.margin>
             </Button>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#editItem" prefHeight="30.0" prefWidth="30.0">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#editItem" prefHeight="30.0" prefWidth="30.0" styleClass="medicoItem">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -46,7 +46,7 @@
                   <Insets right="5.0" />
                </HBox.margin>
             </Button>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#deleteItem" prefHeight="30.0" prefWidth="30.0" HBox.hgrow="NEVER">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#deleteItem" prefHeight="30.0" prefWidth="30.0" styleClass="medicoItem" HBox.hgrow="NEVER">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>

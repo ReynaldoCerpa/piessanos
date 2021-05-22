@@ -28,7 +28,7 @@
                               <Font name="Arial Bold" size="30.0" />
                            </font>
                         </Label>
-                        <Label fx:id="id" prefHeight="50.0" text="id">
+                        <Label fx:id="id" prefHeight="50.0" text="id" textFill="#3c6360">
                            <font>
                               <Font name="Arial" size="30.0" />
                            </font>
@@ -44,7 +44,7 @@
                               <Insets left="50.0" />
                            </HBox.margin>
                         </Label>
-                        <Label fx:id="nombre" prefHeight="50.0" prefWidth="515.0" text="nombre apellido apellido ">
+                        <Label fx:id="nombre" prefHeight="50.0" prefWidth="515.0" text="nombre apellido apellido " textFill="#3c6360">
                            <font>
                               <Font name="Corbel" size="30.0" />
                            </font>
@@ -56,7 +56,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#backHome" text="Volver">
+                        <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#backHome" styleClass="clientBotonesArriba" text="Volver">
                            <HBox.margin>
                               <Insets left="30.0" />
                            </HBox.margin>
@@ -94,12 +94,12 @@
                            <children>
                               <HBox alignment="BOTTOM_CENTER" prefHeight="98.0" prefWidth="789.0">
                                  <children>
-                                    <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveChanges" text="Guardar" visible="false">
+                                    <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveChanges" prefHeight="28.0" prefWidth="62.0" styleClass="clientBotonesArriba" text="Guardar" visible="false">
                                        <HBox.margin>
                                           <Insets left="100.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelChanges" text="Cancelar" visible="false">
+                                    <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelChanges" styleClass="cancelarButton" text="Cancelar" visible="false">
                                        <HBox.margin>
                                           <Insets left="10.0" />
                                        </HBox.margin>
@@ -116,7 +116,7 @@
                               </HBox>
                               <HBox alignment="BOTTOM_LEFT" prefHeight="77.0" prefWidth="74.0">
                                  <children>
-                                    <Button alignment="BOTTOM_RIGHT" mnemonicParsing="false" onAction="#editButton" text="Editar" />
+                                    <Button alignment="BOTTOM_RIGHT" mnemonicParsing="false" onAction="#editButton" styleClass="clientBotonesArriba" text="Editar" />
                                  </children>
                               </HBox>
                            </children>
@@ -130,7 +130,7 @@
                                        <children>
                                           <Label text="Alergias">
                                              <font>
-                                                <Font size="17.0" />
+                                                <Font name="System Bold" size="17.0" />
                                              </font>
                                           </Label>
                                           <Label fx:id="alert" alignment="CENTER" prefHeight="30.0" prefWidth="18.0" text="*" textAlignment="CENTER" textFill="RED" visible="false">
@@ -140,7 +140,7 @@
                                           </Label>
                                        </children>
                                     </HBox>
-                                    <TextArea fx:id="alergias" editable="false" maxWidth="230.0" prefHeight="150.0" prefWidth="230.0" wrapText="true" />
+                                    <TextArea fx:id="alergias" editable="false" maxWidth="230.0" prefHeight="150.0" prefWidth="230.0" styleClass="radioCajas" wrapText="true" />
                                  </children>
                               </VBox>
                               <VBox alignment="CENTER" prefHeight="200.0" prefWidth="300.0">
@@ -149,7 +149,7 @@
                                        <children>
                                           <Label text="Medicamentos prescritos">
                                              <font>
-                                                <Font size="17.0" />
+                                                <Font name="System Bold" size="17.0" />
                                              </font>
                                           </Label>
                                           <Label fx:id="alert2" alignment="CENTER" prefHeight="30.0" prefWidth="18.0" text="*" textAlignment="CENTER" textFill="RED" visible="false">
@@ -159,7 +159,7 @@
                                           </Label>
                                        </children>
                                     </HBox>
-                                    <TextArea fx:id="medicamentos" editable="false" maxWidth="230.0" prefHeight="150.0" prefWidth="230.0" wrapText="true" />
+                                    <TextArea fx:id="medicamentos" editable="false" maxWidth="230.0" prefHeight="150.0" prefWidth="230.0" styleClass="radioCajas" wrapText="true" />
                                  </children>
                               </VBox>
                               <VBox alignment="CENTER" prefHeight="200.0" prefWidth="288.0">
@@ -168,7 +168,7 @@
                                        <children>
                                           <Label text="Enfermedades">
                                              <font>
-                                                <Font size="17.0" />
+                                                <Font name="System Bold" size="17.0" />
                                              </font>
                                           </Label>
                                           <Label fx:id="alert1" alignment="CENTER" prefHeight="30.0" prefWidth="18.0" text="*" textAlignment="CENTER" textFill="RED" visible="false">
@@ -178,7 +178,7 @@
                                           </Label>
                                        </children>
                                     </HBox>
-                                    <TextArea fx:id="enfermedades" editable="false" maxWidth="230.0" prefHeight="150.0" prefWidth="288.0" wrapText="true" />
+                                    <TextArea fx:id="enfermedades" editable="false" maxWidth="230.0" prefHeight="150.0" prefWidth="288.0" styleClass="radioCajas" wrapText="true" />
                                  </children>
                               </VBox>
                            </children>
@@ -189,15 +189,15 @@
                                  <children>
                                     <Label text="Antecedentes">
                                        <font>
-                                          <Font size="17.0" />
+                                          <Font name="System Bold" size="17.0" />
                                        </font>
                                     </Label>
-                                    <TextArea fx:id="antecedentes" editable="false" maxWidth="517.0" prefHeight="201.0" prefWidth="517.0" />
+                                    <TextArea fx:id="antecedentes" editable="false" maxWidth="517.0" prefHeight="201.0" prefWidth="517.0" styleClass="radioCajas" />
                                  </children>
                               </VBox>
                               <VBox alignment="CENTER_RIGHT" prefHeight="287.0" prefWidth="202.0">
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#nuevaConsulta" prefHeight="42.0" prefWidth="164.0" text="Nueva consulta">
+                                    <Button mnemonicParsing="false" onAction="#nuevaConsulta" prefHeight="42.0" prefWidth="164.0" styleClass="clientBotonesArriba" text="Nueva consulta">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
@@ -214,32 +214,35 @@
                            <children>
                               <Label fx:id="nombre1" alignment="CENTER" prefHeight="50.0" prefWidth="515.0" text="Citas">
                                  <font>
-                                    <Font name="Corbel" size="25.0" />
+                                    <Font name="Corbel Bold" size="25.0" />
                                  </font>
                               </Label>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="39.0" prefWidth="417.0">
                            <children>
-                              <TextField fx:id="searchInput" prefHeight="25.0" prefWidth="219.0" promptText="ingrese no. cita o fecha" />
+                              <TextField fx:id="searchInput" prefHeight="25.0" prefWidth="219.0" promptText="Ingrese no. cita o fecha" styleClass="barraBuscar" />
                               <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#deleteSearch" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../assets/xIcon.png" />
                                  </image>
+                                 <HBox.margin>
+                                    <Insets top="0.5" />
+                                 </HBox.margin>
                               </ImageView>
-                              <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchItem" text="Buscar" />
+                              <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchItem" styleClass="buscarButton" text="Buscar" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="35.0" prefWidth="417.0" styleClass="grey-background" stylesheets="@../values/style.css">
+                        <HBox alignment="CENTER" prefHeight="35.0" prefWidth="417.0" styleClass="titulosLista" stylesheets="@../values/style.css">
                            <children>
-                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="No. Cita">
+                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" styleClass="labelsLista" text="No. Cita">
                                  <font>
                                     <Font name="System Bold" size="15.0" />
                                  </font>
                               </Label>
                               <HBox alignment="CENTER" prefHeight="30.0" prefWidth="156.0">
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="21.0" text="Fecha">
+                                    <Label alignment="CENTER" prefHeight="21.0" styleClass="labelsLista" text="Fecha">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
@@ -251,12 +254,18 @@
                               </HBox>
                               <HBox alignment="CENTER_LEFT" prefHeight="21.0" prefWidth="135.0" />
                            </children>
+                           <VBox.margin>
+                              <Insets top="4.0" />
+                           </VBox.margin>
                         </HBox>
                         <HBox prefHeight="218.0" prefWidth="1261.0" VBox.vgrow="ALWAYS">
                            <children>
                               <ScrollPane prefHeight="222.0" prefWidth="659.0">
                                  <content>
-                                    <VBox fx:id="itemsLayout" prefHeight="491.0" prefWidth="407.0" />
+                                    <VBox fx:id="itemsLayout" prefHeight="491.0" prefWidth="407.0">
+                                       <padding>
+                                          <Insets top="1.0" />
+                                       </padding></VBox>
                                  </content>
                               </ScrollPane>
                            </children>
