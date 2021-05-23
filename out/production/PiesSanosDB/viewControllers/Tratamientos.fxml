@@ -72,7 +72,7 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="21.0" prefWidth="406.0" styleClass="labelsLista" text="Descripción">
+                  <Label alignment="CENTER" prefHeight="21.0" prefWidth="406.0" styleClass="labelsLista" text="Descripción        ">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>

@@ -3,27 +3,25 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Cambiar el diseño de varias ventanas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/CitaItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/CitaItem.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Consulta.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Consulta.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/ConsultasItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/ConsultasItem.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/EditPaciente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/EditPaciente.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Expediente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Expediente.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Medicamentos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Medicamentos.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/RegisterPaciente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/RegisterPaciente.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewControllers/Consultas.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/Consultas.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewControllers/EditMateriales.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/EditMateriales.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewControllers/EditMedicamento.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/EditMedicamento.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewControllers/EditPromocion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/EditPromocion.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewControllers/EditProveedor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/EditProveedor.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewControllers/EditTratamiento.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/EditTratamiento.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewControllers/Materiales.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/Materiales.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewControllers/Medicamentos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/Medicamentos.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewControllers/MedicamentosListItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/MedicamentosListItem.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewControllers/Popup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/Popup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewControllers/Proveedores.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/Proveedores.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewControllers/ProveedoresItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/ProveedoresItem.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewControllers/RegisterPromocion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/RegisterPromocion.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewControllers/showConsulta.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/showConsulta.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Consultas.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Consultas.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/EditMateriales.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/EditMateriales.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/EditMedicamento.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/EditMedicamento.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/EditPromocion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/EditPromocion.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/EditProveedor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/EditProveedor.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/EditTratamiento.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/EditTratamiento.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Materiales.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Materiales.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/MedicamentosListItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/MedicamentosListItem.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Popup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Popup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Proveedores.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Proveedores.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/ProveedoresItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/ProveedoresItem.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/RegisterPromocion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/RegisterPromocion.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/RegisterProveedor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/RegisterProveedor.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Tratamientos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/Tratamientos.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/showConsulta.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PiesSanosDB/viewControllers/showConsulta.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/RegisterProveedor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/RegisterProveedor.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/RegisterTratamientos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/RegisterTratamientos.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/Tratamientos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/Tratamientos.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewControllers/TratamientosItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewControllers/TratamientosItem.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

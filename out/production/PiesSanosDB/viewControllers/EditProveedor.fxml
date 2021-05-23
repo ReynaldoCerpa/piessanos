@@ -12,28 +12,49 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.EditProveedor">
    <children>
-      <TextField fx:id="nombreInput" layoutX="537.0" layoutY="112.0" prefHeight="25.0" prefWidth="309.0" />
-      <TextField fx:id="calleInput" layoutX="537.0" layoutY="162.0" prefHeight="25.0" prefWidth="309.0" />
-      <TextField fx:id="numExtInput" layoutX="537.0" layoutY="216.0" prefHeight="25.0" prefWidth="309.0" />
-      <TextField fx:id="numIntInput" alignment="TOP_LEFT" layoutX="536.0" layoutY="268.0" prefHeight="25.0" prefWidth="309.0" />
-      <Label layoutX="577.0" layoutY="28.0" text="Editar proveedor">
+      <TextField fx:id="nombreInput" layoutX="549.0" layoutY="126.0" prefHeight="25.0" prefWidth="309.0" />
+      <TextField fx:id="calleInput" layoutX="549.0" layoutY="176.0" prefHeight="25.0" prefWidth="309.0" />
+      <TextField fx:id="numExtInput" layoutX="549.0" layoutY="230.0" prefHeight="25.0" prefWidth="309.0" />
+      <TextField fx:id="numIntInput" alignment="TOP_LEFT" layoutX="548.0" layoutY="282.0" prefHeight="25.0" prefWidth="309.0" promptText="Opcional" />
+      <Label layoutX="574.0" layoutY="28.0" text="Editar proveedor" textFill="#3c6360" underline="true">
          <font>
-            <Font name="System Bold" size="24.0" />
+            <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Label alignment="CENTER_RIGHT" layoutX="479.0" layoutY="116.0" text="Nombre" textAlignment="RIGHT" />
-      <Label alignment="CENTER_RIGHT" layoutX="490.0" layoutY="166.0" text="Calle" textAlignment="RIGHT" />
-      <Label alignment="CENTER_RIGHT" layoutX="432.0" layoutY="216.0" prefHeight="25.0" prefWidth="94.0" text="Número exterior" textAlignment="RIGHT" wrapText="true" />
-      <Label alignment="CENTER_RIGHT" layoutX="432.0" layoutY="268.0" prefHeight="25.0" prefWidth="94.0" text="Número interior" textAlignment="RIGHT" wrapText="true" />
-      <TextField fx:id="coloniaInput" alignment="TOP_LEFT" layoutX="538.0" layoutY="317.0" prefHeight="25.0" prefWidth="309.0" />
-      <Label alignment="CENTER_RIGHT" layoutX="434.0" layoutY="317.0" prefHeight="25.0" prefWidth="94.0" text="colonia" wrapText="true" />
-      <TextField fx:id="cpInput" alignment="TOP_LEFT" layoutX="538.0" layoutY="360.0" prefHeight="25.0" prefWidth="309.0" />
-      <Label alignment="CENTER_RIGHT" layoutX="434.0" layoutY="360.0" prefHeight="25.0" prefWidth="94.0" text="Código postal" textAlignment="RIGHT" wrapText="true" />
-      <TextField fx:id="ciudadInput" alignment="TOP_LEFT" layoutX="538.0" layoutY="404.0" prefHeight="25.0" prefWidth="309.0" />
-      <Label alignment="CENTER_RIGHT" layoutX="434.0" layoutY="404.0" prefHeight="25.0" prefWidth="94.0" text="Ciudad" textAlignment="RIGHT" wrapText="true" />
-      <Button layoutX="555.0" layoutY="623.0" mnemonicParsing="false" onAction="#saveEditProveedor" prefHeight="35.0" prefWidth="105.0" text="Guardar" />
-      <Button fx:id="cancelRegisterMedicamento" layoutX="695.0" layoutY="623.0" mnemonicParsing="false" onAction="#cancelEditProveedor" prefHeight="35.0" prefWidth="105.0" text="Cancelar" />
-      <Group fx:id="alertGroup" layoutX="493.0" layoutY="487.0" visible="false">
+      <Label alignment="CENTER_RIGHT" layoutX="491.0" layoutY="130.0" text="Nombre" textAlignment="RIGHT">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label alignment="CENTER_RIGHT" layoutX="502.0" layoutY="180.0" text="Calle" textAlignment="RIGHT">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label alignment="CENTER_RIGHT" layoutX="444.0" layoutY="230.0" prefHeight="25.0" prefWidth="94.0" text="Número exterior" textAlignment="RIGHT" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label alignment="CENTER_RIGHT" layoutX="444.0" layoutY="282.0" prefHeight="25.0" prefWidth="94.0" text="Número interior" textAlignment="RIGHT" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <TextField fx:id="coloniaInput" alignment="TOP_LEFT" layoutX="550.0" layoutY="331.0" prefHeight="25.0" prefWidth="309.0" />
+      <Label alignment="CENTER_RIGHT" layoutX="446.0" layoutY="331.0" prefHeight="25.0" prefWidth="94.0" text="Colonia" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <TextField fx:id="cpInput" alignment="TOP_LEFT" layoutX="550.0" layoutY="374.0" prefHeight="25.0" prefWidth="309.0" />
+      <Label alignment="CENTER_RIGHT" layoutX="446.0" layoutY="374.0" prefHeight="25.0" prefWidth="94.0" text="Código postal" textAlignment="RIGHT" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <TextField fx:id="ciudadInput" alignment="TOP_LEFT" layoutX="550.0" layoutY="418.0" prefHeight="25.0" prefWidth="309.0" />
+      <Label alignment="CENTER_RIGHT" layoutX="446.0" layoutY="418.0" prefHeight="25.0" prefWidth="94.0" text="Ciudad" textAlignment="RIGHT" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Button layoutX="567.0" layoutY="635.0" mnemonicParsing="false" onAction="#saveEditProveedor" prefHeight="35.0" prefWidth="105.0" styleClass="clientBotonesArriba" stylesheets="@../values/style.css" text="Guardar" />
+      <Button fx:id="cancelRegisterMedicamento" layoutX="707.0" layoutY="635.0" mnemonicParsing="false" onAction="#cancelEditProveedor" prefHeight="35.0" prefWidth="105.0" styleClass="cancelarButton" stylesheets="@../values/style.css" text="Cancelar" />
+      <Group fx:id="alertGroup" layoutX="505.0" layoutY="499.0" stylesheets="@../values/style.css" visible="false">
          <children>
             <ImageView fitHeight="114.0" fitWidth="358.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -50,39 +71,39 @@
             </Label>
          </children>
       </Group>
-      <Group fx:id="requiredGroup" layoutX="613.0" layoutY="54.0" visible="false">
+      <Group fx:id="requiredGroup" layoutX="625.0" layoutY="68.0" visible="false">
          <children>
-            <Label layoutX="223.0" layoutY="55.0" text="*" textFill="RED">
+            <Label layoutX="223.0" layoutY="55.0" text="*" textFill="#b12929">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="223.0" layoutY="104.0" text="*" textFill="RED">
+            <Label layoutX="223.0" layoutY="104.0" text="*" textFill="#b12929">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="223.0" layoutY="158.0" text="*" textFill="RED">
+            <Label layoutX="223.0" layoutY="158.0" text="*" textFill="#b12929">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="224.0" layoutY="302.0" text="*" textFill="RED">
+            <Label layoutX="224.0" layoutY="302.0" text="*" textFill="#b12929">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="224.0" layoutY="259.0" text="*" textFill="RED">
+            <Label layoutX="224.0" layoutY="259.0" text="*" textFill="#b12929">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="147.0" layoutY="23.0" text="* Requerido" textFill="RED">
+            <Label layoutX="147.0" layoutY="23.0" text="* Requerido" textFill="#b12929">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="224.0" layoutY="346.0" text="*" textFill="RED">
+            <Label layoutX="224.0" layoutY="346.0" text="*" textFill="#b12929">
                <font>
                   <Font size="20.0" />
                </font>
