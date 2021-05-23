@@ -5,14 +5,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.Popup">
    <children>
-      <Button layoutX="108.0" layoutY="216.0" mnemonicParsing="false" onAction="#acceptAction" prefHeight="40.0" prefWidth="100.0" text="Aceptar" />
-      <Button layoutX="293.0" layoutY="216.0" mnemonicParsing="false" onAction="#cancelAction" prefHeight="40.0" prefWidth="100.0" text="Cancelar" />
-      <Label fx:id="popupText" alignment="CENTER" layoutX="16.0" layoutY="54.0" prefHeight="113.0" prefWidth="468.0" text="¿Esta seguro que desea continuar?" wrapText="true">
+      <Button layoutX="97.0" layoutY="202.0" mnemonicParsing="false" onAction="#acceptAction" prefHeight="54.0" prefWidth="128.0" styleClass="clientBotonesArriba" stylesheets="@../values/style.css" text="Aceptar">
          <font>
-            <Font size="18.0" />
+            <Font size="17.0" />
+         </font></Button>
+      <Button layoutX="276.0" layoutY="202.0" mnemonicParsing="false" onAction="#cancelAction" prefHeight="54.0" prefWidth="128.0" styleClass="cancelarButton" stylesheets="@../values/style.css" text="Cancelar">
+         <font>
+            <Font size="17.0" />
+         </font></Button>
+      <Label fx:id="popupText" alignment="CENTER" layoutX="16.0" layoutY="54.0" prefHeight="113.0" prefWidth="468.0" text="¿Está seguro que desea continuar?" wrapText="true">
+         <font>
+            <Font name="System Bold" size="25.0" />
          </font>
       </Label>
    </children>

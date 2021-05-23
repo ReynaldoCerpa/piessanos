@@ -29,13 +29,8 @@
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
                   <Button fx:id="registerItemButton" mnemonicParsing="false" onAction="#registerItem" styleClass="clientBotonesArriba" text="Registrar material">
                      <HBox.margin>
-                        <Insets left="470.0" />
+                        <Insets left="580.0" />
                      </HBox.margin></Button>
-                  <Button fx:id="displayProveedoresButton" mnemonicParsing="false" onAction="#displayProveedores" styleClass="clientBotonesArriba" text="Proveedores">
-                     <HBox.margin>
-                        <Insets left="30.0" />
-                     </HBox.margin>
-                  </Button>
                   <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#backHome" styleClass="clientBotonesArriba" text="Volver a inicio">
                      <HBox.margin>
                         <Insets left="30.0" />

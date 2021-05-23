@@ -22,10 +22,10 @@
                      <children>
                         <Label fx:id="id" prefHeight="50.0" text="id">
                            <font>
-                              <Font name="Arial" size="30.0" />
+                              <Font name="Arial Bold" size="30.0" />
                            </font>
                         </Label>
-                        <Label fx:id="nombre" alignment="CENTER" prefHeight="50.0" prefWidth="515.0" text="nombre apellido apellido ">
+                        <Label fx:id="nombre" alignment="CENTER" prefHeight="50.0" prefWidth="515.0" text="nombre apellido apellido " textFill="#3c6360">
                            <font>
                               <Font name="Corbel Bold" size="30.0" />
                            </font>
@@ -44,21 +44,21 @@
                                  <children>
                                     <Label fx:id="nombre1" alignment="CENTER" prefHeight="112.0" prefWidth="417.0" text="Tratamientos aplicado">
                                        <font>
-                                          <Font name="Corbel" size="25.0" />
+                                          <Font name="Corbel Bold" size="25.0" />
                                        </font>
                                     </Label>
                                  </children>
                               </HBox>
-                              <HBox alignment="CENTER" prefHeight="35.0" prefWidth="417.0" styleClass="grey-background" stylesheets="@../values/style.css">
+                              <HBox alignment="CENTER" prefHeight="35.0" prefWidth="417.0" styleClass="titulosLista" stylesheets="@../values/style.css">
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="56.0" text="id">
+                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="56.0" styleClass="labelsLista" text="id">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Label>
                                     <HBox alignment="CENTER" prefHeight="33.0" prefWidth="128.0">
                                        <children>
-                                          <Label alignment="CENTER" prefHeight="21.0" text="Nombre">
+                                          <Label alignment="CENTER" prefHeight="21.0" styleClass="labelsLista" text="Nombre">
                                              <font>
                                                 <Font name="System Bold" size="15.0" />
                                              </font>
@@ -70,7 +70,7 @@
                                     </HBox>
                                     <HBox alignment="CENTER" prefHeight="33.0" prefWidth="79.0">
                                        <children>
-                                          <Label alignment="CENTER" prefHeight="21.0" text="Precio">
+                                          <Label alignment="CENTER" prefHeight="21.0" styleClass="labelsLista" text="Precio">
                                              <font>
                                                 <Font name="System Bold" size="15.0" />
                                              </font>
@@ -99,21 +99,21 @@
                                  <children>
                                     <Label fx:id="nombre11" alignment="CENTER" prefHeight="112.0" prefWidth="417.0" text="Medicamentos utilizados">
                                        <font>
-                                          <Font name="Corbel" size="25.0" />
+                                          <Font name="Corbel Bold" size="25.0" />
                                        </font>
                                     </Label>
                                  </children>
                               </HBox>
-                              <HBox alignment="CENTER" prefHeight="35.0" prefWidth="417.0" styleClass="grey-background" stylesheets="@../values/style.css">
+                              <HBox alignment="CENTER" prefHeight="35.0" prefWidth="417.0" styleClass="titulosLista" stylesheets="@../values/style.css">
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="56.0" text="id">
+                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="56.0" styleClass="labelsLista" text="id">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Label>
                                     <HBox alignment="CENTER" prefHeight="33.0" prefWidth="128.0">
                                        <children>
-                                          <Label alignment="CENTER" prefHeight="21.0" text="Nombre">
+                                          <Label alignment="CENTER" prefHeight="21.0" styleClass="labelsLista" text="Nombre">
                                              <font>
                                                 <Font name="System Bold" size="15.0" />
                                              </font>
@@ -125,7 +125,7 @@
                                     </HBox>
                                     <HBox alignment="CENTER" prefHeight="33.0" prefWidth="79.0">
                                        <children>
-                                          <Label alignment="CENTER" prefHeight="21.0" text="Precio">
+                                          <Label alignment="CENTER" prefHeight="21.0" styleClass="labelsLista" text="Precio">
                                              <font>
                                                 <Font name="System Bold" size="15.0" />
                                              </font>
@@ -156,15 +156,15 @@
                            <children>
                               <HBox alignment="BOTTOM_LEFT" prefHeight="74.0" prefWidth="873.0">
                                  <children>
-                                    <Label prefHeight="26.0" prefWidth="150.0" text="Temperatura">
+                                    <Label prefHeight="31.0" prefWidth="278.0" text="Temperatura">
                                        <HBox.margin>
-                                          <Insets left="50.0" />
+                                          <Insets left="90.0" />
                                        </HBox.margin>
                                        <font>
-                                          <Font size="17.0" />
+                                          <Font name="Corbel Bold" size="25.0" />
                                        </font>
                                     </Label>
-                                    <TextField prefHeight="25.0" prefWidth="108.0">
+                                    <TextField prefHeight="26.0" prefWidth="166.0">
                                        <HBox.margin>
                                           <Insets left="10.0" />
                                        </HBox.margin>
@@ -188,11 +188,14 @@
                                  <children>
                                     <Label text="Indicaciones">
                                        <font>
-                                          <Font size="17.0" />
+                                          <Font name="Corbel Bold" size="25.0" />
                                        </font>
                                     </Label>
-                                    <TextArea fx:id="antecedentes" maxWidth="350.0" prefHeight="200.0" prefWidth="440.0" />
+                                    <TextArea fx:id="antecedentes" maxWidth="350.0" prefHeight="200.0" prefWidth="440.0" styleClass="radioCajas" />
                                  </children>
+                                 <HBox.margin>
+                                    <Insets top="5.0" />
+                                 </HBox.margin>
                               </VBox>
                            </children>
                         </HBox>
@@ -202,10 +205,10 @@
                                  <children>
                                     <Label text="Observaciones">
                                        <font>
-                                          <Font size="17.0" />
+                                          <Font name="Corbel Bold" size="25.0" />
                                        </font>
                                     </Label>
-                                    <TextArea fx:id="antecedentes1" maxWidth="350.0" prefHeight="200.0" prefWidth="517.0" />
+                                    <TextArea fx:id="antecedentes1" maxWidth="350.0" prefHeight="200.0" prefWidth="517.0" styleClass="radioCajas" />
                                  </children>
                               </VBox>
                            </children>
@@ -223,13 +226,19 @@
                                        <children>
                                           <Label text="Total: $">
                                              <font>
-                                                <Font size="25.0" />
+                                                <Font name="Corbel Bold" size="25.0" />
                                              </font>
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </HBox.margin>
                                           </Label>
                                           <Label text="9999.99">
                                              <font>
                                                 <Font size="25.0" />
                                              </font>
+                                             <HBox.margin>
+                                                <Insets left="2.0" />
+                                             </HBox.margin>
                                           </Label>
                                        </children>
                                     </HBox>
@@ -241,12 +250,12 @@
                            <children>
                               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="437.0">
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#guardarConsulta" prefHeight="38.0" prefWidth="124.0" text="Guardar">
+                                    <Button mnemonicParsing="false" onAction="#guardarConsulta" prefHeight="38.0" prefWidth="124.0" styleClass="clientBotonesArriba" text="Guardar">
                                        <font>
                                           <Font name="System Bold" size="18.0" />
                                        </font>
                                     </Button>
-                                    <Button mnemonicParsing="false" onAction="#cancelConsulta" prefHeight="38.0" prefWidth="124.0" text="Cancelar">
+                                    <Button mnemonicParsing="false" onAction="#cancelConsulta" prefHeight="38.0" prefWidth="124.0" styleClass="cancelarButton" text="Cancelar">
                                        <font>
                                           <Font name="System Bold" size="18.0" />
                                        </font>
