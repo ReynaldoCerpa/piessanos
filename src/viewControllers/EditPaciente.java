@@ -25,6 +25,7 @@ public class EditPaciente {
     private Label alertText;
     @FXML
     private Group alertGroup, requiredGroup;
+    private String currentTel = "";
 
     public EditPaciente(){
 
@@ -48,6 +49,7 @@ public class EditPaciente {
                 apellidopInput.setText(myRes.getString("nomPaterno"));
                 apellidomInput.setText(myRes.getString("nomMaterno"));
                 tel1Input.setText(telRes.getString("numTelefono"));
+                currentTel = telRes.getString("numTelefono");
                 nombreInput.setText(myRes.getString("nombre"));
                 break;
             }
@@ -61,19 +63,28 @@ public class EditPaciente {
             requiredGroup.setVisible(true);
             alertText.setText("Rellene todos los campos obligatorios\n");
         }else {
-            ResultSet myRes = null;
+            ResultSet myRes = null, telRes = null;
             try{
                 myRes = database.connectSQL("paciente");
+                telRes = database.connectSQL("paciente_telefono");
             } catch (Exception e){
                 e.printStackTrace();
             }
 
             boolean notfound = true;
-            boolean out2 = false;
+            boolean out2 = false, out = false;
 
             int size = 1;
-            while (myRes.next()){
+            while (myRes.next() && telRes.next()){
                 size++;
+                String tel = telRes.getString("numTelefono");
+                if (tel1Input.getText().equals(tel) && !tel1Input.getText().equals(currentTel) && !out){
+                    notfound = false;
+                    out = true;
+                    alertText.setText(alertText.getText() + "Telefono ya existente\n");
+                    alertGroup.setVisible(true);
+                    System.out.println("Telefono ya existente");
+                }
                 if (tel1Input.getText().length() != 10 && !out2){
                     notfound = false;
                     out2 = true;

@@ -109,6 +109,10 @@ public class RegisterCitas implements Initializable {
             int size = 1;
             while(myRes.next()){
                 size++;
+                String time = motor.formatTime(horaInput.getText(), minutoInput.getText())+":00";
+                String date = motor.formatDate(fechaInput);
+                String fecha = myRes.getString("fecha");
+                String hora = myRes.getString("hora");
                 if (!StringUtils.isStrictlyNumeric(horaInput.getText()) || !StringUtils.isStrictlyNumeric(minutoInput.getText()) || (Integer.parseInt(horaInput.getText()) > 24) || (Integer.parseInt(horaInput.getText()) < 0)
                         || (Integer.parseInt(minutoInput.getText()) > 59) || (Integer.parseInt(minutoInput.getText()) < 0) && !out){
                     notfound = false;
@@ -123,6 +127,13 @@ public class RegisterCitas implements Initializable {
                     alertText.setText(alertText.getText() + "Seleccione un paciente\n");
                     alertGroup.setVisible(true);
                     System.out.println("Seleccione un paciente");
+                }
+                if((date.equals(fecha) && time.equals(hora)) && !out4){
+                    notfound = false;
+                    out4 = true;
+                    alertText.setText(alertText.getText() + "Hora de cita ya reservada\n");
+                    alertGroup.setVisible(true);
+                    System.out.println("Hora de cita ya reservada");
                 }
             }
             if (notfound){

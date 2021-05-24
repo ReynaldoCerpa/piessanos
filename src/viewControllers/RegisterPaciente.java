@@ -59,7 +59,7 @@ public class RegisterPaciente {
             while(myRes.next() && telRes.next()){
                 size++;
                 String tel = telRes.getString("numTelefono");
-                if (tel1Input.equals(tel) && !out){
+                if (tel1Input.getText().equals(tel) && !out){
                     notfound = false;
                     out = true;
                     alertText.setText(alertText.getText() + "Telefono ya existente\n");
@@ -77,7 +77,7 @@ public class RegisterPaciente {
             if (notfound){
                 try{
                     String id = motor.generateID("P-",size);
-                    String exp_id = motor.generateID("EP-",size);
+                    String exp_id = "E"+id;
                     String sql = "insert into paciente "+"(id, nombre, nomPaterno, nomMaterno)"
                             +" values (?,?,?,?)";
                     PreparedStatement stmt = database.updateData(sql);

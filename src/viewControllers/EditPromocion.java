@@ -56,7 +56,9 @@ public class EditPromocion {
                 }
                 selectedItemLabel.setText(item);
                 nombreInput.setText(myRes.getString("nombre"));
-                descuentoInput.setText(myRes.getString("porcentaje_descuento"));
+                String descuento = myRes.getString("porcentaje_descuento");
+                descuento = descuento.substring(0, descuento.length() - 2);
+                descuentoInput.setText(descuento);
                 String resDate = myRes.getString("fecha");
                 fechaInput.setValue(LocalDate.parse(resDate));
                 break;

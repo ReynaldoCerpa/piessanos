@@ -41,7 +41,9 @@ public class EditTratamiento {
         while(myRes.next()){
             if (motor.getSelectedItem().equals(myRes.getString("clave"))){
                 nombreInput.setText(myRes.getString("nombre"));
-                precioInput.setText(myRes.getString("precio"));
+                String descuento = myRes.getString("precio");
+                descuento = descuento.substring(0, descuento.length() - 2);
+                precioInput.setText(descuento);
                 descripcionInput.setText(myRes.getString("descripcion"));
                 break;
             }

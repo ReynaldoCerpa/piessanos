@@ -41,7 +41,9 @@ public class EditMedicamento {
         while(myRes.next()){
             if (motor.getSelectedItem().equals(myRes.getString("codigo"))){
                 nombreInput.setText(myRes.getString("nombre"));
-                precioInput.setText(myRes.getString("precio"));
+                String precio = myRes.getString("precio");
+                precio = precio.substring(0, precio.length() - 2);
+                precioInput.setText(precio);
                 cantidadInput.setText(myRes.getString("cantidadinventario"));
                 descripcionInput.setText(myRes.getString("descripcion"));
                 break;
