@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER" prefHeight="50.0" prefWidth="407.0" stylesheets="@../values/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.ConsultasItem">
+<HBox alignment="CENTER" prefHeight="50.0" prefWidth="556.0" stylesheets="@../values/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.ConsultasItem">
    <children>
       <Label fx:id="id" alignment="CENTER" prefWidth="150.0" text="id">
          <font>
@@ -20,9 +20,14 @@
             <Font size="15.0" />
          </font>
       </Label>
+      <Label fx:id="atendido" alignment="CENTER" prefHeight="21.0" prefWidth="121.0" text="atendido">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
       <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="135.0">
          <children>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#openExpediente" prefHeight="30.0" prefWidth="30.0" HBox.hgrow="ALWAYS">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#openExpediente" prefHeight="30.0" prefWidth="30.0" styleClass="medicoItem" stylesheets="@../values/style.css" HBox.hgrow="ALWAYS">
                <graphic>
                   <ImageView fx:id="editButton" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -34,29 +39,10 @@
                   <Insets right="5.0" />
                </HBox.margin>
             </Button>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#editItem" prefHeight="30.0" prefWidth="30.0">
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../assets/editIcon.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <HBox.margin>
-                  <Insets right="5.0" />
-               </HBox.margin>
-            </Button>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#deleteItem" prefHeight="30.0" prefWidth="30.0" HBox.hgrow="NEVER">
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../assets/deleteIcon.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <HBox.margin>
-                  <Insets right="5.0" />
-               </HBox.margin>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#nuevaConsulta" prefHeight="30.0" prefWidth="72.0" styleClass="medicoItem" stylesheets="@../values/style.css" text="Consultar" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
             </Button>
          </children>
          <HBox.margin>

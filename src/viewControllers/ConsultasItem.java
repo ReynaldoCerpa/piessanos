@@ -16,7 +16,7 @@ public class ConsultasItem implements Initializable {
     private Label id;
 
     @FXML
-    private Label fecha;
+    private Label fecha, atendido;
 
     @FXML
     private ImageView editButton;
@@ -32,11 +32,11 @@ public class ConsultasItem implements Initializable {
     }
 
     @FXML
-    private void deleteItem(ActionEvent event) throws SQLException {
+    private void nuevaConsulta(ActionEvent event) throws SQLException {
         listener.deleteListener(editButton.getId(), event);
     }
     @FXML
-    public void openExpediente(ActionEvent event) {
+    public void openExpediente(ActionEvent event) throws SQLException {
         listener.showListener(editButton.getId(), event);
     }
     public void setData(Consulta item, Listener listener){
@@ -45,6 +45,7 @@ public class ConsultasItem implements Initializable {
         editButton.setId(item.getNumCita());
         id.setText(item.getNumCita());
         fecha.setText(item.getFecha());
+        atendido.setText(item.getAtendido());
     }
 
     public String getButtonID(){

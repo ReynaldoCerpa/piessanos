@@ -3,6 +3,7 @@ package Model;
 public class Consulta {
     private String numCita;
     private String fecha;
+    private String atendido;
 
     public String getFecha() {
         return fecha;
@@ -20,7 +21,11 @@ public class Consulta {
         this.numCita = numCita;
     }
 
+    public String getAtendido() {
+        return atendido;
+    }
 
-
-
+    public void setAtendido(String atendido) {
+        this.atendido = atendido;
+    }
 }

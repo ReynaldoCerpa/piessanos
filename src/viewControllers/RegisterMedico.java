@@ -139,6 +139,9 @@ public class RegisterMedico {
         }
     }
     public void cancelRegisterMedico(ActionEvent event) {
-        motor.showAdministrarMedicos(event);
+        String text = "¿Está seguro que desea cancelar el registro?";
+        if (motor.confirmAction(text, "")){
+            motor.showAdministrarMedicos(event);
+        }
     }
 }

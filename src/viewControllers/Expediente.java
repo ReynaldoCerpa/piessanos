@@ -59,11 +59,11 @@ public class Expediente implements Initializable {
             ale = database.connectSQL("expediente_alergia");
             med = database.connectSQL("expediente_medicamentoPrescrito");
             enf = database.connectSQL("expediente_enfermedad");
-            cons = database.connectSQL("consulta");
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+         /* && cons.next()*/
         while(myRes.next() && ale.next() && med.next() && enf.next()){
             if (motor.getSelectedItem().equals(String.valueOf(myRes.getString("id")))){
                 fullname = myRes.getString("nombre")+" "+myRes.getString("nomPaterno")+" "+myRes.getString("nomMaterno");
@@ -74,7 +74,14 @@ public class Expediente implements Initializable {
                 alergias.setText(ale.getString("nombre"));
                 medicamentos.setText(med.getString("nombre"));
                 enfermedades.setText(enf.getString("nombre"));
-                //antecedentes.setText(cons.getString("observaciones"));
+
+                String observaciones = "select * from consulta where id_paciente = ? order by observaciones desc limit 1";
+                PreparedStatement obs = database.updateData(observaciones);
+                obs.setString(1, idPaciente);
+                ResultSet obsRes = obs.executeQuery();
+                while(obsRes.next()){
+                    antecedentes.setText(obsRes.getString("observaciones")+"\n");
+                }
                 break;
             }
         }
@@ -89,21 +96,33 @@ public class Expediente implements Initializable {
         listener = new Listener(){
             @Override
             public void editListener(String id, ActionEvent event){
+
             }
             @Override
             public void deleteListener(String id, ActionEvent event) throws SQLException{
-
-                setChosenItem(id);
-                String text = "Esta seguro que desea eliminar a: "+findItem(id);
-                if (motor.confirmAction(text, "")){
-                    System.out.println(id + " Eliminado");
-                    deleteItem(id, event);
+                if (!isAtendido(id)){
+                    motor.showConsultas(event);
+                } else {
+                    String text = "Este paciente ya ha sido atendido";
+                    String content = "¿Desea agendar una cita?";
+                    if (motor.confirmAction(text, content)){
+                        motor.setSelectedPacient(true, idPaciente, fullname);
+                        motor.showRegisterCita(event);
+                        motor.setGoBack(true);
+                    }
                 }
             }
             @Override
-            public void showListener(String id, ActionEvent event){
-                setChosenItem(id);
-                motor.showConsulta(event);
+            public void showListener(String id, ActionEvent event) throws SQLException {
+
+                if (showConsulta(id)){
+                    setChosenItem(id);
+                    motor.showConsulta(event);
+                } else {
+                    String text = "Este paciente no ha sido atendido";
+                    if (motor.confirmAction(text, "")){
+                    }
+                }
             }
 
             @Override
@@ -130,20 +149,22 @@ public class Expediente implements Initializable {
 
         while (myRes.next()) {
                 if (idPaciente.equals(myRes.getString("id_paciente"))) {
-                    String id = myRes.getString("numCita");
+                    String id = myRes.getString("idCita");
                     String fecha = myRes.getString("fecha");
+                    String atendido = myRes.getString("atendido");
 
-                    Consulta newItem = defineItem(id, fecha);
+                    Consulta newItem = defineItem(id, fecha, atendido);
                     itemList.add(newItem);
                 }
         }
         return itemList;
     }
 
-    public Consulta defineItem(String id, String fecha) {
+    public Consulta defineItem(String id, String fecha, String atendido) {
         Consulta item = new Consulta();
         item.setNumCita(id);
         item.setFecha(fecha);
+        item.setAtendido(atendido);
         return item;
     }
 
@@ -211,9 +232,9 @@ public class Expediente implements Initializable {
         }
 
         while (myRes.next()) {
-            if (id.equals(myRes.getString("numCita"))){
+            if (id.equals(myRes.getString("idCita"))){
                 try{
-                    String sql = "delete from cita where numCita= ? ";
+                    String sql = "delete from cita where idCita= ? ";
                     PreparedStatement stmt = database.updateData(sql);
                     stmt.setString(1, id);
                     stmt.executeUpdate();
@@ -236,56 +257,63 @@ public class Expediente implements Initializable {
             e.printStackTrace();
         }
         while(myRes.next()){
-            if (id.equals(myRes.getString("numCita"))){
-                name = myRes.getString("numCita");
+            if (id.equals(myRes.getString("idCita"))){
+                name = myRes.getString("idCita");
                 break;
             }
         }
         return name;
     }
 
-    public void nuevaConsulta(ActionEvent event) throws SQLException {
+    public boolean isAtendido(String id) throws SQLException {
+        boolean res = false;
+        String atendido = "si";
 
-        int numCita = 0;
-
-        String citaquery = "select numCita from cita where id_paciente = ?";
+        String citaquery = "select atendido from cita where idCita = ?";
 
         PreparedStatement cita = database.updateData(citaquery);
 
-        cita.setString(1, idPaciente);
+        cita.setString(1, id);
 
         ResultSet numcita = cita.executeQuery();
         while(numcita.next()){
-            numCita = Integer.parseInt(numcita.getString("numcita"));
+            atendido = numcita.getString("atendido");
+        }
+        if (atendido.equals("si")){
+            res = true;
         }
 
-        if (numCita != 0){
-            motor.showConsultas(event);
-        } else {
-            String text = "Este paciente no tiene citas agendadas";
-            String content = "¿Desea agenar una cita?";
-            if (motor.confirmAction(text, content)){
-                motor.setSelectedPacient(true, idPaciente, fullname);
-                motor.showRegisterCita(event);
-                motor.setBackExpediente(true);
-            }
+        return res;
+    }
+    public boolean showConsulta(String id) throws SQLException{
+        boolean res = false;
+        String atendido = "";
 
+        String citaquery = "select atendido from cita where idCita = ?";
 
+        PreparedStatement cita = database.updateData(citaquery);
+
+        cita.setString(1, id);
+
+        ResultSet numcita = cita.executeQuery();
+        while(numcita.next()){
+            atendido = numcita.getString("atendido");
+        }
+        if (atendido.equals("si")){
+            res = true;
         }
 
+        return res;
     }
 
     public void cancelChanges(ActionEvent event) {
-        motor.showExpedienteUser(event);
+        String text = "¿Está seguro que desea cancelar el registro?";
+        if (motor.confirmAction(text, "")){
+            motor.showExpedienteUser(event);
+        }
     }
 
     public void saveChanges(ActionEvent event) throws SQLException {
-        cancelButton.setVisible(false);
-        saveButton.setVisible(false);
-        alergias.setEditable(false);
-        medicamentos.setEditable(false);
-        antecedentes.setEditable(false);
-        enfermedades.setEditable(false);
 
         alertText.setText("");
         if (alergias.getText().isEmpty() || enfermedades.getText().isEmpty() || medicamentos.getText().isEmpty()){
@@ -339,6 +367,12 @@ public class Expediente implements Initializable {
                     enfStmt.setString(3, exp_id);
                     enfStmt.executeUpdate();
 
+                    cancelButton.setVisible(false);
+                    saveButton.setVisible(false);
+                    alergias.setEditable(false);
+                    medicamentos.setEditable(false);
+                    antecedentes.setEditable(false);
+                    enfermedades.setEditable(false);
                     alertText.setVisible(false);
                     requiredGroup.setVisible(false);
 
@@ -357,8 +391,15 @@ public class Expediente implements Initializable {
         alergias.setEditable(true);
         medicamentos.setEditable(true);
         enfermedades.setEditable(true);
-        antecedentes.setEditable(true);
     }
 
 
+    public void registerCita(ActionEvent event) {
+        String text = "¿Desea registrar una cita para este paciente?";
+        if (motor.confirmAction(text, "")){
+            motor.setSelectedPacient(true, idPaciente, fullname);
+            motor.showRegisterCita(event);
+            motor.setGoBack(true);
+        }
+    }
 }

@@ -4,31 +4,126 @@
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.RegisterMedicamentos">
    <children>
-      <TextField fx:id="nombreInput" layoutX="537.0" layoutY="112.0" prefHeight="25.0" prefWidth="309.0" />
-      <TextField fx:id="precioInput" layoutX="537.0" layoutY="162.0" prefHeight="25.0" prefWidth="309.0" />
-      <TextField fx:id="cantidadInput" layoutX="537.0" layoutY="216.0" prefHeight="25.0" prefWidth="309.0" />
-      <Label layoutX="540.0" layoutY="33.0" text="Registrar medicamento">
+      <Label layoutX="495.0" layoutY="31.0" text="Registrar medicamento" textFill="#3c6360" underline="true">
          <font>
-            <Font name="System Bold" size="24.0" />
+            <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="479.0" layoutY="116.0" text="Nombre" />
-      <Label layoutX="490.0" layoutY="166.0" text="precio" />
-      <Label layoutX="478.0" layoutY="220.0" text="cantidad" />
-      <Label layoutX="459.0" layoutY="268.0" text="descripcion" />
-      <TextArea fx:id="descripcionInput" layoutX="536.0" layoutY="268.0" prefHeight="183.0" prefWidth="309.0" wrapText="true" />
-      <Button layoutX="555.0" layoutY="623.0" mnemonicParsing="false" onAction="#saveRegistrarMedicamento" prefHeight="35.0" prefWidth="105.0" text="Registrar" />
-      <Button fx:id="cancelRegisterMedicamento" layoutX="695.0" layoutY="623.0" mnemonicParsing="false" onAction="#cancelRegisterMedicamento" prefHeight="35.0" prefWidth="105.0" text="Cancelar" />
-      <Group fx:id="alertGroup" layoutX="493.0" layoutY="516.0" visible="false">
+      <TextField fx:id="nombreInput" layoutX="535.0" layoutY="176.0" prefHeight="25.0" prefWidth="309.0" />
+      <TextField fx:id="precioInput" layoutX="535.0" layoutY="226.0" prefHeight="25.0" prefWidth="309.0" />
+      <TextField fx:id="precioproveedorInput" layoutX="535.0" layoutY="270.0" prefHeight="25.0" prefWidth="309.0" />
+      <TextField fx:id="cantidadInput" layoutX="535.0" layoutY="318.0" prefHeight="25.0" prefWidth="309.0" />
+      <Label layoutX="477.0" layoutY="180.0" text="Nombre">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="455.0" layoutY="230.0" text="precio venta">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="476.0" layoutY="322.0" text="cantidad">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="457.0" layoutY="370.0" text="descripcion">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="descripcionInput" layoutX="534.0" layoutY="370.0" prefHeight="93.0" prefWidth="309.0" wrapText="true" />
+      <Label layoutX="140.0" layoutY="130.0" text="Seleccione un proveedor">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Group fx:id="pacientesListGroup" layoutX="125.0" layoutY="170.0">
+         <children>
+            <ListView fx:id="itemList" layoutY="29.0" prefHeight="307.0" prefWidth="248.0" />
+            <Rectangle fill="#ebebeb" height="30.0" stroke="#b5b5b5" strokeType="INSIDE" width="71.0" />
+            <Rectangle fill="#ebebeb" height="30.0" layoutX="71.0" stroke="#b2b2b2" strokeType="INSIDE" width="177.0" />
+            <Label layoutX="30.0" layoutY="6.0" text="Id">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="138.0" layoutY="7.0" text="Nombre">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Group>
+      <Label layoutX="591.0" layoutY="104.0" text="Proveedor seleccionado:">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="selectedItemLabel" alignment="CENTER" layoutX="546.0" layoutY="127.0" prefHeight="30.0" prefWidth="248.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="431.0" layoutY="274.0" text="precio proveedor">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Group fx:id="requiredGroup" layoutX="632.0" layoutY="149.0" visible="false">
+         <children>
+            <Label layoutX="201.0" layoutY="22.0" text="*" textFill="RED">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="203.0" layoutY="72.0" text="*" textFill="RED">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="144.0" layoutY="-45.0" text="* Requerido" textFill="RED">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="201.0" layoutY="217.0" text="*" textFill="RED">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="-269.0" layoutY="-13.0" prefHeight="24.0" prefWidth="14.0" text="*" textFill="RED">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="202.0" layoutY="116.0" text="*" textFill="RED">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="202.0" layoutY="164.0" text="*" textFill="RED">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </Group>
+      <Button layoutX="543.0" layoutY="623.0" mnemonicParsing="false" onAction="#saveRegistrarMedicamento" prefHeight="35.0" prefWidth="105.0" styleClass="clientBotonesArriba" stylesheets="@../values/style.css" text="Registrar" />
+      <Button fx:id="cancelRegisterMedicamento" layoutX="683.0" layoutY="623.0" mnemonicParsing="false" onAction="#cancelRegisterMedicamento" prefHeight="35.0" prefWidth="105.0" styleClass="cancelarButton" stylesheets="@../values/style.css" text="Cancelar" />
+      <Group fx:id="alertGroup" layoutX="481.0" layoutY="516.0" visible="false">
          <children>
             <ImageView fitHeight="114.0" fitWidth="358.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -39,35 +134,6 @@
                </viewport>
             </ImageView>
             <Label fx:id="alertText" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutY="-10.0" prefHeight="104.0" prefWidth="353.0" textAlignment="CENTER" textFill="#ce2121" wrapText="true">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-         </children>
-      </Group>
-      <Group fx:id="requiredGroup" layoutX="613.0" layoutY="54.0" visible="false">
-         <children>
-            <Label layoutX="223.0" layoutY="55.0" text="*" textFill="RED">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <Label layoutX="223.0" layoutY="104.0" text="*" textFill="RED">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <Label layoutX="222.0" layoutY="158.0" text="*" textFill="RED">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <Label layoutX="222.0" layoutY="210.0" text="*" textFill="RED">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <Label layoutX="147.0" layoutY="23.0" text="* Requerido" textFill="RED">
                <font>
                   <Font size="16.0" />
                </font>

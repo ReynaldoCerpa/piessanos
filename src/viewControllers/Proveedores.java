@@ -100,8 +100,6 @@ public class Proveedores implements Initializable {
             e.printStackTrace();
         }
 
-        /*assert telRes != null;
-        assert myRes != null;*/
         while (myRes.next()) {
 
             String id = myRes.getString("id");
@@ -113,14 +111,33 @@ public class Proveedores implements Initializable {
             String cp = myRes.getString("codigopostal");
             String ciudad = myRes.getString("ciudad");
             String telefono = myRes.getString("telefono");
+            String productos = "";
 
-            Proveedor newMed = defineItem(id, nombre, calle, numExt, numInt, colonia, cp, ciudad, telefono);
+            String matquery = "select * from proveedor_materialesconsulta where id_proveedor = ?";
+            PreparedStatement matRes = database.updateData(matquery);
+            matRes.setString(1, id);
+            ResultSet matProd = matRes.executeQuery();
+            while(matProd.next()){
+                 productos = productos+""+matProd.getString("id")+"\n";
+            }
+            String medquery = "select * from proveedor_medicamento where id_proveedor = ?";
+            PreparedStatement medRes = database.updateData(medquery);
+            medRes.setString(1, id);
+            ResultSet medProd = medRes.executeQuery();
+            while(medProd.next()){
+                productos = productos+""+medProd.getString("codigo_medicamento")+"\n";
+            }
+            if (productos.isEmpty()) {
+                productos = "ninguno";
+            }
+
+            Proveedor newMed = defineItem(id, nombre, calle, numExt, numInt, colonia, cp, ciudad, telefono, productos);
             itemList.add(newMed);
         }
         return itemList;
     }
 
-    public Proveedor defineItem(String id, String nombre, String calle, String numExt, String numInt, String colonia, String cp, String ciudad, String telefono) {
+    public Proveedor defineItem(String id, String nombre, String calle, String numExt, String numInt, String colonia, String cp, String ciudad, String telefono, String productos) {
         Proveedor proveedor = new Proveedor();
         proveedor.setid(id);
         proveedor.setNombre(nombre);
@@ -131,6 +148,7 @@ public class Proveedores implements Initializable {
         proveedor.setCodigoPostal(cp);
         proveedor.setCiudad(ciudad);
         proveedor.setTelefono(telefono);
+        proveedor.setProductos(productos);
         return proveedor;
     }
 

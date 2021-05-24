@@ -10,6 +10,7 @@ public class Proveedor {
     private String codigoPostal;
     private String ciudad;
     private String telefono;
+    private String productos;
 
     public String getid() {
         return id;
@@ -81,5 +82,13 @@ public class Proveedor {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public String getProductos() {
+        return productos;
+    }
+
+    public void setProductos(String productos) {
+        this.productos = productos;
     }
 }

@@ -105,7 +105,10 @@ public class EditPromocion {
     }
 
     public void cancelRegister(ActionEvent event) {
-        motor.showPromocion(event);
+        String text = "¿Está seguro que desea cancelar el registro?";
+        if (motor.confirmAction(text, "")){
+            motor.showPromocion(event);
+        }
     }
 
 }

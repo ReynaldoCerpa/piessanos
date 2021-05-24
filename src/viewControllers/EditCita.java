@@ -44,7 +44,7 @@ public class EditCita {
         }
 
         while(myRes.next()){
-            if (motor.getSelectedItem().equals(myRes.getString("numCita"))){
+            if (motor.getSelectedItem().equals(myRes.getString("idCita"))){
 
                 String id = myRes.getString("id_paciente");
 
@@ -111,7 +111,7 @@ public class EditCita {
                     String date = motor.formatDate(fechaInput);
                     String time = motor.formatTime(horaInput.getText(), minutoInput.getText());
                     String sql = "update cita set hora = ?, a_domicilio = ?, domicilio = ?, fecha = ?"
-                            +" where numCita = ?";
+                            +" where idCita = ?";
                     String id = motor.getSelectedItem();
                     PreparedStatement stmt = database.updateData(sql);
 
@@ -134,7 +134,10 @@ public class EditCita {
     }
 
     public void cancelRegister(ActionEvent event) {
-        motor.showCita(event);
+        String text = "¿Está seguro que desea cancelar el registro?";
+        if (motor.confirmAction(text, "")){
+            motor.showCita(event);
+        }
     }
 
     public void noRadioButton(ActionEvent event) {

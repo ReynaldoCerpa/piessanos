@@ -104,6 +104,9 @@ public class EditTratamiento {
     }
 
     public void cancelRegisterTratamiento(ActionEvent event) {
-        motor.showTratamientos(event);
+        String text = "¿Está seguro que desea cancelar el registro?";
+        if (motor.confirmAction(text, "")){
+            motor.showTratamientos(event);
+        }
     }
 }

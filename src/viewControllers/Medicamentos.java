@@ -91,37 +91,48 @@ public class Medicamentos implements Initializable {
     }
     private List<Medicamento> items() throws SQLException {
 
-        ResultSet myRes = null, telRes = null;
+        ResultSet myRes = null, provRes = null, provmedRes = null;
         try {
             myRes = database.connectSQL("medicamento");
+            provRes = database.connectSQL("proveedor");
+            provmedRes = database.connectSQL("proveedor_medicamento");
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        /*assert telRes != null;
-        assert myRes != null;*/
-        while (myRes.next()) {
+        while (myRes.next() && provmedRes.next()) {
 
             String codigo = myRes.getString("codigo");
             String nombre = myRes.getString("nombre");
             String precio = "$"+myRes.getString("precio");
             String cantidadinventario = myRes.getString("cantidadinventario");
             String descripcion = myRes.getString("descripcion");
+            String proveedor = "";
+            String provname = "select * from proveedor where id = ?";
+            PreparedStatement prov = database.updateData(provname);
+            prov.setString(1, provmedRes.getString("id_proveedor"));
+            ResultSet provnameRes = prov.executeQuery();
+            while(provnameRes.next()){
+                proveedor = provnameRes.getString("nombre");
+            }
+            String precioproveedor = "$"+provmedRes.getString("precio_proveedor");
 
-            Medicamento newMed = defineItem(codigo, nombre, precio, cantidadinventario, descripcion);
+            Medicamento newMed = defineItem(codigo, nombre, precio, cantidadinventario, descripcion, proveedor, precioproveedor);
             itemList.add(newMed);
         }
         return itemList;
     }
 
-    public Medicamento defineItem(String codigo, String nombre, String precio, String cantidadinventario, String descripcion) {
+    public Medicamento defineItem(String codigo, String nombre, String precio, String cantidadinventario, String descripcion, String proveedor, String precioproveedor) {
         Medicamento medicamento = new Medicamento();
         medicamento.setCodigo(codigo);
         medicamento.setNombre(nombre);
         medicamento.setPrecio(precio);
         medicamento.setCantidadInventario(cantidadinventario);
         medicamento.setDescripcion(descripcion);
+        medicamento.setProveedor(proveedor);
+        medicamento.setPrecioproveedor(precioproveedor);
         return medicamento;
     }
 

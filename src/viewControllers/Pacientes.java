@@ -70,6 +70,7 @@ public class Pacientes implements Initializable {
                 @Override
                 public void showListener(String id, ActionEvent event){
                     setChosenItem(id);
+                    motor.setAuxSelectedItem(id);
                     motor.showExpedienteUser(event);
                 }
 

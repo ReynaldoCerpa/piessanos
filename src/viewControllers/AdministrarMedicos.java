@@ -116,15 +116,18 @@ public class AdministrarMedicos implements Initializable {
             String codigoPostal = myRes.getString("codigoPostal");
             String ciudad = myRes.getString("ciudad");
             String fecha_registro = myRes.getString("fecha_registro");
+            int isAdmin = myRes.getInt("isAdmin");
 
             Medico newMed = defineMedico(cedula, nombre, nomPaterno, nomMaterno, calle, num_int, num_ext, colonia,
-                    codigoPostal, ciudad, fecha_registro, telefono, usuario);
+                    codigoPostal, ciudad, fecha_registro, telefono, usuario, isAdmin);
             medList.add(newMed);
         }
         return medList;
     }
 
-    public Medico defineMedico(String cedula, String nombre, String nomPaterno, String nomMaterno, String calle, String num_int, String num_ext, String colonia, String codigoPostal, String ciudad, String fecha_registro, String telefono, String usuario) {
+    public Medico defineMedico(String cedula, String nombre, String nomPaterno, String nomMaterno,
+                               String calle, String num_int, String num_ext, String colonia, String codigoPostal,
+                               String ciudad, String fecha_registro, String telefono, String usuario, int isAdmin) {
         Medico medico = new Medico();
         medico.setCedula(cedula);
         medico.setNombre(nombre);
@@ -139,6 +142,7 @@ public class AdministrarMedicos implements Initializable {
         medico.setCodigoPostal(codigoPostal);
         medico.setCiudad(ciudad);
         medico.setFecha_registro(fecha_registro);
+        medico.setIsAdmin(isAdmin);
         return medico;
     }
 

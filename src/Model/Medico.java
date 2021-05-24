@@ -14,6 +14,7 @@ public class Medico {
     private String fecha_registro;
     private String telefono;
     private String usuario;
+    private int isAdmin;
 
     public String getNomPaterno() {
         return nomPaterno;
@@ -120,4 +121,11 @@ public class Medico {
     }
 
 
+    public int getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(int isAdmin) {
+        this.isAdmin = isAdmin;
+    }
 }

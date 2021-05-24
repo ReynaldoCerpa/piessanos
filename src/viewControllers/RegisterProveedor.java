@@ -69,7 +69,7 @@ public class RegisterProveedor {
             }
 
             boolean notfound = true;
-            boolean out = false, out2 = false, out3 = false;
+            boolean out = false, out2 = false, out3 = false, out4 = false;
 
             int size = 1;
             while(myRes.next()){
@@ -96,16 +96,24 @@ public class RegisterProveedor {
                     alertGroup.setVisible(true);
                     System.out.println("proveedor name already taken");
                 }
+                if (!StringUtils.isStrictlyNumeric(cpInput.getText()) && !out4){
+                    notfound = false;
+                    out4 = true;
+                    alertText.setText(alertText.getText() + "Numeros interior/exterior incorrectos\n");
+                    alertGroup.setVisible(true);
+                    System.out.println("proveedor name already taken");
+                }
             }
             if (notfound){
                 if (num_intInput.getText().equals("")){
                     num_intInput.setText("");
                 }
                 try{
+                    String id = motor.generateID("PVD-",size);
                     String sql = "insert into proveedor "+"(id, nombre, calle, num_ext, num_int, colonia, codigopostal, ciudad, telefono)"
                             +" values (?,?,?,?,?,?,?,?,?)";
                     PreparedStatement stmt = database.updateData(sql);
-                    stmt.setString(1, ("PVD-"+size));
+                    stmt.setString(1, id);
                     stmt.setString(2, nombreInput.getText());
                     stmt.setString(3, calleInput.getText());
                     stmt.setString(4, num_extInput.getText());

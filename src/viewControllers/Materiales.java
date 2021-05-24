@@ -92,34 +92,44 @@ public class Materiales implements Initializable {
     }
     private List<Material> items() throws SQLException {
 
-        ResultSet myRes = null, telRes = null;
+        ResultSet myRes = null, provRes = null, matRes = null;
         try {
             myRes = database.connectSQL("materiales_consulta");
+            provRes = database.connectSQL("proveedor");
+            matRes = database.connectSQL("proveedor_materialesconsulta");
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        /*assert telRes != null;
-        assert myRes != null;*/
-        while (myRes.next()) {
+        while (myRes.next() && matRes.next()) {
 
-            int numInventario = myRes.getInt("numInventario");
-            System.out.println("numInventario: "+numInventario);
+            String id = myRes.getString("id");
             String nombre = myRes.getString("nombre");
             String cantidadinventario = myRes.getString("cantidadinventario");
+            String proveedor = "";
+            String provname = "select * from proveedor where id = ?";
+            PreparedStatement prov = database.updateData(provname);
+            prov.setString(1, matRes.getString("id_proveedor"));
+            ResultSet provnameRes = prov.executeQuery();
+            while(provnameRes.next()){
+                proveedor = provnameRes.getString("nombre");
+            }
+            String precioproveedor = "$"+matRes.getString("precio_proveedor");
 
-            Material newMed = defineItem(numInventario, nombre, cantidadinventario);
+            Material newMed = defineItem(id, nombre, cantidadinventario, proveedor, precioproveedor);
             itemList.add(newMed);
         }
         return itemList;
     }
 
-    public Material defineItem(int numInventario, String nombre, String cantidadinventario) {
+    public Material defineItem(String id, String nombre, String cantidadinventario,String proveedor, String precioproveedor) {
         Material material = new Material();
-        material.setNumInventario(numInventario);
+        material.setId(id);
         material.setNombre(nombre);
         material.setCantidadInventario(cantidadinventario);
+        material.setProveedor(proveedor);
+        material.setPrecioproveedor(precioproveedor);
         return material;
     }
 
@@ -159,7 +169,7 @@ public class Materiales implements Initializable {
             searchList.clear();
             itemsLayout.getChildren().clear();
             for (int i = 0; i < itemList.size(); i++) {
-                if (search.contains(String.valueOf(itemList.get(i).getNumInventario())) || search.contains(itemList.get(i).getNombre()) || search.contains(itemList.get(i).getCantidadInventario())) {
+                if (search.contains(itemList.get(i).getId()) || search.contains(itemList.get(i).getNombre()) || search.contains(itemList.get(i).getCantidadInventario())) {
                     found = true;
                     Material foundItem = itemList.get(i);
                     searchList.add(foundItem);
@@ -187,9 +197,9 @@ public class Materiales implements Initializable {
         }
 
         while (myRes.next()) {
-            if (id.equals(myRes.getString("numinventario"))){
+            if (id.equals(myRes.getString("id"))){
                 try{
-                    String sql = "delete from materiales_consulta where numinventario= ? ";
+                    String sql = "delete from materiales_consulta where id= ? ";
                     PreparedStatement stmt = database.updateData(sql);
                     stmt.setString(1, id);
                     stmt.executeUpdate();
@@ -211,7 +221,7 @@ public class Materiales implements Initializable {
             e.printStackTrace();
         }
         while(myRes.next()){
-            if (id.equals(myRes.getString("numinventario"))){
+            if (id.equals(myRes.getString("id"))){
                 name = myRes.getString("nombre");
                 break;
             }

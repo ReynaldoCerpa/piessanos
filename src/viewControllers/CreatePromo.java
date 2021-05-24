@@ -15,7 +15,10 @@ public class CreatePromo {
     }
 
     public void cancelCreatePromo(ActionEvent event) {
-        motor.showPromo(event);
+        String text = "¿Está seguro que desea cancelar el registro?";
+        if (motor.confirmAction(text, "")){
+            motor.showPromo(event);
+        }
     }
 
 

@@ -4,6 +4,7 @@ import Model.Medico;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -23,7 +24,7 @@ public class MedicoItem implements Initializable {
     @FXML
     private ImageView editButton;
     @FXML
-    private ImageView deleteButton;
+    private Button deleteButton;
     @FXML
     private Label nomPaterno;
     @FXML
@@ -52,6 +53,9 @@ public class MedicoItem implements Initializable {
         usuario.setText(medico.getUsuario());
         cedula.setText(medico.getCedula());
         nombre.setText(medico.getNombre());
+        if (medico.getIsAdmin() == 1){
+            deleteButton.setVisible(false);
+        }
     }
     public String getButtonID(){
         return editButton.getId();

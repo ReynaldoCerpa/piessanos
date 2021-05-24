@@ -15,12 +15,16 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 public class Motor {
     private User user = new User();
     private Item item = new Item();
-    private boolean backExpediente = false, backCitas = false, selectedPacient = false;
+    private Item aux = new Item();
+    private ArrayList<String> promoItems = new ArrayList<>();
+    private boolean goBack = false, backCitas = false, selectedPacient = false, dontShow = false;
     private String pacientID = "", pacientName;
     public Motor(){
 
@@ -584,6 +588,12 @@ public class Motor {
     public String getSelectedItem(){
         return item.getId();
     }
+    public void setAuxSelectedItem(String id){
+        aux.setId(id);
+    }
+    public String getAuxItem(){
+        return aux.getId();
+    }
     public String formatDate(DatePicker dateInput){
         String date = "";
         try{
@@ -612,18 +622,11 @@ public class Motor {
         }
         return response;
     }
-
-    public void setBackExpediente(boolean bool){
-        this.backExpediente = bool;
+    public void setGoBack(boolean bool){
+        this.goBack = bool;
     }
-    public boolean getBackExpediente(){
-        return backExpediente;
-    }
-    public void setBackCita(boolean bool){
-        this.backCitas = bool;
-    }
-    public boolean getBackCita(){
-        return backCitas;
+    public boolean goBack(){
+        return goBack;
     }
     public void setSelectedPacient(boolean bool, String id, String name){
         this.selectedPacient = bool;
@@ -639,7 +642,29 @@ public class Motor {
     public String getPacientName(){
         return pacientName;
     }
+    public void addPromoItem(String item){
+        promoItems.add(item);
+    }
+    public ArrayList<String> getPromoItems(){
+        return promoItems;
+    }
+    public void setDontShow(boolean bool){
+        this.dontShow = bool;
+    }
+    public boolean dontShow(){
+        return dontShow;
+    }
 
-
+    public String generateID(String initChar, int size){
+        Random rand = new Random();
+        int pos = 1 + rand.nextInt(24);
+        int bounds = 10 + rand.nextInt(90);
+        System.out.println(pos);
+        String id = "";
+        String letters = "abcdefghijklmnopqrstuvwxyz";
+        id = initChar+""+size+letters.charAt(pos-1)+letters.charAt(pos)+letters.charAt(pos+1)+bounds;
+        id = id.toUpperCase();
+        return id;
+    }
 
 }

@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import java.sql.Date;
@@ -17,11 +18,14 @@ public class EditMedico {
     @FXML
     private TextField cedulaInput, nombreInput, apellidopInput, apellidomInput,
             calleInput, numExtInput, numIntInput, coloniaInput, cpInput, ciudadInput,
-            telefonoInput, tipoTelefonoInput;
+            telefonoInput, tipoTelefonoInput, usuarioInput;
+    @FXML
+    private PasswordField passwordInput, confirmPass;
     @FXML
     private Label alertText;
     @FXML
     private Group alertGroup, requiredGroup;
+    private String currentUsername = "";
 
     public void receiveMotorInstance(Motor m) throws SQLException {
         this.motor = m;
@@ -50,6 +54,9 @@ public class EditMedico {
                 coloniaInput.setText(myRes.getString("colonia"));
                 cpInput.setText(myRes.getString("codigoPostal"));
                 ciudadInput.setText(myRes.getString("ciudad"));
+                usuarioInput.setText(myRes.getString("usuario"));
+                currentUsername = myRes.getString("usuario");
+                passwordInput.setText(myRes.getString("contrasena"));
                 break;
             }
         }
@@ -57,7 +64,10 @@ public class EditMedico {
 
     public void saveRegisterMedico(ActionEvent event) throws SQLException {
         alertText.setText("");
-        if (cpInput.getText().equals("") || numExtInput.getText().equals("") || ciudadInput.getText().equals("") || coloniaInput.getText().equals("") || calleInput.getText().equals("") || tipoTelefonoInput.getText().equals("") || telefonoInput.getText().equals("") || apellidopInput.getText().equals("") || apellidomInput.getText().equals("") || nombreInput.getText().equals("") || cedulaInput.getText().equals("")){
+        if (cpInput.getText().isEmpty() || numExtInput.getText().isEmpty() || ciudadInput.getText().isEmpty() || coloniaInput.getText().isEmpty()
+                || calleInput.getText().isEmpty() || tipoTelefonoInput.getText().isEmpty() || telefonoInput.getText().isEmpty()
+                || apellidopInput.getText().isEmpty() || apellidomInput.getText().isEmpty() || nombreInput.getText().isEmpty()
+                || cedulaInput.getText().isEmpty() || usuarioInput.getText().isEmpty() || passwordInput.getText().isEmpty() || confirmPass.getText().isEmpty()){
             alertGroup.setVisible(true);
             requiredGroup.setVisible(true);
             alertText.setText("Rellene todos los campos obligatorios\n");
@@ -71,9 +81,25 @@ public class EditMedico {
             }
 
             boolean notfound = true;
-            boolean out4 = false;
+            boolean out = false, out2 = false, out4 = false;
 
             while(myRes.next()){
+
+                String usuario = myRes.getString("usuario");
+                if (usuarioInput.getText().equals(usuario) && !usuarioInput.getText().equals(currentUsername) && !out){
+                    notfound = false;
+                    out = true;
+                    alertText.setText(alertText.getText() + "Nombre de usuario en uso\n");
+                    alertGroup.setVisible(true);
+                    System.out.println("Nombre de usuario en uso");
+                }
+                if (!passwordInput.getText().equals(confirmPass.getText()) && !out2){
+                    notfound = false;
+                    out2 = true;
+                    alertText.setText(alertText.getText() + "Las contraseñas no coinciden\n");
+                    alertGroup.setVisible(true);
+                    System.out.println("Las contraseñas no coinciden");
+                }
                 if (telefonoInput.getText().length() != 10 && !out4){
                     notfound = false;
                     out4 = true;
@@ -88,7 +114,7 @@ public class EditMedico {
                         numIntInput.setText("");
                     }
                     String sql = "update medico set cedula_profesional = ?, nombre = ?, nomPaterno = ?, nomMaterno = ?, calle = ?,"
-                            +" num_ext = ?, num_int = ?, colonia = ?, codigoPostal = ?, ciudad = ?"
+                            +" num_ext = ?, num_int = ?, colonia = ?, codigoPostal = ?, ciudad = ?, usuario = ?, contrasena = ?"
                             +"where cedula_profesional = ?";
                     String id = motor.getSelectedItem();
                     PreparedStatement stmt = database.updateData(sql);
@@ -102,7 +128,9 @@ public class EditMedico {
                     stmt.setString(8,coloniaInput.getText());
                     stmt.setString(9,cpInput.getText());
                     stmt.setString(10,ciudadInput.getText());
-                    stmt.setString(11,id);
+                    stmt.setString(11,usuarioInput.getText());
+                    stmt.setString(12,passwordInput.getText());
+                    stmt.setString(13,id);
                     stmt.executeUpdate();
                     alertText.setVisible(false);
                     requiredGroup.setVisible(false);
@@ -125,6 +153,9 @@ public class EditMedico {
     }
 
     public void cancelRegisterMedico(ActionEvent event) {
-        motor.showAdministrarMedicos(event);
+        String text = "¿Está seguro que desea cancelar el registro?";
+        if (motor.confirmAction(text, "")){
+            motor.showAdministrarMedicos(event);
+        }
     }
 }

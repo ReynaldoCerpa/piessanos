@@ -1,7 +1,7 @@
 package Model;
 
 public class Medicamento {
-    private String codigo, nombre, precio, cantidadInventario, descripcion;
+    private String codigo, nombre, precio, cantidadInventario, proveedor, descripcion, precioproveedor;
 
     public String getCodigo() {
         return codigo;
@@ -41,5 +41,21 @@ public class Medicamento {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public String getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(String proveedor) {
+        this.proveedor = proveedor;
+    }
+
+    public String getPrecioproveedor() {
+        return precioproveedor;
+    }
+
+    public void setPrecioproveedor(String precioproveedor) {
+        this.precioproveedor = precioproveedor;
     }
 }

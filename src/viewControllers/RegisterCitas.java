@@ -88,10 +88,9 @@ public class RegisterCitas implements Initializable {
     }
 
     public void saveItem(ActionEvent event) throws SQLException {
-        String date = motor.formatDate(fechaInput);
-        String time = motor.formatTime(horaInput.getText(), minutoInput.getText());
+
         alertText.setText("");
-        if (date.equals("") || horaInput.getText().equals("") || minutoInput.getText().equals("")){
+        if (fechaInput == null || horaInput.getText().isEmpty() || minutoInput.getText().isEmpty()){
             alertGroup.setVisible(true);
             requiredGroup.setVisible(true);
             alertText.setText("Rellene todos los campos obligatorios\n");
@@ -114,10 +113,13 @@ public class RegisterCitas implements Initializable {
             if (notfound){
                 try{
 
-                    String sql = "insert into cita "+"(numcita, hora, a_domicilio, domicilio, fecha, id_paciente)"
+                    String idCita = motor.generateID("C-",size);
+                    String date = motor.formatDate(fechaInput);
+                    String time = motor.formatTime(horaInput.getText(), minutoInput.getText());
+                    String sql = "insert into cita "+"(idCita, hora, a_domicilio, domicilio, fecha, id_paciente)"
                             +" values (?,?,?,?,?,(select id from paciente where id=?))";
                     PreparedStatement stmt = database.updateData(sql);
-                    stmt.setInt(1, size);
+                    stmt.setString(1, idCita);
                     stmt.setString(2, time);
                     stmt.setString(3, a_domicilio);
                     stmt.setString(4, domicilio.getText());
@@ -127,9 +129,10 @@ public class RegisterCitas implements Initializable {
                     alertText.setVisible(false);
                     requiredGroup.setVisible(false);
 
-                    if (motor.getBackExpediente()){
+                    if (motor.goBack()){
                         motor.showExpedienteUser(event);
-                        motor.setBackExpediente(false);
+                        motor.setSelectedPacient(false, "","");
+                        motor.setGoBack(false);
                     } else {
                         motor.showCita(event);
                     }
@@ -141,11 +144,18 @@ public class RegisterCitas implements Initializable {
     }
 
     public void cancelRegister(ActionEvent event) {
-        if (motor.getBackExpediente()){
-            motor.showExpedienteUser(event);
-            motor.setBackExpediente(false);
+        if (motor.goBack()){
+            String text = "¿Está seguro que desea cancelar el registro?";
+            if (motor.confirmAction(text, "")){
+                motor.showExpedienteUser(event);
+                motor.setSelectedPacient(false, "","");
+                motor.setGoBack(false);
+            }
         } else {
-            motor.showCita(event);
+            String text = "¿Está seguro que desea cancelar el registro?";
+            if (motor.confirmAction(text, "")){
+                motor.showCita(event);
+            }
         }
     }
 
@@ -199,7 +209,7 @@ public class RegisterCitas implements Initializable {
     }
 
     public void showRegisterPaciente(ActionEvent event) {
-        motor.setBackCita(true);
+        motor.setGoBack(true);
         motor.showRegisterPacient(event);
     }
 }

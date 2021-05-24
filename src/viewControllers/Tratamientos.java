@@ -99,8 +99,6 @@ public class Tratamientos implements Initializable {
             e.printStackTrace();
         }
 
-        /*assert telRes != null;
-        assert myRes != null;*/
         while (myRes.next()) {
 
             String codigo = myRes.getString("clave");

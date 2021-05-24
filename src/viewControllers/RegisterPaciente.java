@@ -76,8 +76,8 @@ public class RegisterPaciente {
             }
             if (notfound){
                 try{
-                    String id = "P-"+size;
-                    String exp_id = "EP-"+size;
+                    String id = motor.generateID("P-",size);
+                    String exp_id = motor.generateID("EP-",size);
                     String sql = "insert into paciente "+"(id, nombre, nomPaterno, nomMaterno)"
                             +" values (?,?,?,?)";
                     PreparedStatement stmt = database.updateData(sql);
@@ -133,9 +133,9 @@ public class RegisterPaciente {
                     alertText.setVisible(false);
                     requiredGroup.setVisible(false);
 
-                    if (motor.getBackCita()){
+                    if (motor.goBack()){
                         motor.showRegisterCita(event);
-                        motor.setBackCita(false);
+                        motor.setGoBack(false);
                     } else {
                         motor.showPacientes(event);
                     }
@@ -147,9 +147,9 @@ public class RegisterPaciente {
     }
 
     public void cancelRegister(ActionEvent event) {
-        if (motor.getBackCita()){
+        if (motor.goBack()){
             motor.showRegisterCita(event);
-            motor.setBackCita(false);
+            motor.setGoBack(false);
         } else {
             motor.showPacientes(event);
         }

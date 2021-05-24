@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
 
 public class CitaItem implements Initializable {
     @FXML
-    private Label numcita;
+    private Label idCita;
 
     @FXML
     private Label paciente;
@@ -50,9 +50,9 @@ public class CitaItem implements Initializable {
     public void setData(Cita cita, Listener listener){
 
         this.listener = listener;
-        deleteButton.setId(cita.getNumCita());
-        editButton.setId(cita.getNumCita());
-        numcita.setText(cita.getNumCita());
+        deleteButton.setId(cita.getidCita());
+        editButton.setId(cita.getidCita());
+        idCita.setText(cita.getidCita());
         paciente.setText(cita.getId_paciente());
         hora.setText(cita.getHora());
         fecha.setText(cita.getFecha());

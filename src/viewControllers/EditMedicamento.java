@@ -106,6 +106,9 @@ public class EditMedicamento {
     }
 
     public void cancelRegisterMedicamento(ActionEvent event) {
-        motor.showMedicamentos(event);
+        String text = "¿Está seguro que desea cancelar el registro?";
+        if (motor.confirmAction(text, "")){
+            motor.showMedicamentos(event);
+        }
     }
 }

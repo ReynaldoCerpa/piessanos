@@ -1,7 +1,7 @@
 package Model;
 
 public class Cita {
-    private String numCita;
+    private String idCita;
     private String hora;
     private String fecha;
     private String a_domicilio;
@@ -16,12 +16,12 @@ public class Cita {
         this.fecha = fecha;
     }
 
-    public String getNumCita() {
-        return numCita;
+    public String getidCita() {
+        return idCita;
     }
 
-    public void setNumCita(String numCita) {
-        this.numCita = numCita;
+    public void setidCita(String numCita) {
+        this.idCita = numCita;
     }
 
     public String getHora() {

@@ -17,9 +17,11 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -29,7 +31,7 @@ public class Consultas implements Initializable {
     private SQLconnector database = new SQLconnector();
 
     @FXML
-    private Label montoLabel, id, nombre, alert, alert1, alert2, alert3, alertText;
+    private Label montoLabel, descuentoLabel, subtotalLabel, id, nombre, alert, alert1, alert2, alert3, alertText;
     @FXML
     private VBox tratamientosLayout, medicamentosLayout;
     @FXML
@@ -37,15 +39,18 @@ public class Consultas implements Initializable {
     @FXML
     private TextField temperatura;
     @FXML
-    private TextArea indicaciones, observaciones;
+    private TextArea indicaciones, observaciones, antecedentes;
 
     private List<TratamientoList> tratamientosList = new ArrayList<>();
     private List<TratamientoList> tratamientos = null;
     private List<MedicamentoList> medicamentosList = new ArrayList<>();
     private List<MedicamentoList> medicamentos = null;
+    private List<String> promoItemsList = new ArrayList<>();
+    private List<String> usedMeds = new ArrayList<>();
     private Listener listener;
     private String idPaciente, idMedico, numCita;
-    private double montoTotal;
+    private double montoTotal, descuentoTotal, subtotal;
+    private boolean isTRT = true;
 
     public void receiveMotorInstance(Motor m) throws SQLException {
         this.motor = m;
@@ -60,16 +65,17 @@ public class Consultas implements Initializable {
             if (motor.getSelectedItem().equals(String.valueOf(myRes.getString("id")))){
                 String fullname = myRes.getString("nombre")+" "+myRes.getString("nomPaterno")+" "+myRes.getString("nomMaterno");
 
-
                 id.setText(myRes.getString("id"));
                 nombre.setText(fullname);
-                //antecedentes.setText(cons.getString("observaciones"));
                 break;
             }
         }
         Tratamientoitems();
         Medicamentoitems();
         loadItems(tratamientosList, medicamentosList);
+        if (motor.getPromoItems() != null){
+            promoItemsList = motor.getPromoItems();
+        }
     }
 
     @Override
@@ -87,10 +93,28 @@ public class Consultas implements Initializable {
             }
 
             @Override
-            public void selectListener(String id, boolean isSelected, ActionEvent event) {
+            public void selectListener(String id, boolean isSelected, ActionEvent event) throws SQLException {
 
+
+                if ((isSelected && id.contains("MDT"))) {
+                    System.out.println("used "+id);
+                    usedMeds.add(id);
+                } else {
+                    System.out.println("removed from usedList "+id);
+                    usedMeds.remove(id);
+                }
+                if (!id.contains("MDT") && tieneDescuento(id)){
+                    if (isSelected) {
+                        descuentoTotal = descuentoTotal + findDescuento(id);
+                    } else {
+                        descuentoTotal = descuentoTotal - findDescuento(id);
+                    }
+                }
                 montoTotal = (isSelected) ? montoTotal + findPrecio(id) : montoTotal - findPrecio(id);
+                subtotal = (isSelected && !id.contains("MDT")) ? montoTotal - descuentoTotal : montoTotal;
+                descuentoLabel.setText(String.valueOf(descuentoTotal));
                 montoLabel.setText(String.valueOf(montoTotal));
+                subtotalLabel.setText(String.valueOf(subtotal));
             }
         };
     }
@@ -169,12 +193,14 @@ public class Consultas implements Initializable {
         }
 
         while (myRes.next()) {
-            String id = myRes.getString("codigo");
-            String nombre = myRes.getString("nombre");
-            String precio = myRes.getString("precio");
+            if (myRes.getInt("cantidadinventario") > 0) {
+                String id = myRes.getString("codigo");
+                String nombre = myRes.getString("nombre");
+                String precio = myRes.getString("precio");
 
-            MedicamentoList newItem = defineMedicamento(id, nombre, precio);
-            medicamentosList.add(newItem);
+                MedicamentoList newItem = defineMedicamento(id, nombre, precio);
+                medicamentosList.add(newItem);
+            }
         }
         return medicamentosList;
     }
@@ -204,6 +230,43 @@ public class Consultas implements Initializable {
         return precio;
     }
 
+    public double findDescuento(String id) throws SQLException {
+        for (int i=0; i<promoItemsList.size(); i++) {
+            if (id.equals(promoItemsList.get(i))) {
+                String promoitem = "select * from promocion where clave_tratamiento = ?";
+                String tratamiento = "select * from tratamiento where clave = ?";
+                PreparedStatement itemStmt = database.updateData(promoitem);
+                PreparedStatement trtStmt = database.updateData(tratamiento);
+                itemStmt.setString(1, promoItemsList.get(i));
+                trtStmt.setString(1, promoItemsList.get(i));
+                System.out.println(promoItemsList.get(i));
+                ResultSet getItems = itemStmt.executeQuery();
+                ResultSet getTRT = trtStmt.executeQuery();
+                while (getItems.next() && getTRT.next()) {
+                    String desc = getItems.getString("porcentaje_descuento");
+                    double porcentaje = Double.parseDouble(desc.substring(0, desc.length() - 1));
+                    porcentaje = porcentaje / 100;
+                    double precio = getTRT.getFloat("precio");
+                    descuentoTotal = precio - (precio * porcentaje);
+                }
+                break;
+            }
+        }
+        return descuentoTotal;
+    }
+
+    public boolean tieneDescuento(String id) throws SQLException {
+        boolean hasDiscount = false;
+        String promoitem = "select clave_tratamiento from promocion where clave_tratamiento = ? order by clave_tratamiento limit 1";
+        PreparedStatement itemStmt = database.updateData(promoitem);
+        itemStmt.setString(1, id);
+        ResultSet getItems = itemStmt.executeQuery();
+        while (getItems.next()) {
+            hasDiscount = true;
+        }
+        return hasDiscount;
+    }
+
     private void setChosenItem(String id){
         System.out.println("selected: "+ id);
         motor.setSelectedItem(id);
@@ -211,78 +274,124 @@ public class Consultas implements Initializable {
 
     public void guardarConsulta(ActionEvent event) throws SQLException {
 
-        alerts(true);
-        alertGroup.setVisible(true);
-        if (temperatura.getText().isEmpty() || indicaciones.getText().isEmpty() || observaciones.getText().isEmpty()){
-            alert.setVisible(true);
-        }else {
-            ResultSet myRes = null;
-            try{
-                myRes = database.connectSQL("consulta");
-            } catch (Exception e){
-                e.printStackTrace();
-            }
-
-            boolean notfound = true;
-            boolean out = false;
-
-            int size = 1;
-            while(myRes.next()){
-                size++;
-
-                if (!StringUtils.isStrictlyNumeric(temperatura.getText()) && !out){
-                    notfound = false;
-                    out = true;
-                    alertText.setText(alertText.getText() + "Solo valores numéricos para campo temperatura\n");
-                    alertGroup.setVisible(true);
-                    System.out.println("invalid data input temperatura");
-                }
-            }
-            if (notfound){
-                try{
-
-                    String idExpediente = "";
-                    int numCita = 0;
-                    String idPaciente = motor.getSelectedItem();
-
-                    String expquery = "select id from expediente where id_paciente = ?";
-                    String citaquery = "select numCita from cita where id_paciente = ?";
-                    PreparedStatement exp = database.updateData(expquery);
-                    PreparedStatement cita = database.updateData(citaquery);
-                    exp.setString(1, idPaciente);
-                    cita.setString(1, idPaciente);
-                    ResultSet idexp = exp.executeQuery();
-                    ResultSet numcita = cita.executeQuery();
-                    while(idexp.next() && numcita.next()){
-                        idExpediente = idexp.getString("id");
-                        numCita = Integer.parseInt(numcita.getString("numcita"));
-                    }
-
-                    System.out.println(idPaciente);
-                    System.out.println(idExpediente);
-                    System.out.println(numCita);
-                    /*String sql = "insert into consulta "+"(idConsulta, indicaciones, observaciones," +
-                            "temperatura_covid, costo_total, id_expediente, id_paciente, numCita)"
-                            +" values (?,?,?,?,?," +
-                            "(select id from paciente where id=?)," +
-                            "(select id from expediente where id=?)," +
-                            "(select numcita from cita where numCita=?))";
-                    PreparedStatement stmt = database.updateData(sql);
-                    stmt.setString(1, "CST"+size);
-                    stmt.setString(2, indicaciones.getText());
-                    stmt.setString(3, observaciones.getText());
-                    stmt.setDouble(4, Double.parseDouble(temperatura.getText()));
-                    stmt.setFloat(5, (float) montoTotal);
-                    stmt.setString(6, idExpediente);
-                    stmt.setString(7, idPaciente);
-                    stmt.setInt(8, numCita);
-                    stmt.executeUpdate();
-                    alerts(false);
-                    alertGroup.setVisible(false);*/
-
-                    motor.showExpedienteUser(event);
-                } catch (Exception e){
+        String text = "¿Está seguro que desea guardar el registro?";
+        String content = "Ya no podrá ser editado más adelante";
+        if (motor.confirmAction(text, content)) {
+            alerts(true);
+            alertGroup.setVisible(true);
+            if (temperatura.getText().isEmpty() || indicaciones.getText().isEmpty() || observaciones.getText().isEmpty()) {
+                alert.setVisible(true);
+                alertText.setText(alertText.getText() + "Rellene todos los campos obligatorios\n");
+                alertGroup.setVisible(true);
+                System.out.println("Rellene todos los campos obligatorios");
+            } else {
+                ResultSet myRes = null;
+                try {
+                    myRes = database.connectSQL("consulta");
+                } catch (Exception e) {
                     e.printStackTrace();
+                }
+
+                boolean notfound = true;
+                boolean out = false;
+
+                int size = 1;
+                while (myRes.next()) {
+                    size++;
+
+                    if (!StringUtils.isStrictlyNumeric(temperatura.getText()) && !out) {
+                        notfound = false;
+                        out = true;
+                        alertText.setText(alertText.getText() + "Solo valores numéricos para campo temperatura\n");
+                        alertGroup.setVisible(true);
+                        System.out.println("invalid data input temperatura");
+                    }
+                }
+                if (notfound) {
+                    try {
+
+                        String idExpediente = "";
+                        String idCita = "";
+                        String idPaciente = motor.getSelectedItem();
+
+                        String expquery = "select id from expediente where id_paciente = ?";
+                        String citaquery = "select idCita from cita where id_paciente = ? order by idCita desc limit 1";
+                        PreparedStatement exp = database.updateData(expquery);
+                        PreparedStatement cita = database.updateData(citaquery);
+                        exp.setString(1, idPaciente);
+                        cita.setString(1, idPaciente);
+                        ResultSet idexp = exp.executeQuery();
+                        ResultSet numcita = cita.executeQuery();
+                        while (idexp.next() && numcita.next()) {
+                            idExpediente = idexp.getString("id");
+                            idCita = numcita.getString("idCita");
+                        }
+
+                        System.out.println(idPaciente);
+                        System.out.println(idExpediente);
+                        System.out.println(idCita);
+
+                        String idcons = motor.generateID("CST-", size);
+                        String sql = "insert into consulta " + "(idConsulta, indicaciones, observaciones," +
+                                "temperatura_covid, costo_total, id_expediente, id_paciente, idCita)"
+                                + " values (?,?,?,?,?," +
+                                "(select id from expediente where id=?)," +
+                                "(select id from paciente where id=?)," +
+                                "(select idCita from cita where idCita=?))";
+                        PreparedStatement stmt = database.updateData(sql);
+                        stmt.setString(1, idcons);
+                        stmt.setString(2, indicaciones.getText());
+                        stmt.setString(3, observaciones.getText());
+                        stmt.setDouble(4, Double.parseDouble(temperatura.getText()));
+                        stmt.setFloat(5, (float) subtotal);
+                        stmt.setString(6, idExpediente);
+                        stmt.setString(7, idPaciente);
+                        stmt.setString(8, idCita);
+                        stmt.executeUpdate();
+
+                        String atendido = "update cita set atendido='si'"
+                                + " where idCita = ?";
+                        PreparedStatement atendstmt = database.updateData(atendido);
+                        atendstmt.setString(1, idCita);
+                        atendstmt.executeUpdate();
+
+
+                        int cantidadInventario = 0;
+
+
+                        String sub = "update medicamento set cantidadinventario = cantidadinventario - 1"
+                                + " where codigo = ?";
+                        PreparedStatement subdstmt = database.updateData(sub);
+                        for (int i = 0; i < usedMeds.size(); i++) {
+                            String checkQty = "select cantidadinventario from medicamento where codigo = ?";
+                            PreparedStatement qty = database.updateData(checkQty);
+                            qty.setString(1, usedMeds.get(i));
+                            ResultSet qtyRes = qty.executeQuery();
+                            while (qtyRes.next()) {
+                                cantidadInventario = qtyRes.getInt("cantidadInventario");
+                            }
+                            if (cantidadInventario > 0) {
+                                subdstmt.setString(1, usedMeds.get(i));
+                                subdstmt.executeUpdate();
+                            }
+                        }
+
+                        String medico = "insert into medico_consulta (fecha_edicion, idConsulta, cedula_profesional)"
+                                + " values (?,(select idconsulta from consulta where idCita=?)," +
+                                "(select cedula_profesional from medico where cedula_profesional=?))";
+                        PreparedStatement Medicostmt = database.updateData(medico);
+                        Medicostmt.setDate(1, Date.valueOf(motor.formatCurrDate()));
+                        Medicostmt.setString(2, String.valueOf(idCita));
+                        Medicostmt.setString(3, motor.getCedula());
+                        Medicostmt.executeUpdate();
+
+                        alerts(false);
+                        alertGroup.setVisible(false);
+
+                        motor.showExpedienteUser(event);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }

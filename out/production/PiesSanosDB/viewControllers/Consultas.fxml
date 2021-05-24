@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="root" stylesheets="@../values/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.Consultas">
@@ -28,7 +29,7 @@
                               <Font name="Arial Bold" size="30.0" />
                            </font>
                         </Label>
-                        <Label fx:id="id" prefHeight="50.0" prefWidth="72.0">
+                        <Label fx:id="id" prefHeight="50.0" prefWidth="173.0">
                            <font>
                               <Font name="Arial" size="30.0" />
                            </font>
@@ -66,21 +67,21 @@
                                  <children>
                                     <Label fx:id="nombre1" alignment="CENTER" prefHeight="112.0" prefWidth="417.0" text="Tratamiento aplicado">
                                        <font>
-                                          <Font name="Corbel" size="25.0" />
+                                          <Font name="Corbel Bold" size="25.0" />
                                        </font>
                                     </Label>
                                  </children>
                               </HBox>
-                              <HBox alignment="CENTER" prefHeight="35.0" prefWidth="417.0" styleClass="grey-background" stylesheets="@../values/style.css">
+                              <HBox alignment="CENTER" prefHeight="35.0" prefWidth="417.0" styleClass="titulosLista" stylesheets="@../values/style.css">
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="56.0" text="id">
+                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="130.0" styleClass="labelsLista" text="id">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Label>
                                     <HBox alignment="CENTER" prefHeight="33.0" prefWidth="128.0">
                                        <children>
-                                          <Label alignment="CENTER" prefHeight="21.0" text="Nombre">
+                                          <Label alignment="CENTER" prefHeight="21.0" styleClass="labelsLista" text="Nombre">
                                              <font>
                                                 <Font name="System Bold" size="15.0" />
                                              </font>
@@ -92,7 +93,7 @@
                                     </HBox>
                                     <HBox alignment="CENTER" prefHeight="33.0" prefWidth="79.0">
                                        <children>
-                                          <Label alignment="CENTER" prefHeight="21.0" text="Precio">
+                                          <Label alignment="CENTER" prefHeight="21.0" styleClass="labelsLista" text="Precio">
                                              <font>
                                                 <Font name="System Bold" size="15.0" />
                                              </font>
@@ -122,21 +123,21 @@
                                  <children>
                                     <Label fx:id="nombre11" alignment="CENTER" prefHeight="112.0" prefWidth="417.0" text="Medicamentos utilizados">
                                        <font>
-                                          <Font name="Corbel" size="25.0" />
+                                          <Font name="Corbel Bold" size="25.0" />
                                        </font>
                                     </Label>
                                  </children>
                               </HBox>
-                              <HBox alignment="CENTER" prefHeight="35.0" prefWidth="417.0" styleClass="grey-background" stylesheets="@../values/style.css">
+                              <HBox alignment="CENTER" prefHeight="35.0" prefWidth="417.0" styleClass="titulosLista" stylesheets="@../values/style.css">
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="56.0" text="id">
+                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="130.0" styleClass="labelsLista" text="id">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Label>
                                     <HBox alignment="CENTER" prefHeight="33.0" prefWidth="128.0">
                                        <children>
-                                          <Label alignment="CENTER" prefHeight="21.0" text="Nombre">
+                                          <Label alignment="CENTER" prefHeight="21.0" styleClass="labelsLista" text="Nombre">
                                              <font>
                                                 <Font name="System Bold" size="15.0" />
                                              </font>
@@ -148,7 +149,7 @@
                                     </HBox>
                                     <HBox alignment="CENTER" prefHeight="33.0" prefWidth="79.0">
                                        <children>
-                                          <Label alignment="CENTER" prefHeight="21.0" text="Precio">
+                                          <Label alignment="CENTER" prefHeight="21.0" styleClass="labelsLista" text="Precio">
                                              <font>
                                                 <Font name="System Bold" size="15.0" />
                                              </font>
@@ -194,12 +195,12 @@
                                     </HBox>
                                     <HBox alignment="BOTTOM_LEFT" prefHeight="74.0" prefWidth="873.0">
                                        <children>
-                                          <Label prefHeight="26.0" prefWidth="107.0" text="Temperatura:">
+                                          <Label prefHeight="26.0" prefWidth="120.0" text="Temperatura:">
                                              <HBox.margin>
                                                 <Insets left="50.0" />
                                              </HBox.margin>
                                              <font>
-                                                <Font size="17.0" />
+                                                <Font name="System Bold" size="17.0" />
                                              </font>
                                           </Label>
                                           <TextField fx:id="temperatura" prefHeight="25.0" prefWidth="67.0">
@@ -235,7 +236,7 @@
                                        <children>
                                           <Label text="Indicaciones">
                                              <font>
-                                                <Font size="17.0" />
+                                                <Font name="System Bold" size="17.0" />
                                              </font>
                                           </Label>
                                           <Label fx:id="alert2" text="*" textFill="RED" visible="false">
@@ -261,7 +262,7 @@
                                        <children>
                                           <Label text="Observaciones">
                                              <font>
-                                                <Font size="17.0" />
+                                                <Font name="System Bold" size="17.0" />
                                              </font>
                                           </Label>
                                           <Label fx:id="alert3" text="*" textFill="RED" visible="false">
@@ -305,7 +306,32 @@
                               </Group>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="54.0" prefWidth="437.0">
+                        <HBox alignment="CENTER" prefHeight="35.0" prefWidth="437.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="37.0" prefWidth="437.0">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="42.0" prefWidth="437.0">
+                                       <children>
+                                          <Label text="Descuento: -$">
+                                             <font>
+                                                <Font size="25.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="descuentoLabel" prefHeight="36.0" prefWidth="199.0" text="0.0">
+                                             <font>
+                                                <Font size="25.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="35.0" prefWidth="437.0">
                            <children>
                               <VBox alignment="CENTER" prefHeight="37.0" prefWidth="437.0">
                                  <children>
@@ -316,7 +342,33 @@
                                                 <Font size="25.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="montoLabel" prefHeight="36.0" prefWidth="183.0" text="0.0">
+                                          <Label fx:id="montoLabel" prefHeight="36.0" prefWidth="147.0" text="0.0">
+                                             <font>
+                                                <Font size="25.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" height="3.0" stroke="BLACK" strokeType="INSIDE" width="401.0" />
+                        <HBox alignment="CENTER" prefHeight="54.0" prefWidth="437.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="37.0" prefWidth="437.0">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="42.0" prefWidth="437.0">
+                                       <children>
+                                          <Label text="Subtotal: $">
+                                             <font>
+                                                <Font size="25.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="subtotalLabel" prefHeight="36.0" prefWidth="183.0" text="0.0">
                                              <font>
                                                 <Font size="25.0" />
                                              </font>

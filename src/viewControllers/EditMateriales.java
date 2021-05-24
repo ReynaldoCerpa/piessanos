@@ -38,7 +38,7 @@ public class EditMateriales {
         }
 
         while(myRes.next()){
-            if (motor.getSelectedItem().equals(String.valueOf(myRes.getString("numInventario")))){
+            if (motor.getSelectedItem().equals(String.valueOf(myRes.getString("id")))){
                 nombreInput.setText(myRes.getString("nombre"));
                 cantidadInput.setText(myRes.getString("cantidadinventario"));
                 break;
@@ -83,7 +83,7 @@ public class EditMateriales {
             if (notfound){
                 try{
                     String sql = "update materiales_consulta set nombre = ?, cantidadinventario = ?"
-                            +" where numinventario = ?";
+                            +" where id = ?";
                     String id = motor.getSelectedItem();
                     PreparedStatement stmt = database.updateData(sql);
                     stmt.setString(1,nombreInput.getText());
@@ -102,6 +102,9 @@ public class EditMateriales {
     }
 
     public void cancelRegisterMaterial(ActionEvent event) {
-        motor.showMateriales(event);
+        String text = "¿Está seguro que desea cancelar el registro?";
+        if (motor.confirmAction(text, "")){
+            motor.showMateriales(event);
+        }
     }
 }

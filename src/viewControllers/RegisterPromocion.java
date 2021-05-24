@@ -74,9 +74,9 @@ public class RegisterPromocion implements Initializable {
     }
 
     public void saveItem(ActionEvent event) throws SQLException {
-        String date = motor.formatDate(fechaInput);
+
         alertText.setText("");
-        if (date.equals("") || nombreInput.getText().equals("") || descuentoInput.getText().equals("")){
+        if (fechaInput == null || nombreInput.getText().isEmpty() || descuentoInput.getText().isEmpty() || selectedItemLabel.getText().isEmpty()){
             alertGroup.setVisible(true);
             requiredGroup.setVisible(true);
             alertText.setText("Rellene todos los campos obligatorios\n");
@@ -89,20 +89,31 @@ public class RegisterPromocion implements Initializable {
             }
 
             boolean notfound = true;
-            boolean out = false, out2 = false, out3 = false;
+            boolean out = false, out2 = false, out3 = false, out4 = false, out5 = false;
 
             int size = 1;
             while(myRes.next()){
                 size++;
+            }
+            while(myRes.next()){
+                String nombre = myRes.getString("nombre");
 
+                if (nombre.equals(nombreInput) && !out5){
+                    notfound = false;
+                    out5 = true;
+                    alertText.setText(alertText.getText() + "Nombre en uso\n");
+                    alertGroup.setVisible(true);
+                    System.out.println("Nombre en uso");
+                }
             }
             if (notfound){
                 try{
-
+                    String codigo = motor.generateID("PRM-",size);
+                    String date = motor.formatDate(fechaInput);
                     String sql = "insert into promocion "+"(codigo, nombre, porcentaje_descuento, fecha, clave_tratamiento)"
                             +" values (?,?,?,?,(select clave from tratamiento where clave=?))";
                     PreparedStatement stmt = database.updateData(sql);
-                    stmt.setString(1, "PRM-"+size);
+                    stmt.setString(1, codigo);
                     stmt.setString(2, nombreInput.getText());
                     stmt.setFloat(3, Float.parseFloat(descuentoInput.getText()));
                     stmt.setDate(4, Date.valueOf(date));

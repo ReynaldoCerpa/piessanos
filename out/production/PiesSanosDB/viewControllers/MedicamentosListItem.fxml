@@ -8,7 +8,7 @@
 
 <HBox alignment="CENTER" prefHeight="50.0" prefWidth="407.0" stylesheets="@../values/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.MedicamentosListItem">
    <children>
-      <Label fx:id="id" alignment="CENTER" prefHeight="30.0" prefWidth="56.0" text="id">
+      <Label fx:id="id" alignment="CENTER" prefHeight="30.0" prefWidth="130.0" text="id">
          <font>
             <Font size="15.0" />
          </font>

@@ -10,37 +10,47 @@
 
 <HBox alignment="CENTER" prefHeight="80.0" prefWidth="1280.0" stylesheets="@../values/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.MedicamentosItem">
    <children>
-      <Label fx:id="codigo" alignment="TOP_CENTER" prefHeight="70.0" prefWidth="150.0" text="Codigo">
+      <Label fx:id="codigo" alignment="CENTER" prefHeight="70.0" prefWidth="150.0" text="Codigo">
          <font>
             <Font size="15.0" />
          </font>
          <HBox.margin>
-            <Insets />
+            <Insets left="20.0" />
          </HBox.margin>
       </Label>
-      <Label fx:id="nombre" alignment="TOP_CENTER" prefHeight="70.0" prefWidth="230.0" text="Nombre">
+      <Label fx:id="nombre" alignment="CENTER" prefHeight="70.0" prefWidth="230.0" text="Nombre">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label fx:id="precio" alignment="TOP_CENTER" prefHeight="70.0" prefWidth="150.0" text="Precio">
+      <Label fx:id="precio" alignment="CENTER" prefHeight="70.0" prefWidth="150.0" text="Precio">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label fx:id="cantidad" alignment="TOP_CENTER" prefHeight="70.0" prefWidth="148.0" text="Cantidad en inventario" textAlignment="CENTER" wrapText="true">
+      <Label fx:id="cantidad" alignment="CENTER" prefHeight="70.0" prefWidth="148.0" text="Cantidad en inventario" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label fx:id="descripcion" alignment="TOP_LEFT" prefHeight="70.0" prefWidth="400.0" text="Descripción" wrapText="true">
+      <Label fx:id="precioproveedor" alignment="CENTER" prefHeight="70.0" prefWidth="117.0" text="Precio">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="proveedor" alignment="CENTER" prefHeight="70.0" prefWidth="156.0" text="Proveedor" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="descripcion" alignment="CENTER" prefHeight="70.0" prefWidth="265.0" text="Descripción" wrapText="true">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
       <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="100.0">
          <children>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#editMedicamento" prefHeight="40.0" prefWidth="40.0">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#editMedicamento" prefHeight="40.0" prefWidth="40.0" styleClass="medicoItem">
                <graphic>
                   <ImageView fx:id="editButton" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -49,7 +59,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#deleteMedicamento" prefHeight="40.0" prefWidth="40.0">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#deleteMedicamento" prefHeight="40.0" prefWidth="40.0" styleClass="medicoItem">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
@@ -63,7 +73,7 @@
             </Button>
          </children>
          <HBox.margin>
-            <Insets left="20.0" />
+            <Insets left="20.0" right="10.0" />
          </HBox.margin>
       </HBox>
    </children>

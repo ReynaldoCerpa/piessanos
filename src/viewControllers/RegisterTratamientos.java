@@ -73,10 +73,11 @@ public class RegisterTratamientos {
             }
             if (notfound){
                 try{
+                    String clave = motor.generateID("TRT-",size);
                     String sql = "insert into tratamiento "+"(clave, nombre, precio, descripcion)"
                             +" values (?,?,?,?)";
                     PreparedStatement stmt = database.updateData(sql);
-                    stmt.setString(1, ("TRT-"+size));
+                    stmt.setString(1, clave);
                     stmt.setString(2,nombreInput.getText());
                     stmt.setFloat(3, Float.parseFloat(precioInput.getText()));
                     stmt.setString(4,descripcionInput.getText());
@@ -93,6 +94,9 @@ public class RegisterTratamientos {
     }
 
     public void cancelRegisterTratamiento(ActionEvent event) {
-        motor.showTratamientos(event);
+        String text = "¿Está seguro que desea cancelar el registro?";
+        if (motor.confirmAction(text, "")){
+            motor.showTratamientos(event);
+        }
     }
 }

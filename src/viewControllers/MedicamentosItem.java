@@ -26,7 +26,7 @@ public class MedicamentosItem implements Initializable {
     private Label cantidad;
 
     @FXML
-    private Label descripcion;
+    private Label descripcion, proveedor, precioproveedor;
 
     @FXML
     private ImageView editButton;
@@ -56,6 +56,8 @@ public class MedicamentosItem implements Initializable {
         precio.setText(medicamento.getPrecio());
         cantidad.setText(medicamento.getCantidadInventario());
         descripcion.setText(medicamento.getDescripcion());
+        proveedor.setText(medicamento.getProveedor());
+        precioproveedor.setText(medicamento.getPrecioproveedor());
     }
     public String getButtonID(){
         return editButton.getId();

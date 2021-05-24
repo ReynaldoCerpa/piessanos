@@ -1,8 +1,122 @@
 .grey-background{
-    -fx-background-color: #e3e3e3;
+    -fx-background-color: white;
 }
+
+.everything{
+    -fx-font-family: sans-serif;
+}
+
 .root {
     -fx-focus-color: #aeaeae;
     -fx-faint-focus-color: transparent;
     -fx-inner-border: transparent;
+}
+
+.loginButton{
+    -fx-background-color: #5ba09a;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.loginPiesSanos{
+    -fx-text-fill: white;
+}
+
+.loginButton:hover {
+    -fx-background-color: #67b5ae;
+    -fx-font-size: 21px;
+}
+
+.button:hover{
+    -fx-cursor: hand;
+}
+
+.buscarButton {
+    -fx-background-color: #67b5ae;
+    -fx-text-fill: white;
+}
+
+.buscarButton:hover {
+    -fx-background-color: #67b5ae;
+}
+
+
+.titulosLista{
+    -fx-background-color: #5ba09a;
+}
+
+.labelsLista{
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.clientButton:hover {
+    -fx-background-color: #67b5ae;
+    -fx-font-size: 28px;
+}
+
+.clientButton{
+    -fx-background-color: #5ba09a;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 30px;
+}
+
+.clientBotonesArriba{
+    -fx-background-color: #457571;
+    -fx-text-fill: white;
+}
+
+.clientBotonesArriba:hover {
+    -fx-background-color: #67b5ae;
+}
+
+.barraBuscar{
+    -fx-border-color:#717171;
+    -fx-border-radius: 2 2 2 2;
+}
+
+.cancelarButton{
+    -fx-border-color:#717171;
+    -fx-background-color: #717171;
+    -fx-text-fill: white;
+}
+
+.cancelarButton:hover {
+    -fx-background-color: #8D8D8D;
+}
+
+.table-view .column-header {
+    -fx-background-color: #67b5ae;
+}
+
+.calendar-cell:hover {
+    -fx-background-color: rgba(135,206,235,0.7);
+    -fx-text-fill: white;
+}
+
+
+.promoButton {
+    -fx-background-color: #67b5ae;
+    -fx-text-fill: white;
+}
+
+.promoButton:hover {
+    -fx-background-color: #66ada7;
+}
+
+.radio-button .radio {
+    -fx-border-width: 0.5px;
+    -fx-border-color: #000;
+    -fx-background-color: #98d6d1 ;
+    -fx-border-radius: 15px;
+}
+
+.medicoItem{
+    -fx-background-color: #b2d1cf;
+}
+
+.radioCajas{
+    -fx-border-color: #67b5ae;
+    -fx-border-width: 1px;
 }

@@ -48,13 +48,12 @@ public class PacientesItem implements Initializable {
         listener.deleteListener(editButton.getId(), event);
     }
     @FXML
-    public void openExpediente(ActionEvent event) {
+    public void openExpediente(ActionEvent event) throws SQLException {
         listener.showListener(editButton.getId(), event);
     }
     public void setData(Paciente paciente, Listener listener){
 
         this.listener = listener;
-        deleteButton.setId(paciente.getId());
         editButton.setId(paciente.getId());
         id.setText(paciente.getId());
         nombre.setText(paciente.getNombre());

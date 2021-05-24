@@ -100,25 +100,23 @@ public class Citas implements Initializable {
             e.printStackTrace();
         }
 
-        /*assert telRes != null;
-        assert myRes != null;*/
         while (myRes.next()) {
 
-            String numcita = String.valueOf(myRes.getInt("numcita"));
+            String idCita = myRes.getString("idCita");
             String hora = myRes.getString("hora");
             String fecha = myRes.getString("fecha");
             String domicilio = myRes.getString("domicilio");
             String paciente = myRes.getString("id_paciente");
 
-            Cita newItem = defineItem(numcita, paciente, hora, fecha, domicilio);
+            Cita newItem = defineItem(idCita, paciente, hora, fecha, domicilio);
             itemList.add(newItem);
         }
         return itemList;
     }
 
-    public Cita defineItem(String numcita, String paciente, String hora, String fecha, String lugar) {
+    public Cita defineItem(String idCita, String paciente, String hora, String fecha, String lugar) {
         Cita cita = new Cita();
-        cita.setNumCita(numcita);
+        cita.setidCita(idCita);
         cita.setId_paciente(paciente);
         cita.setHora(hora);
         cita.setFecha(fecha);
@@ -190,12 +188,17 @@ public class Citas implements Initializable {
         }
 
         while (myRes.next()) {
-            if (id.equals(myRes.getString("numCita"))){
+            if (id.equals(myRes.getString("idCita"))){
                 try{
-                    String sql = "delete from cita where numCita= ? ";
+                    String sql = "delete from cita where idCita= ? ";
                     PreparedStatement stmt = database.updateData(sql);
                     stmt.setString(1, id);
                     stmt.executeUpdate();
+
+                    String consQuery = "delete from consulta where idCita= ? ";
+                    PreparedStatement conStmt = database.updateData(consQuery);
+                    conStmt.setString(1, id);
+                    conStmt.executeUpdate();
 
                     motor.showCita(event);
                 } catch (Exception e){
@@ -214,8 +217,8 @@ public class Citas implements Initializable {
             e.printStackTrace();
         }
         while(myRes.next()){
-            if (id.equals(myRes.getString("numCita"))){
-                name = "Cita "+myRes.getString("numCita");
+            if (id.equals(myRes.getString("idCita"))){
+                name = myRes.getString("idCita");
                 break;
             }
         }

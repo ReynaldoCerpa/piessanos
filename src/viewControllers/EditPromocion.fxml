@@ -13,42 +13,42 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.EditPromocion">
    <children>
-      <Label layoutX="591.0" layoutY="51.0" text="Editar promoción">
+      <Label layoutX="566.0" layoutY="51.0" stylesheets="@../values/style.css" text="Editar promoción" textFill="#3c6360" underline="true">
          <font>
-            <Font name="System Bold" size="24.0" />
+            <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="640.0" layoutY="126.0" text="Tratamiento">
+      <Label layoutX="627.0" layoutY="163.0" stylesheets="@../values/style.css" text="Tratamiento">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="nombreInput" layoutX="601.0" layoutY="231.0" prefHeight="25.0" prefWidth="176.0" />
-      <TextField fx:id="descuentoInput" layoutX="600.0" layoutY="274.0" prefHeight="25.0" prefWidth="176.0" />
-      <DatePicker fx:id="fechaInput" editable="false" layoutX="601.0" layoutY="316.0" />
-      <Label layoutX="535.0" layoutY="314.0" text="Fecha">
+      <TextField fx:id="nombreInput" layoutX="606.0" layoutY="247.0" prefHeight="25.0" prefWidth="176.0" stylesheets="@../values/style.css" />
+      <TextField fx:id="descuentoInput" layoutX="605.0" layoutY="290.0" prefHeight="25.0" prefWidth="176.0" stylesheets="@../values/style.css" />
+      <DatePicker fx:id="fechaInput" editable="false" layoutX="606.0" layoutY="332.0" styleClass="calendar-cell" stylesheets="@../values/style.css" />
+      <Label layoutX="540.0" layoutY="330.0" stylesheets="@../values/style.css" text="Fecha">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="selectedItemLabel" alignment="CENTER" layoutX="559.0" layoutY="155.0" prefHeight="30.0" prefWidth="248.0">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="512.0" layoutY="229.0" text="Nombre">
+      <Label fx:id="selectedItemLabel" alignment="CENTER" layoutX="546.0" layoutY="192.0" prefHeight="30.0" prefWidth="248.0" stylesheets="@../values/style.css">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="492.0" layoutY="272.0" text="Descuento">
+      <Label layoutX="517.0" layoutY="245.0" stylesheets="@../values/style.css" text="Nombre">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Button layoutX="565.0" layoutY="633.0" mnemonicParsing="false" onAction="#saveItem" prefHeight="35.0" prefWidth="105.0" text="Guardar" />
-      <Button fx:id="cancelRegisterMedicamento" layoutX="705.0" layoutY="633.0" mnemonicParsing="false" onAction="#cancelRegister" prefHeight="35.0" prefWidth="105.0" text="Cancelar" />
-      <Group fx:id="alertGroup" layoutX="505.0" layoutY="513.0" visible="false">
+      <Label layoutX="497.0" layoutY="288.0" stylesheets="@../values/style.css" text="Descuento">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Button layoutX="565.0" layoutY="654.0" mnemonicParsing="false" onAction="#saveItem" prefHeight="35.0" prefWidth="105.0" styleClass="clientBotonesArriba" stylesheets="@../values/style.css" text="Guardar" />
+      <Button fx:id="cancelRegisterMedicamento" layoutX="705.0" layoutY="654.0" mnemonicParsing="false" onAction="#cancelRegister" prefHeight="35.0" prefWidth="105.0" styleClass="cancelarButton" stylesheets="@../values/style.css" text="Cancelar" />
+      <Group fx:id="alertGroup" layoutX="505.0" layoutY="534.0" stylesheets="@../values/style.css" visible="false">
          <children>
             <ImageView fitHeight="114.0" fitWidth="358.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -65,29 +65,29 @@
             </Label>
          </children>
       </Group>
-      <Group fx:id="requiredGroup" layoutX="598.0" layoutY="71.0" visible="false">
+      <Group fx:id="requiredGroup" layoutX="738.0" layoutY="87.0" stylesheets="@../values/style.css" visible="false">
          <children>
-            <Label layoutX="-128.0" layoutY="41.0" prefHeight="34.0" prefWidth="12.0" text="*" textFill="RED">
+            <Label layoutX="-133.0" layoutY="71.0" prefHeight="34.0" prefWidth="12.0" text="*" textFill="#b12929">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="168.0" layoutY="156.0" prefHeight="30.0" prefWidth="25.0" text="*" textFill="RED">
+            <Label layoutX="168.0" layoutY="156.0" prefHeight="30.0" prefWidth="25.0" text="*" textFill="#b12929">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="143.0" layoutY="241.0" text="*" textFill="RED">
+            <Label layoutX="143.0" layoutY="241.0" text="*" textFill="#b12929">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="147.0" layoutY="23.0" text="* Requerido" textFill="RED">
+            <Label layoutX="147.0" layoutY="23.0" text="* Requerido" textFill="#b12929">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="168.0" layoutY="199.0" prefHeight="30.0" prefWidth="25.0" text="*" textFill="RED">
+            <Label layoutX="168.0" layoutY="199.0" prefHeight="30.0" prefWidth="25.0" text="*" textFill="#b12929">
                <font>
                   <Font size="20.0" />
                </font>

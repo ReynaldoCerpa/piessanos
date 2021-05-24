@@ -25,7 +25,7 @@ public class MaterialesItem implements Initializable {
     private Label cantidad;
 
     @FXML
-    private Label descripcion;
+    private Label descripcion, proveedor, precioproveedor;
 
     @FXML
     private ImageView editButton;
@@ -48,11 +48,13 @@ public class MaterialesItem implements Initializable {
     public void setData(Material material, Listener listener){
 
         this.listener = listener;
-        deleteButton.setId(String.valueOf(material.getNumInventario()));
-        editButton.setId(String.valueOf(material.getNumInventario()));
-        numInventario.setText(String.valueOf(material.getNumInventario()));
+        deleteButton.setId(String.valueOf(material.getId()));
+        editButton.setId(String.valueOf(material.getId()));
+        numInventario.setText(String.valueOf(material.getId()));
         nombre.setText(material.getNombre());
         cantidad.setText(material.getCantidadInventario());
+        proveedor.setText(material.getProveedor());
+        precioproveedor.setText(material.getPrecioproveedor());
     }
     public String getButtonID(){
         return editButton.getId();
