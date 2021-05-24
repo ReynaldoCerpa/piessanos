@@ -654,7 +654,6 @@ public class Motor {
     public boolean dontShow(){
         return dontShow;
     }
-
     public String generateID(String initChar, int size){
         Random rand = new Random();
         int pos = 1 + rand.nextInt(24);

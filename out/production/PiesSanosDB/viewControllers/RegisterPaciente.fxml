@@ -51,6 +51,9 @@
          </font>
       </Label>
       <TextField fx:id="tel2Input" layoutX="732.0" layoutY="215.0" prefHeight="25.0" prefWidth="113.0" promptText="Tel. 2" visible="false" />
+      <TextArea fx:id="alergiasInput" layoutX="600.0" layoutY="264.0" prefHeight="60.0" prefWidth="245.0" promptText="En caso ded no tener escribir: No aplica" />
+      <TextArea fx:id="enfermedadesInput" layoutX="600.0" layoutY="336.0" prefHeight="60.0" prefWidth="245.0" promptText="En caso de no tener escribir: No aplica" />
+      <TextArea fx:id="medPrescritosInput" layoutX="600.0" layoutY="409.0" prefHeight="60.0" prefWidth="245.0" promptText="En caso de no tener escribir: No aplica" />
       <Button layoutX="555.0" layoutY="623.0" mnemonicParsing="false" onAction="#saveItem" prefHeight="35.0" prefWidth="105.0" styleClass="clientBotonesArriba" stylesheets="@../values/style.css" text="Guardar" />
       <Button layoutX="695.0" layoutY="623.0" mnemonicParsing="false" onAction="#cancelRegister" prefHeight="35.0" prefWidth="105.0" styleClass="cancelarButton" stylesheets="@../values/style.css" text="Cancelar" />
       <Group fx:id="alertGroup" layoutX="496.0" layoutY="500.0" visible="false">
@@ -107,15 +110,12 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="90.0" layoutY="178.0" text="*" textFill="#b12929">
+            <Label layoutX="125.0" layoutY="178.0" text="*" textFill="#b12929">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
          </children>
       </Group>
-      <TextArea fx:id="alergiasInput" layoutX="600.0" layoutY="264.0" prefHeight="60.0" prefWidth="245.0" promptText="En caso ded no tener escribir: No aplica" />
-      <TextArea fx:id="enfermedadesInput" layoutX="600.0" layoutY="336.0" prefHeight="60.0" prefWidth="245.0" promptText="En caso de no tener escribir: No aplica" />
-      <TextArea fx:id="medPrescritosInput" layoutX="600.0" layoutY="409.0" prefHeight="60.0" prefWidth="245.0" promptText="En caso de no tener escribir: No aplica" />
    </children>
 </AnchorPane>

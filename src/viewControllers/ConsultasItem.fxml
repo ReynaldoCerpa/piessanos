@@ -39,7 +39,7 @@
                   <Insets right="5.0" />
                </HBox.margin>
             </Button>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#nuevaConsulta" prefHeight="30.0" prefWidth="72.0" styleClass="medicoItem" stylesheets="@../values/style.css" text="Consultar" textAlignment="CENTER" wrapText="true">
+            <Button fx:id="consultarButton" alignment="CENTER" mnemonicParsing="false" onAction="#nuevaConsulta" prefHeight="30.0" prefWidth="72.0" styleClass="medicoItem" stylesheets="@../values/style.css" text="Consultar" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

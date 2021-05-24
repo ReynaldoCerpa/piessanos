@@ -1,5 +1,6 @@
 package viewControllers;
 
+import com.mysql.cj.util.StringUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
@@ -62,23 +63,17 @@ public class EditTratamiento {
             }
 
             boolean notfound = true;
-            boolean out = false;
+            boolean out = false, out2 = false;
 
             int size = 1;
             while (myRes.next()){
                 size++;
-            }
-            while(myRes.next()){
-
-                String nombre = myRes.getString("nombre");
-
-
-                if(nombre.equals(nombreInput.getText()) && !out){
+                if (!StringUtils.isStrictlyNumeric(precioInput.getText()) && !out2){
                     notfound = false;
-                    out = true;
-                    alertText.setText(alertText.getText() + "Nombre de tratamiento existente\n");
+                    out2 = true;
+                    alertText.setText(alertText.getText() + "Solo valores numéricos para campo precio\n");
                     alertGroup.setVisible(true);
-                    System.out.println("tratamiento name already taken");
+                    System.out.println("invalid data input precio");
                 }
             }
             if (notfound){

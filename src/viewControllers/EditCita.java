@@ -1,5 +1,6 @@
 package viewControllers;
 
+import com.mysql.cj.util.StringUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
@@ -13,6 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 
 public class EditCita {
     private Motor motor;
@@ -74,7 +76,8 @@ public class EditCita {
                     domiciliolabel.setVisible(true);
                 }
                 domicilio.setText(myRes.getString("domicilio"));
-                fechaInput.setAccessibleText(myRes.getString("fecha"));
+                String resDate = myRes.getString("fecha");
+                fechaInput.setValue(LocalDate.parse(resDate));
 
 
                 break;
@@ -84,7 +87,7 @@ public class EditCita {
 
     public void saveItem(ActionEvent event) throws SQLException {
         alertText.setText("");
-        if (horaInput.getText().equals("") || minutoInput.getText().equals("") || domicilio.getText().equals("")){
+        if (fechaInput.getValue() == null || horaInput.getText().equals("") || minutoInput.getText().equals("") || domicilio.getText().equals("")){
             alertGroup.setVisible(true);
             requiredGroup.setVisible(true);
             alertText.setText("Rellene todos los campos obligatorios\n");
@@ -97,11 +100,19 @@ public class EditCita {
             }
 
             boolean notfound = true;
-            boolean out = false;
+            boolean out2 = false, out4 = false;
 
             int size = 1;
             while (myRes.next()){
                 size++;
+                if (!StringUtils.isStrictlyNumeric(horaInput.getText()) || !StringUtils.isStrictlyNumeric(minutoInput.getText()) || (Integer.parseInt(horaInput.getText()) > 24) || (Integer.parseInt(horaInput.getText()) < 0)
+                        || (Integer.parseInt(minutoInput.getText()) > 59) || (Integer.parseInt(minutoInput.getText()) < 0) && !out2){
+                    notfound = false;
+                    out2 = true;
+                    alertText.setText(alertText.getText() + "Hora invalida\n");
+                    alertGroup.setVisible(true);
+                    System.out.println("invalid data input descuento");
+                }
             }
             while(myRes.next()){
 

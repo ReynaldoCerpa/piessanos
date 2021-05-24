@@ -1,5 +1,6 @@
 package viewControllers;
 
+import com.mysql.cj.util.StringUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
@@ -61,23 +62,17 @@ public class EditMateriales {
             }
 
             boolean notfound = true;
-            boolean out = false;
+            boolean out = false, out4 = false;
 
             int size = 1;
             while (myRes.next()){
                 size++;
-            }
-            while(myRes.next()){
-
-                String nombre = myRes.getString("nombre");
-
-
-                if(nombre.equals(nombreInput.getText()) && !out){
+                if (!StringUtils.isStrictlyNumeric(cantidadInput.getText()) && !out4){
                     notfound = false;
-                    out = true;
-                    alertText.setText(alertText.getText() + "Nombre de material existente\n");
+                    out4 = true;
+                    alertText.setText(alertText.getText() + "Solo valores numéricos para campo cantidad\n");
                     alertGroup.setVisible(true);
-                    System.out.println("nombre de material already taken");
+                    System.out.println("invalid data input cantidad");
                 }
             }
             if (notfound){

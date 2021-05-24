@@ -1,6 +1,7 @@
 package viewControllers;
 
 import Model.Cita;
+import com.mysql.cj.util.StringUtils;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -76,7 +77,7 @@ public class RegisterPromocion implements Initializable {
     public void saveItem(ActionEvent event) throws SQLException {
 
         alertText.setText("");
-        if (fechaInput == null || nombreInput.getText().isEmpty() || descuentoInput.getText().isEmpty() || selectedItemLabel.getText().isEmpty()){
+        if (fechaInput.getValue() == null || nombreInput.getText().isEmpty() || descuentoInput.getText().isEmpty() || selectedItemLabel.getText().isEmpty()){
             alertGroup.setVisible(true);
             requiredGroup.setVisible(true);
             alertText.setText("Rellene todos los campos obligatorios\n");
@@ -94,8 +95,6 @@ public class RegisterPromocion implements Initializable {
             int size = 1;
             while(myRes.next()){
                 size++;
-            }
-            while(myRes.next()){
                 String nombre = myRes.getString("nombre");
 
                 if (nombre.equals(nombreInput) && !out5){
@@ -105,6 +104,14 @@ public class RegisterPromocion implements Initializable {
                     alertGroup.setVisible(true);
                     System.out.println("Nombre en uso");
                 }
+                if (!StringUtils.isStrictlyNumeric(descuentoInput.getText()) || (Integer.parseInt(descuentoInput.getText()) < 0) || (Integer.parseInt(descuentoInput.getText()) >100) && !out2){
+                    notfound = false;
+                    out2 = true;
+                    alertText.setText(alertText.getText() + "Dato invalido para campo descuento\n");
+                    alertGroup.setVisible(true);
+                    System.out.println("invalid data input descuento");
+                }
+
             }
             if (notfound){
                 try{

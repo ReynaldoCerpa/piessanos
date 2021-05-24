@@ -1,6 +1,7 @@
 package viewControllers;
 
 import Model.Cita;
+import com.mysql.cj.util.StringUtils;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -90,7 +91,7 @@ public class RegisterCitas implements Initializable {
     public void saveItem(ActionEvent event) throws SQLException {
 
         alertText.setText("");
-        if (fechaInput == null || horaInput.getText().isEmpty() || minutoInput.getText().isEmpty()){
+        if (fechaInput.getValue() == null || horaInput.getText().isEmpty() || minutoInput.getText().isEmpty()){
             alertGroup.setVisible(true);
             requiredGroup.setVisible(true);
             alertText.setText("Rellene todos los campos obligatorios\n");
@@ -103,12 +104,26 @@ public class RegisterCitas implements Initializable {
             }
 
             boolean notfound = true;
-            boolean out = false, out2 = false, out3 = false;
+            boolean out = false, out2 = false, out3 = false, out4 = false, out5 = false;
 
             int size = 1;
             while(myRes.next()){
                 size++;
-
+                if (!StringUtils.isStrictlyNumeric(horaInput.getText()) || !StringUtils.isStrictlyNumeric(minutoInput.getText()) || (Integer.parseInt(horaInput.getText()) > 24) || (Integer.parseInt(horaInput.getText()) < 0)
+                        || (Integer.parseInt(minutoInput.getText()) > 59) || (Integer.parseInt(minutoInput.getText()) < 0) && !out){
+                    notfound = false;
+                    out = true;
+                    alertText.setText(alertText.getText() + "Hora invalida\n");
+                    alertGroup.setVisible(true);
+                    System.out.println("invalid data input descuento");
+                }
+                if(selectedItemLabel.getText().isEmpty() && !out3){
+                    notfound = false;
+                    out3 = true;
+                    alertText.setText(alertText.getText() + "Seleccione un paciente\n");
+                    alertGroup.setVisible(true);
+                    System.out.println("Seleccione un paciente");
+                }
             }
             if (notfound){
                 try{

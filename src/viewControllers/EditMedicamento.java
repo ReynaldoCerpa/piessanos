@@ -1,5 +1,6 @@
 package viewControllers;
 
+import com.mysql.cj.util.StringUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
@@ -63,23 +64,24 @@ public class EditMedicamento {
             }
 
             boolean notfound = true;
-            boolean out = false;
+            boolean out = false, out2 = false;
 
             int size = 1;
             while (myRes.next()){
                 size++;
-            }
-            while(myRes.next()){
-
-                String nombre = myRes.getString("nombre");
-
-
-                if(nombre.equals(nombreInput.getText()) && !out){
+                if (!StringUtils.isStrictlyNumeric(precioInput.getText()) && !out2){
+                    notfound = false;
+                    out2 = true;
+                    alertText.setText(alertText.getText() + "Solo valores numéricos para campo precio\n");
+                    alertGroup.setVisible(true);
+                    System.out.println("invalid data input precio");
+                }
+                if (!StringUtils.isStrictlyNumeric(cantidadInput.getText()) && !out){
                     notfound = false;
                     out = true;
-                    alertText.setText(alertText.getText() + "Nombre de usuario existente\n");
+                    alertText.setText(alertText.getText() + "Solo valores numéricos para campo cantidad\n");
                     alertGroup.setVisible(true);
-                    System.out.println("username already taken");
+                    System.out.println("invalid data input cantidad");
                 }
             }
             if (notfound){

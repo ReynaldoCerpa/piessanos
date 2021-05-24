@@ -1,5 +1,6 @@
 package viewControllers;
 
+import com.mysql.cj.util.StringUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
@@ -12,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 
 public class EditPromocion {
     private Motor motor;
@@ -55,15 +57,17 @@ public class EditPromocion {
                 selectedItemLabel.setText(item);
                 nombreInput.setText(myRes.getString("nombre"));
                 descuentoInput.setText(myRes.getString("porcentaje_descuento"));
+                String resDate = myRes.getString("fecha");
+                fechaInput.setValue(LocalDate.parse(resDate));
                 break;
             }
         }
     }
 
     public void saveItem(ActionEvent event) throws SQLException {
-        String date = motor.formatDate(fechaInput);
+
         alertText.setText("");
-        if (nombreInput.getText().isEmpty() || descuentoInput.getText().isEmpty()){
+        if (fechaInput.getValue() == null || nombreInput.getText().isEmpty() || descuentoInput.getText().isEmpty()){
             alertGroup.setVisible(true);
             requiredGroup.setVisible(true);
             alertText.setText("Rellene todos los campos obligatorios\n");
@@ -76,14 +80,23 @@ public class EditPromocion {
             }
 
             boolean notfound = true;
-            boolean out = false;
+            boolean out = false, out2 = false, out3 = false, out4 = false, out5 = false;
 
             int size = 1;
             while (myRes.next()){
                 size++;
+                if (!StringUtils.isStrictlyNumeric(descuentoInput.getText()) || (Integer.parseInt(descuentoInput.getText()) < 0) || (Integer.parseInt(descuentoInput.getText()) >100) && !out2){
+                    notfound = false;
+                    out2 = true;
+                    alertText.setText(alertText.getText() + "Dato invalido para campo descuento\n");
+                    alertGroup.setVisible(true);
+                    System.out.println("invalid data input descuento");
+                }
+
             }
             if (notfound){
                 try{
+                    String date = motor.formatDate(fechaInput);
                     String sql = "update promocion set nombre = ?, fecha = ?, porcentaje_descuento = ?"
                             +" where codigo = ?";
                     String id = motor.getSelectedItem();

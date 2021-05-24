@@ -25,7 +25,7 @@ public class EditMedico {
     private Label alertText;
     @FXML
     private Group alertGroup, requiredGroup;
-    private String currentUsername = "";
+    private String currentname = "";
 
     public void receiveMotorInstance(Motor m) throws SQLException {
         this.motor = m;
@@ -55,7 +55,7 @@ public class EditMedico {
                 cpInput.setText(myRes.getString("codigoPostal"));
                 ciudadInput.setText(myRes.getString("ciudad"));
                 usuarioInput.setText(myRes.getString("usuario"));
-                currentUsername = myRes.getString("usuario");
+                currentname = myRes.getString("usuario");
                 passwordInput.setText(myRes.getString("contrasena"));
                 break;
             }
@@ -86,7 +86,7 @@ public class EditMedico {
             while(myRes.next()){
 
                 String usuario = myRes.getString("usuario");
-                if (usuarioInput.getText().equals(usuario) && !usuarioInput.getText().equals(currentUsername) && !out){
+                if (usuarioInput.getText().equals(usuario) && !usuarioInput.getText().equals(currentname) && !out){
                     notfound = false;
                     out = true;
                     alertText.setText(alertText.getText() + "Nombre de usuario en uso\n");

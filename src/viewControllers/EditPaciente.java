@@ -69,10 +69,18 @@ public class EditPaciente {
             }
 
             boolean notfound = true;
+            boolean out2 = false;
 
             int size = 1;
             while (myRes.next()){
                 size++;
+                if (tel1Input.getText().length() != 10 && !out2){
+                    notfound = false;
+                    out2 = true;
+                    alertText.setText(alertText.getText() + "Solo telefonos de 10 digitos\n");
+                    alertGroup.setVisible(true);
+                    System.out.println("solo telefonos de 10 digitos");
+                }
             }
             if (notfound){
                 try{

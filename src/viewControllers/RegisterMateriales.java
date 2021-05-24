@@ -117,7 +117,7 @@ public class RegisterMateriales implements Initializable {
             }
 
             boolean notfound = true;
-            boolean out = false, out2 = false, out3 = false;
+            boolean out = false, out2 = false, out3 = false, out4 = false;
 
             int size = 1;
             while(myRes.next()){
@@ -141,6 +141,13 @@ public class RegisterMateriales implements Initializable {
                     notfound = false;
                     out3 = true;
                     alertText.setText(alertText.getText() + "Solo valores numéricos para campo precio proveedor\n");
+                    alertGroup.setVisible(true);
+                    System.out.println("invalid data input precio proveedor");
+                }
+                if (!StringUtils.isStrictlyNumeric(cantidadInput.getText()) && !out4){
+                    notfound = false;
+                    out4 = true;
+                    alertText.setText(alertText.getText() + "Solo valores numéricos para campo cantidad\n");
                     alertGroup.setVisible(true);
                     System.out.println("invalid data input precio proveedor");
                 }

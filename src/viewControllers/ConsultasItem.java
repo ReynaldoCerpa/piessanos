@@ -4,6 +4,7 @@ import Model.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
@@ -23,6 +24,8 @@ public class ConsultasItem implements Initializable {
 
     @FXML
     private ImageView deleteButton;
+    @FXML
+    private Button consultarButton;
 
     private Listener listener;
 
@@ -46,6 +49,9 @@ public class ConsultasItem implements Initializable {
         id.setText(item.getNumCita());
         fecha.setText(item.getFecha());
         atendido.setText(item.getAtendido());
+        if (item.getAtendido().equals("si")){
+            consultarButton.setVisible(false);
+        }
     }
 
     public String getButtonID(){
